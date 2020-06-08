@@ -15,6 +15,16 @@ export const HeaderSkin = styled.header(props => ({
     borderBottom: "1px solid #EDEDED"
 }))
 
+export const NavMenuSkin = styled.header(props => ({
+    ...generalSkin(props.theme),
+    padding: "48px 0px",
+    position: "absolute",
+    top: "-700px",
+    left: "0px",
+    boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.16)"
+
+}))
+
 export const MainSkin = styled.main(props => ({
     ...generalSkin(props.theme),
     marginTop: "76px"

@@ -5,7 +5,7 @@ import { FooterContainer } from '../primitive-ui/container';
 import { Flex } from '../primitive-ui/flexbox';
 import styled, { withTheme, DefaultTheme, CSSObject } from 'styled-components';
 import { TextLink, IsolatedText } from '../primitive-ui/text';
-import { lightTheme } from '../primitive-ui/themes';
+import { lightTheme } from '../primitive-ui/theme';
 
 const FooterFlex = styled(Flex)(props => ({
     padding: "0px 8px",

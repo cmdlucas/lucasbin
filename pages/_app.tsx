@@ -3,7 +3,7 @@ import Head from 'next/head';
 import React, { ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from '../utils/components/primitive-ui/global'
-import { lightTheme } from '../utils/components/primitive-ui/themes'
+import { lightTheme } from '../utils/components/primitive-ui/theme'
 import Layout from '../utils/components/layout/layout'
 
 export class MyApp extends App {

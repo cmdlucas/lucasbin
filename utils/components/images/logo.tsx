@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { DefaultTheme, withTheme } from 'styled-components';
-import { lightTheme } from '../primitive-ui/themes';
+import { lightTheme } from '../primitive-ui/theme';
 
 interface LogoProps {
     theme: DefaultTheme
