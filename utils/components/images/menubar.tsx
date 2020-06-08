@@ -19,4 +19,4 @@ MenuBar.defaultProps = {
     theme: lightTheme
 }
 
-export default withTheme(React.memo(MenuBar));
+export default React.memo(withTheme(MenuBar));

@@ -17,4 +17,4 @@ Logo.defaultProps = {
     theme: lightTheme
 }
 
-export default withTheme(React.memo(Logo));
+export default React.memo(withTheme(Logo));
