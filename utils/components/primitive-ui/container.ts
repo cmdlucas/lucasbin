@@ -6,22 +6,13 @@ const HFMContainer = styled.div(props => ({
 }))
 
 export const HeaderContainer = styled(HFMContainer)(props => ({
-    height: "100%",
-    "@media only screen and (max-width: 1024px)": {
-        padding: "0px 8px"
-    }
+    height: "100%"
 }))
 
 export const MainContainer = styled(HFMContainer)(props => ({ 
-    width: "100%",  
-    "@media only screen and (max-width: 1024px)": {
-        padding: "0px 16px"
-    }
+    width: "100%"
 }))
 
 export const FooterContainer = styled(HFMContainer)(props => ({
-    height: "100%",
-    "@media only screen and (max-width: 1024px)": {
-        padding: "0px 16px"
-    }
+    height: "100%"
 }))

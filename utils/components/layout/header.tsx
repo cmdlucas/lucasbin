@@ -1,12 +1,17 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { HeaderSkin } from '../primitive-ui/skin';
 import { HeaderContainer } from '../primitive-ui/container';
-import { Flex, FlexRowNoWrap } from '../primitive-ui/flexbox';
+import { Flex } from '../primitive-ui/flexbox';
 import styled from 'styled-components';
 import Logo from '../images/logo';
 import FaviconLogo from '../images/faviconlogo';
 import MenuBar from '../images/menubar';
-import { RelativePosition, AbsolutePosition } from '../primitive-ui/global';
+
+const HeaderFlex = styled(Flex)(props => ({
+    "@media only screen and (max-width: 768px)": {
+        padding: "0px 8px"
+    }
+}))
 
 const LeftHeaderColumn = styled(Flex)(props => ({
     "@media only screen and (max-width: 768px)": {
@@ -30,11 +35,11 @@ export function Header() {
     return (
         <HeaderSkin>
             <HeaderContainer>
-                <FlexRowNoWrap>
+                <HeaderFlex>
                     <LeftHeaderColumn> <Logo /> </LeftHeaderColumn>
                     <MidHeaderColumn> <FaviconLogo /> </MidHeaderColumn>
                     <RightHeaderColumn> <MenuBar /> </RightHeaderColumn>
-                </FlexRowNoWrap>
+                </HeaderFlex>
             </HeaderContainer>
         </HeaderSkin>
     )
