@@ -53,5 +53,5 @@ export const invertThemeType = (themeType: ThemeType) => themeType === "light" ?
 export const defaultTheme: Theme = {
     type: "light",
     main: lightTheme,
-    switchTheme: () => {console.log("Default Set")}
+    switchTheme: () => {}
 }

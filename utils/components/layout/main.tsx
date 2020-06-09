@@ -1,6 +1,16 @@
 import React, { FunctionComponent } from 'react'
-import { MainSkin } from '../primitive-ui/skin';
-import { MainContainer } from '../primitive-ui/container';
+import { generalSkin } from '../primitive-ui/skin';
+import { HMFContainer } from '../primitive-ui/container';
+import styled from 'styled-components';
+
+const MainSkin = styled.div(props => ({
+    ...generalSkin(props.theme),
+    marginTop: "76px"
+}))
+
+const MainContainer = styled(HMFContainer)(props => ({ 
+    width: "100%"
+}))
 
 interface MainProps { }
 
