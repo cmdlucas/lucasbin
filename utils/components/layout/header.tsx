@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Logo from '../images/logo';
 import FaviconLogo from '../images/faviconlogo';
 import MenuBar from '../images/menubar';
+import NavMenu from './navmenu';
 
 const HeaderFlex = styled(Flex)(props => ({
     "@media only screen and (max-width: 768px)": {
@@ -41,6 +42,7 @@ export function Header() {
                     <RightHeaderColumn> <MenuBar /> </RightHeaderColumn>
                 </HeaderFlex>
             </HeaderContainer>
+            <NavMenu />
         </HeaderSkin>
     )
 }

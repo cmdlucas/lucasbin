@@ -2,8 +2,8 @@ import styled, { DefaultTheme } from 'styled-components';
 
 const generalSkin = (theme: DefaultTheme) => ({
     width: "100%",
-    backgroundColor: theme.background,
-    color: theme.textColor
+    backgroundColor: theme.main.background,
+    color: theme.main.textColor
 })
 
 export const HeaderSkin = styled.header(props => ({
@@ -19,8 +19,9 @@ export const NavMenuSkin = styled.header(props => ({
     ...generalSkin(props.theme),
     padding: "48px 0px",
     position: "absolute",
-    top: "-700px",
+    top: "76px",
     left: "0px",
+    zIndex: 10000,
     boxShadow: "0px 2px 8px rgba(0, 0, 0, 0.16)"
 
 }))

@@ -1,12 +1,39 @@
-import App from 'next/app'
+import App, { AppProps } from 'next/app'
 import Head from 'next/head';
 import React, { ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from '../utils/components/primitive-ui/global'
-import { lightTheme } from '../utils/components/primitive-ui/theme'
+import { defaultTheme, Theme, invertTheme, invertThemeType } from '../utils/components/primitive-ui/theme'
 import Layout from '../utils/components/layout/layout'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 
-export class MyApp extends App {
+library.add(faMoon, faSun);
+
+export class MyApp extends App<{}, {}, { theme: Theme }> {
+    constructor(props: AppProps) {
+        super(props);
+
+        this.state = {
+            theme: {
+                ...defaultTheme,
+                switchTheme: this.toggleTheme
+            }
+        }
+    }
+
+    setThemeState(theme: Theme, callback = () => {}) {
+        this.setState({ ...this.state, theme: { ...theme }}, callback)
+    }
+    
+    toggleTheme = () => {
+        this.setThemeState({
+            ...this.state.theme,
+            type: invertThemeType(this.state.theme.type),
+            main: invertTheme(this.state.theme.type)
+        })
+    }
+
     render(): ReactElement {
         const { Component, pageProps } = this.props
         return (
@@ -33,7 +60,7 @@ export class MyApp extends App {
                     <meta name="theme-color" content="#ffffff" />
                     <title>Caleb I. Lucas</title>
                 </Head>
-                <ThemeProvider theme={lightTheme}>
+                <ThemeProvider theme={this.state.theme}>
                     <GlobalStyle />
                     <Layout>
                         <Component {...pageProps} />
