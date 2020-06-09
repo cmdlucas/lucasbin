@@ -4,21 +4,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Theme } from "./theme";
 import Link from 'next/link';
 
-const textLinkTheme = (theme: Theme) => ({
-    color: theme.main.linkColor,
+const textLinkTheme = (theme: Theme, color: null | string = null) => ({
+    color: color ?? theme.main.linkColor,
     textDecoration: "none"
 })
 
-export const ExternalTextLink = styled.a(props => textLinkTheme(props.theme))
-
 interface TestLinkProps {
-    href: string
-    name: string
+    href?: string
+    name?: string
+    color?: string
 }
 
-export const TestLink: FunctionComponent<TestLinkProps> = ({href, name, children}) => (
+export const ExternalTextLink = styled.a<TestLinkProps>(props => textLinkTheme(props.theme, props.color))
+
+export const TextLink: FunctionComponent<TestLinkProps> = ({href, name, color, children}) => (
     <Link href={href} as={name} passHref>
-        <ExternalTextLink>{children}</ExternalTextLink>
+        <ExternalTextLink color={color}>{children}</ExternalTextLink>
     </Link>
 )
 

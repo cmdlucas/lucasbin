@@ -50,19 +50,14 @@ const NavMenuContainer = styled.div(props => ({
     padding: "48px 0px",
 }))
 
-interface EachMenuTextProp {
-    active: boolean
-}
-
-const EachMenuTextLink = styled(TextLink)<EachMenuTextProp>(({ theme, active }) => ({
-    color: active ? theme.main.linkColor : theme.main.textColor
-}))
 
 const EachMenuText: FunctionComponent<{ href: string, theme: DefaultTheme }> = ({ theme, href, children }) => {
     const router = useRouter();
     const active = router.pathname === href;
     return (
-        <EachMenuTextLink {...theme} href={href} active={active}>{children}</EachMenuTextLink>
+        <TextLink href={href} color={active ? theme.main.linkColor : theme.main.textColor} >
+            {children}
+        </TextLink>
     )
 }
 
