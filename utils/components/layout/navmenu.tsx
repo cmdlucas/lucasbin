@@ -12,32 +12,35 @@ interface NavMenuHolderProps {
 
 const navFlyIn = keyframes({
     from: {
-        top: "-1200px"
+        top: "-400px",
+        visibility: "hidden"
     },
     to: {
-        top: "76px"
+        top: "76px",
+        visibility: "visible"
+    }
+})
+const navFlyOut = keyframes({
+    from: {
+        top: "76px",
+        visibility: "hidden"
+    },
+    to: {
+        top: "-400px",
+        visibility: "hidden"
     }
 })
 
-const navFlyInAnimation = () => css`${navFlyIn} 1s linear 0.5s`;
+const navFlyInAnimation = (props: NavMenuHolderProps) =>
+    css`${props.open ? navFlyIn : navFlyOut} 0.2s linear 0s forwards`;
 
-const NavMenuHolderClosed = styled.nav(props => ({
-    position: "absolute",
-    top: "-1200px",
-    zIndex: 10000,
-    visibility: "hidden",
-    transition: "visibility 0.5s ease-out 0.1s"
-}))
-
-const NavMenuHolderOpen = styled(NavMenuHolderClosed)(props => ({
-    visibility: "visible",
-    transition: "visibility 0.5 ease-in 0.1s"
-}))
-
-const NavMenuHolder: FunctionComponent<NavMenuHolderProps> = ({ open, children }) => (
-    !open ? <NavMenuHolderClosed>{children}</NavMenuHolderClosed> : <NavMenuHolderOpen>{children}</NavMenuHolderOpen>
-)
-
+const NavMenuHolder = styled.nav`
+    width: 100%;
+    position: absolute;
+    zIndex: 10000;
+    top: -400px;
+    animation: ${navFlyInAnimation};
+`
 const NavMenuSkin = styled.div(props => ({
     ...generalSkin(props.theme),
     boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.16)"

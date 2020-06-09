@@ -10,6 +10,7 @@ import NavMenu from './navmenu';
 const HeaderHolder = styled.header(props => ({
     top: 0,
     left: 0,
+    zIndex: 12000,
     width: "100%",
     position: "fixed",
 }))
@@ -40,19 +41,21 @@ const RightHeaderColumn = styled(Flex)(props => ({
 export function Header() {
     const [open, setOpen] = useState(false);
     return (
-        <HeaderHolder>
-            <HeaderSkin>
-                <HeaderContainer>
-                    <HeaderFlex>
-                        <LeftHeaderColumn> <Logo /> </LeftHeaderColumn>
-                        <RightHeaderColumn>
-                            <MenuBar open={open} onClick={() => setOpen(!open)} />
-                        </RightHeaderColumn>
-                    </HeaderFlex>
-                </HeaderContainer>
-                <NavMenu open={open} />
-            </HeaderSkin>
-        </HeaderHolder>
+        <>
+            <HeaderHolder>
+                <HeaderSkin>
+                    <HeaderContainer>
+                        <HeaderFlex>
+                            <LeftHeaderColumn> <Logo /> </LeftHeaderColumn>
+                            <RightHeaderColumn>
+                                <MenuBar open={open} onClick={() => setOpen(!open)} />
+                            </RightHeaderColumn>
+                        </HeaderFlex>
+                    </HeaderContainer>
+                </HeaderSkin>
+            </HeaderHolder>
+            <NavMenu open={open} />
+        </>
     )
 }
 

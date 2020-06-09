@@ -90,14 +90,14 @@ export const MenuBar: FunctionComponent<MenuBarProps> = ({ open, onClick, theme:
     <MenuSvg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" onClick={onClick}>
         <rect width="48" height="48" fill="none" />
         <MenuSvgLineTop open={open}
-            x1={open ? "20" : "8"} x2={open ? "48" : "40"}
-            y1={open ? "1" : "14"} y2={open ? "1" : "14"}
+            x1={open ? "16" : "8"} x2={open ? "52" : "40"}
+            y1={open ? "0" : "14"} y2={open ? "0" : "14"}
             fill="none" stroke={main.textColor} strokeWidth="2" />
         <MenuSvgLineMid open={open}
             x1="18" x2="40" y1="24" y2="24"
             fill="none" stroke={main.textColor} strokeWidth="2" />
         <MenuSvgLineBottom open={open}
-            x1={open ? "-16" : "8"} x2={open ? "12" : "40"}
+            x1={open ? "-18" : "8"} x2={open ? "18" : "40"}
             y1="34" y2="34"
             fill="none" stroke={main.textColor} strokeWidth="2" />
     </MenuSvg>

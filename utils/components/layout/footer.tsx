@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { generalSkin } from '../primitive-ui/skin';
 import { FlexRowNoWrap } from '../primitive-ui/flexbox';
 import styled, { withTheme, DefaultTheme, CSSObject } from 'styled-components';
-import { TextLink, IsolatedText } from '../primitive-ui/text';
+import { TextLink, IsolatedText, ExternalTextLink } from '../primitive-ui/text';
 import { defaultTheme } from '../primitive-ui/theme';
 import { HMFContainer } from '../primitive-ui/container';
 
@@ -72,7 +72,7 @@ export const Footer: FunctionComponent<FooterProps> = ({ theme }) => {
                     <FooterFlex>
                         <LeftFooter>
                             <FooterText>
-                                Made with <IsolatedText color={theme.main.linkColor}>♥</IsolatedText> by <TextLink href="https://twitter.com/cmdlucas">@cmdlucas</TextLink>
+                                Made with <IsolatedText color={theme.main.linkColor}>♥</IsolatedText> by <ExternalTextLink href="https://twitter.com/cmdlucas">@cmdlucas</ExternalTextLink>
                             </FooterText>
                         </LeftFooter>
                         <RightFooter>
