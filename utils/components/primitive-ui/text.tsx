@@ -31,8 +31,17 @@ export const HeaderTwo = styled.h2(props => ({
     fontSize: "1.5em"
 }))
 
+export const HeaderThree = styled.h3(props => ({
+    fontSize: "1.17em"
+}))
+
 export const FAIconText = styled(FontAwesomeIcon)(props => ({
     color: props.theme.main.textColor,
     height: "1em",
     verticalAlign: "bottom"
+}))
+
+export const Paragraph = styled.p(props => ({
+    fontSize: "1em",
+    color: props.theme.main.textColor
 }))

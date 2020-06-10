@@ -37,7 +37,7 @@ const navFlyInAnimation = (props: NavMenuHolderProps) =>
 const NavMenuHolder = styled.nav`
     width: 100%;
     position: absolute;
-    zIndex: 10000;
+    z-index: 10000;
     top: -400px;
     animation: ${navFlyInAnimation};
 `
@@ -80,12 +80,13 @@ const EachRow: FunctionComponent<{ link: string, title: string }> = ({ link, tit
 
 interface NavMenuProps {
     theme?: DefaultTheme
-    open: boolean
+    open: boolean,
+    setOpen(): void
 }
 
-export const NavMenu: FunctionComponent<NavMenuProps> = ({ open, theme }) => {
+export const NavMenu: FunctionComponent<NavMenuProps> = ({ setOpen, open, theme }) => {
     return (
-        <NavMenuHolder open={open}>
+        <NavMenuHolder open={open} onClick={setOpen}>
             <NavMenuSkin>
                 <NavMenuContainer>
                     <List>
@@ -109,7 +110,8 @@ export const NavMenu: FunctionComponent<NavMenuProps> = ({ open, theme }) => {
 
 NavMenu.defaultProps = {
     theme: defaultTheme,
-    open: false
+    open: false,
+    setOpen: () => {}
 }
 
 export default withTheme(NavMenu);

@@ -18,14 +18,11 @@ const FooterSkin = styled.div(props => ({
 }))
 
 const FooterContainer = styled(HMFContainer)(props => ({
-    height: "100%",
-    padding: "0px 8px",
-    "@media only screen and (max-width: 768px)": {
-        padding: "0px 16px"
-    }
+    height: "100%"
 }))
 
 const FooterFlex = styled(FlexRowNoWrap)(props => ({
+    padding: "0px 8px",
     "@media only screen and (max-width: 768px)": {
         flexDirection: "column",
         justifyContent: "center"

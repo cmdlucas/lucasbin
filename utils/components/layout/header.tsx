@@ -54,7 +54,7 @@ export function Header() {
                     </HeaderContainer>
                 </HeaderSkin>
             </HeaderHolder>
-            <NavMenu open={open} />
+            <NavMenu open={open} setOpen={() => {setOpen(!open)}} />
         </>
     )
 }
