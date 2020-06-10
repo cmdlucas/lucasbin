@@ -21,7 +21,7 @@ interface DivisionProps {
 const definePadding = (type: DivisionType) => {
     switch (type) {
         case "top":
-            return { paddingBottom: "46px" };
+            return { paddingBottom: "46px" }
         case "bottom":
             return { paddingTop: "20px" }
         default:

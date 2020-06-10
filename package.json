@@ -1,26 +1,64 @@
 {
-  "name": "lucasbin",
-  "version": "2.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev -p 5000",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.10",
-    "next": "9.4.4",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "styled-components": "^5.1.1"
-  },
-  "devDependencies": {
-    "@types/node": "^14.0.9",
-    "@types/react": "^16.9.35",
-    "@types/styled-components": "^5.1.0",
-    "babel-plugin-styled-components": "^1.10.7",
-    "typescript": "^3.9.3"
-  }
+    "name": "lucasbin",
+    "version": "2.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev -p 5000",
+        "build": "next build",
+        "start": "next start",
+        "test:unit": "jest",
+        "test:coverage": "jest --coverage",
+        "test:e2e": "jest --config ./jest.e2e.json",
+        "test": "npm run test:unit && npm run test:e2e"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.28",
+        "@fortawesome/free-solid-svg-icons": "^5.13.0",
+        "@fortawesome/react-fontawesome": "^0.1.10",
+        "next": "9.4.4",
+        "react": "16.13.1",
+        "react-dom": "16.13.1",
+        "styled-components": "^5.1.1"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.0",
+        "@types/node": "^14.0.9",
+        "@types/react": "^16.9.35",
+        "@types/styled-components": "^5.1.0",
+        "babel-plugin-styled-components": "^1.10.7",
+        "enzyme": "^3.11.0",
+        "enzyme-adapter-react-16": "^1.15.2",
+        "jest": "^26.0.1",
+        "ts-jest": "^26.1.0",
+        "typescript": "^3.9.3"
+    },
+    "jest": {
+        "verbose": true,
+        "moduleFileExtensions": [
+            "js",
+            "json",
+            "ts",
+            "tsx"
+        ],
+        "rootDir": ".",
+        "testRegex": ".*spec\\.tsx?$",
+        "displayName": "Unit/Integration Tests",
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        },
+        "testPathIgnorePatterns": [
+            "<rootDir>/__tests__",
+            "<rootDir>/.next",
+            "<rootDir>/public",
+            "<rootDir>/node_modules"
+        ],
+        "setupFilesAfterEnv": [
+            "<rootDir>/testSetup.ts"
+        ],
+        "globals": {
+            "ts-jest": {
+                "tsConfig": "<rootDir>/tsconfig.jest.json"
+            }
+        }
+    }
 }
