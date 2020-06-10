@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { DefaultTheme, CSSObject } from 'styled-components';
 
 export const Flex = styled.div(props => ({
     display: "flex",

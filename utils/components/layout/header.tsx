@@ -1,25 +1,37 @@
-import React, { ReactElement } from 'react'
-import { HeaderSkin } from '../primitive-ui/skin';
-import { HeaderContainer } from '../primitive-ui/container';
-import { Flex, FlexRowNoWrap } from '../primitive-ui/flexbox';
+import React, { useState } from 'react'
+import { generalSkin } from '../primitive-ui/skin';
+import { HMFContainer } from '../primitive-ui/container';
+import { Flex } from '../primitive-ui/flexbox';
 import styled from 'styled-components';
 import Logo from '../images/logo';
-import FaviconLogo from '../images/faviconlogo';
 import MenuBar from '../images/menubar';
-import { RelativePosition, AbsolutePosition } from '../primitive-ui/global';
+import NavMenu from './navmenu';
 
-const LeftHeaderColumn = styled(Flex)(props => ({
+const HeaderHolder = styled.header(props => ({
+    top: 0,
+    left: 0,
+    zIndex: 12000,
+    width: "100%",
+    position: "fixed",
+}))
+
+const HeaderSkin = styled.div(props => ({
+    ...generalSkin(props.theme),
+    height: "76px",
+    borderBottom: "1px solid #EDEDED"
+}))
+
+const HeaderContainer = styled(HMFContainer)(props => ({
+    height: "100%",
     "@media only screen and (max-width: 768px)": {
-        flexGrow: 1
+        padding: "0px 8px"
     }
 }))
 
-const MidHeaderColumn = styled(Flex)(props => ({
-    flexGrow: 1,
-    justifyContent: "center",
-    "@media only screen and (max-width: 768px)": {
-        display: "none"
-    }
+const HeaderFlex = styled(Flex)(props => ({}))
+
+const LeftHeaderColumn = styled(Flex)(props => ({
+    flexGrow: 1
 }))
 
 const RightHeaderColumn = styled(Flex)(props => ({
@@ -27,16 +39,23 @@ const RightHeaderColumn = styled(Flex)(props => ({
 }))
 
 export function Header() {
+    const [open, setOpen] = useState(false);
     return (
-        <HeaderSkin>
-            <HeaderContainer>
-                <FlexRowNoWrap>
-                    <LeftHeaderColumn> <Logo /> </LeftHeaderColumn>
-                    <MidHeaderColumn> <FaviconLogo /> </MidHeaderColumn>
-                    <RightHeaderColumn> <MenuBar /> </RightHeaderColumn>
-                </FlexRowNoWrap>
-            </HeaderContainer>
-        </HeaderSkin>
+        <>
+            <HeaderHolder>
+                <HeaderSkin>
+                    <HeaderContainer>
+                        <HeaderFlex>
+                            <LeftHeaderColumn> <Logo /> </LeftHeaderColumn>
+                            <RightHeaderColumn>
+                                <MenuBar open={open} onClick={() => setOpen(!open)} />
+                            </RightHeaderColumn>
+                        </HeaderFlex>
+                    </HeaderContainer>
+                </HeaderSkin>
+            </HeaderHolder>
+            <NavMenu open={open} setOpen={() => {setOpen(!open)}} />
+        </>
     )
 }
 

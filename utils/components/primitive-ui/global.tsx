@@ -19,10 +19,14 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0px;
         font-family: Inconsolata
     }
+
+    a, button {
+        cursor: pointer;
+    }
 `
 
 export const AbsolutePosition = styled.div(props => ({
-    position: "absolute"
+    position: "absolute",
 }))
 
 export const RelativePosition = styled.div(props => ({
@@ -31,4 +35,8 @@ export const RelativePosition = styled.div(props => ({
 
 export const FixedPosition = styled.div(props => ({
     position: "fixed"
+}))
+
+export const HrLine = styled.hr(props => ({
+    border: "1px solid #ededed"
 }))

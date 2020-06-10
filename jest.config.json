@@ -1,0 +1,29 @@
+{
+    "verbose": true,
+    "moduleFileExtensions": [
+        "js",
+        "json",
+        "ts",
+        "tsx"
+    ],
+    "rootDir": ".",
+    "testRegex": ".*spec\\.tsx?$",
+    "displayName": "Unit/Integration Tests",
+    "transform": {
+        "^.+\\.tsx?$": "ts-jest"
+    },
+    "testPathIgnorePatterns": [
+        "<rootDir>/__tests__",
+        "<rootDir>/.next",
+        "<rootDir>/public",
+        "<rootDir>/node_modules"
+    ],
+    "setupFilesAfterEnv": [
+        "<rootDir>/testSetup.ts"
+    ],
+    "globals": {
+        "ts-jest": {
+            "tsConfig": "<rootDir>/tsconfig.jest.json"
+        }
+    }
+}

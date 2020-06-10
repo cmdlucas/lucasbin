@@ -1,0 +1,23 @@
+{
+    "verbose": true,
+    "moduleFileExtensions": [
+        "js",
+        "json",
+        "ts",
+        "tsx"
+    ],
+    "rootDir": "./__tests__",
+    "testRegex": ".*\\.e2e\\.spec\\.tsx?$",
+    "displayName": "End-to-End Tests",
+    "transform": {
+        "^.+\\.tsx?$": "ts-jest"
+    },
+    "setupFilesAfterEnv": [
+        "<rootDir>/../testSetup.ts"
+    ],
+    "globals": {
+        "ts-jest": {
+            "tsConfig": "<rootDir>/../tsconfig.jest.json"
+        }
+    }
+}
