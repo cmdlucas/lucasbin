@@ -4,8 +4,6 @@ import { Logo } from './logo';
 import { defaultTheme } from '../primitive-ui/theme';
 import { TextLink } from '../primitive-ui/text';
 
-console.log("Running test...");
-
 describe("Images", () => {
     describe("Logo", () => {
         const wrapper = shallow(<Logo theme={defaultTheme} />);
