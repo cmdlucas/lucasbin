@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { HMFContainer } from '../utils/components/primitive-ui/container';
 import { Profile } from '../utils/components/ui/profile';
+import { BlogPostsSummary } from '../utils/components/ui/blogposts-summary';
 
 const HomeContainer = styled(HMFContainer)(props => ({
     padding: "0px 8px",
@@ -10,10 +11,16 @@ const HomeContainer = styled(HMFContainer)(props => ({
     }
 }))
 
+const ComponentWrapper = styled.div(props => ({
+    paddingBottom: "72px"
+}))
+
 export function Home() {
     return (
         <HomeContainer>
-            <Profile />
+            <ComponentWrapper><Profile /></ComponentWrapper>
+            <ComponentWrapper><BlogPostsSummary /></ComponentWrapper>
+            
         </HomeContainer>
     )
 }

@@ -15,10 +15,17 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.28",
         "@fortawesome/free-solid-svg-icons": "^5.13.0",
         "@fortawesome/react-fontawesome": "^0.1.10",
+        "markdown-yaml-metadata-parser": "^2.0.5",
         "next": "9.4.4",
         "react": "16.13.1",
         "react-dom": "16.13.1",
-        "styled-components": "^5.1.1"
+        "remark-frontmatter": "^2.0.0",
+        "remark-images": "^2.0.0",
+        "remark-parse": "^8.0.2",
+        "remark-parse-yaml": "0.0.3",
+        "remark-stringify": "^8.1.0",
+        "styled-components": "^5.1.1",
+        "unified": "^9.0.0"
     },
     "devDependencies": {
         "@types/jest": "^26.0.0",
