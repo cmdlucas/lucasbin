@@ -6,6 +6,7 @@ import { AbsolutePosition, HrLine } from '../primitive-ui/global';
 import { HeaderThree, Paragraph } from '../primitive-ui/text';
 import { PrimaryButton } from '../primitive-ui/button';
 import { generalSkin } from '../primitive-ui/skin';
+import { Theme } from '../primitive-ui/theme';
 
 const ProfileSkin = styled.div(props => ({
     ...generalSkin(props.theme),
@@ -29,9 +30,9 @@ const definePadding = (type: DivisionType) => {
     }
 }
 
-const defineBorder = (type: DivisionType) => {
-    const top = { borderRight: "2px solid #EDEDED" }
-    const bottom = { borderLeft: "2px solid #EDEDED" }
+const defineBorder = (type: DivisionType, theme: Theme) => {
+    const top = { borderRight: `2px solid ${theme.main.borderColor}` }
+    const bottom = { borderLeft: `2px solid ${theme.main.borderColor}` }
     switch (type) {
         case "top":
             return top;
@@ -44,7 +45,7 @@ const defineBorder = (type: DivisionType) => {
 
 const Division = styled.div<DivisionProps>(props => ({
     ...definePadding(props.type),
-    ...defineBorder(props.type)
+    ...defineBorder(props.type, props.theme)
 }))
 
 const OnBorderNoContent = styled.div(props => ({
@@ -69,7 +70,11 @@ const BottomOnBorderContent = styled(OnBorderContent)(props => ({
 }))
 
 const HeaderText = styled(AbsolutePosition)(props => ({
-    top: "-10px"
+    top: "-12px",
+}))
+
+const HeaderIntro = styled(HeaderThree)(props => ({
+    fontFamily: "CooperHewitt"
 }))
 
 const TopDivision = () => (
@@ -77,7 +82,7 @@ const TopDivision = () => (
         <FlexRowNoWrap>
             <TopOnBorderContent>
                 <HeaderText>
-                    <HeaderThree>PROFILE</HeaderThree>
+                    <HeaderIntro>PROFILE</HeaderIntro>
                 </HeaderText>
             </TopOnBorderContent>
             <OnBorderNoContent> <HrLine /> </OnBorderNoContent>
@@ -99,7 +104,7 @@ const BottomDivision = () => (
             <BottomOnBorderNoContent> <HrLine /> </BottomOnBorderNoContent>
             <BottomOnBorderContent>
                 <Link href="/projects">
-                    <a><PrimaryButton> SEE PROJECTS </PrimaryButton></a>
+                    <a><PrimaryButton> SOME PROJECTS </PrimaryButton></a>
                 </Link>
             </BottomOnBorderContent>
         </FlexRowNoWrap>

@@ -38,5 +38,5 @@ export const FixedPosition = styled.div(props => ({
 }))
 
 export const HrLine = styled.hr(props => ({
-    border: "1px solid #ededed"
+    border: `1px solid ${props.theme.main.borderColor}`
 }))

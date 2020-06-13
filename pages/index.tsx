@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { HMFContainer } from '../utils/components/primitive-ui/container';
-import { Profile } from '../utils/components/ui/profile';
-import { BlogPostsSummary } from '../utils/components/ui/blogposts-summary';
+import Profile from '../utils/components/ui/profile';
+import BlogPostsSummary from '../utils/components/ui/blogposts-summary';
+import { allPosts, Post } from '../utils/model/posts';
 
 const HomeContainer = styled(HMFContainer)(props => ({
     padding: "0px 8px",
@@ -15,14 +16,26 @@ const ComponentWrapper = styled.div(props => ({
     paddingBottom: "72px"
 }))
 
-export function Home() {
+interface HomeProps {
+    postsSummary: Post[]
+}
+
+export function Home(props: HomeProps) {
     return (
         <HomeContainer>
             <ComponentWrapper><Profile /></ComponentWrapper>
-            <ComponentWrapper><BlogPostsSummary /></ComponentWrapper>
-            
+            <ComponentWrapper><BlogPostsSummary posts={props.postsSummary} /></ComponentWrapper>
+
         </HomeContainer>
     )
+}
+
+export async function getStaticProps() {
+    return {
+        props: {
+            postsSummary: allPosts.slice(0, 3)
+        }
+    }
 }
 
 export default React.memo(Home);

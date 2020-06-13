@@ -4,22 +4,25 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Theme } from "./theme";
 import Link from 'next/link';
 
-const textLinkTheme = (theme: Theme, color: null | string = null) => ({
+const textLinkTheme = (theme: Theme, color: null | string = null, font: string | null = null) => ({
     color: color ?? theme.main.linkColor,
-    textDecoration: "none"
+    textDecoration: "none",
+    fontFamily: font ?? "Inconsolata"
 })
 
 interface TestLinkProps {
     href?: string
     name?: string
     color?: string
+    font?: string
 }
 
-export const ExternalTextLink = styled.a<TestLinkProps>(props => textLinkTheme(props.theme, props.color))
+export const ExternalTextLink = styled.a<TestLinkProps>(props => 
+    textLinkTheme(props.theme, props.color, props.font))
 
-export const TextLink: FunctionComponent<TestLinkProps> = ({href, name, color, children}) => (
+export const TextLink: FunctionComponent<TestLinkProps> = ({href, name, color, font, children}) => (
     <Link href={href} as={name} passHref>
-        <ExternalTextLink color={color}>{children}</ExternalTextLink>
+        <ExternalTextLink color={color} font={font}>{children}</ExternalTextLink>
     </Link>
 )
 
@@ -36,9 +39,9 @@ export const HeaderThree = styled.h3(props => ({
 }))
 
 export const FAIconText = styled(FontAwesomeIcon)(props => ({
-    color: props.theme.main.textColor,
+    color: props.color ?? props.theme.main.textColor,
     height: "1em",
-    verticalAlign: "bottom"
+    verticalAlign: "text-top"
 }))
 
 export const Paragraph = styled.p(props => ({

@@ -7,6 +7,7 @@ export interface ThemeProperties {
     textColor: string
     linkColor: string
     background: string
+    borderColor: string,
     buttonPrimary: ButtonTheme
     buttonSecondary: ButtonTheme
 }
@@ -15,6 +16,7 @@ export const lightTheme: ThemeProperties = {
     background: "#FFFFFF",
     textColor: "#262626",
     linkColor: "#0D66D0",
+    borderColor: "#EDEDED",
     buttonPrimary: {
         color: "#FFFFFF",
         background: "#262626",
@@ -29,6 +31,7 @@ export const darkTheme: ThemeProperties = {
     background: "#262626",
     textColor: "#FFFFFF",
     linkColor: "#CEC652",
+    borderColor: "#555555",
     buttonPrimary: {
         color: "#262626",
         background: "#FFFFFF",

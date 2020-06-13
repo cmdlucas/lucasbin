@@ -1,10 +1,13 @@
-import posts, { getPostsSummary } from "./posts"
+import posts, { getPostSummary, getPosts } from "./posts"
 import { markdown01Data } from "../../__tests__/__fixtures__/samplepost";
 
 describe("Posts Model", () => {
-    it("should return the posts summary of fixed length of 125", () => {
+    it("getPostSummary() should return the summary of a post with a fixed length of 120", () => {
+        expect(getPostSummary(markdown01Data)).toHaveLength(120);
+    })
+
+    it("getPosts() should return a list of posts with the presence of its summary", () => {
         jest.spyOn(posts, "getMarkdown").mockImplementation(()=>[markdown01Data]);
-        const postsSummary = getPostsSummary();
-        expect(postsSummary[0]).toHaveLength(125);
+        expect(getPosts()[0].summary).toBeDefined();
     })
 })

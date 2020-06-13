@@ -1,12 +1,12 @@
-import { getPosts, getPostsContent, PostFile } from "./_reader"
+import { readPosts, readPostsContent, PostFile } from "./_reader"
 
 describe("Posts Reader", () => {
     let postFiles: PostFile[];
     beforeAll(() => {
-        postFiles = getPosts();
+        postFiles = readPosts();
     })
     it("should fetch all posts with content", () => {
-        const posts = getPostsContent();
+        const posts = readPostsContent();
         expect(posts.length).toEqual(postFiles.length);
     })
 })

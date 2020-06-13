@@ -1,8 +1,12 @@
 ---
 title: SpaceX Launch
 author: Caleb Lucas
-published: 30/05/2020
-header_image: ./rocket.png
+datePublished: 30/05/2020
+headerImage: rocket.png
+lastModifiedOn: 30/05/2020
+tags: 
+    - space
+    - elon musk
 ---
 
 ## SpaceX Launch

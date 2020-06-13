@@ -18,7 +18,7 @@ const HeaderHolder = styled.header(props => ({
 const HeaderSkin = styled.div(props => ({
     ...generalSkin(props.theme),
     height: "76px",
-    borderBottom: "1px solid #EDEDED"
+    borderBottom: `1px solid ${props.theme.main.borderColor}`
 }))
 
 const HeaderContainer = styled(HMFContainer)(props => ({

@@ -7,8 +7,9 @@ import { defaultTheme, Theme, invertTheme, invertThemeType } from '../utils/comp
 import Layout from '../utils/components/layout/layout'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarAlt, faUser, faNewspaper } from '@fortawesome/free-regular-svg-icons'
 
-library.add(faMoon, faSun);
+library.add(faMoon, faSun, faCalendarAlt, faUser, faNewspaper);
 
 export class MyApp extends App<{}, {}, { theme: Theme }> {
     constructor(props: AppProps) {
