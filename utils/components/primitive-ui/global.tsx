@@ -15,7 +15,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     * {
-        font-size: 1em;
         margin: 0px;
         font-family: Inconsolata
     }

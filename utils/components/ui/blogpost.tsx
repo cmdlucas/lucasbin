@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { FlexColumn, FlexRowNoWrap } from '../primitive-ui/flexbox';
+import { FlexRowNoWrap } from '../primitive-ui/flexbox';
 import { Post } from '../../model/posts';
 import styled from 'styled-components';
 import { RelativePosition } from '../primitive-ui/global';
@@ -29,11 +29,11 @@ const Title = styled(HeaderThree)(props => ({
     paddingBottom: "24px",
     textOverflow: "ellipsis",
     whiteSpace: "nowrap",
-    overflow: "hidden"
+    overflow: "hidden",
+    color: props.theme.main.textColor
 }))
 
 const Summary = styled(Paragraph)(props => ({
-    fontWeight: "bold",
     paddingBottom: "24px",
     wordWrap: "break-word"
 }))
@@ -49,12 +49,14 @@ const DatePublished = styled.div(props => ({
 
 const Author = styled.div(props => ({}))
 
-const IconText = styled(FAIconText)(props => ({
+const Icon = styled(FAIconText)(props => ({
     color: "#707070",
     paddingRight: "12px",
     verticalAlign: "top"
 }))
-
+const IconText = styled.span(props => ({
+    color: "#707070",
+}))
 export const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
     return (
         <BlogPostSkin>
@@ -65,12 +67,12 @@ export const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
                 <ContentFooter>
                     <FlexRowNoWrap>
                         <DatePublished>
-                            <IconText icon={["far", "calendar-alt"]} />
-                            <span>{data.metadata.datePublished}</span>
+                            <Icon icon={["far", "calendar-alt"]} />
+                            <IconText>{data.metadata.datePublished}</IconText>
                         </DatePublished>
                         <Author>
-                            <IconText icon={["far", "user"]}  />
-                            <span>{data.metadata.author.split(" ")[0]}</span>
+                            <Icon icon={["far", "user"]}  />
+                            <IconText>{data.metadata.author.split(" ")[0]}</IconText>
                         </Author>
                     </FlexRowNoWrap>
                 </ContentFooter>

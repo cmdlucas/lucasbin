@@ -24,8 +24,7 @@ export function Home(props: HomeProps) {
     return (
         <HomeContainer>
             <ComponentWrapper><Profile /></ComponentWrapper>
-            <ComponentWrapper><BlogPostsSummary posts={props.postsSummary} /></ComponentWrapper>
-
+            <BlogPostsSummary type="home" posts={props.postsSummary} />
         </HomeContainer>
     )
 }

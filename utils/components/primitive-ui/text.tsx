@@ -10,24 +10,28 @@ const textLinkTheme = (theme: Theme, color: null | string = null, font: string |
     fontFamily: font ?? "Inconsolata"
 })
 
-interface TestLinkProps {
+interface TextLinkProps {
     href?: string
     name?: string
     color?: string
     font?: string
 }
 
-export const ExternalTextLink = styled.a<TestLinkProps>(props => 
+export const ExternalTextLink = styled.a<TextLinkProps>(props => 
     textLinkTheme(props.theme, props.color, props.font))
 
-export const TextLink: FunctionComponent<TestLinkProps> = ({href, name, color, font, children}) => (
-    <Link href={href} as={name} passHref>
+export const TextLink: FunctionComponent<TextLinkProps> = ({href, name, color, font, children}) => (
+    <Link href={href} as={name} passHref st>
         <ExternalTextLink color={color} font={font}>{children}</ExternalTextLink>
     </Link>
 )
 
 export const IsolatedText = styled.span(props => ({
     color: props.color ?? props.theme.main.textColor
+}))
+
+export const HeaderOne = styled.h2(props => ({
+    fontSize: "2em"
 }))
 
 export const HeaderTwo = styled.h2(props => ({

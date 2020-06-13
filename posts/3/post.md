@@ -1,5 +1,5 @@
 ---
-title: Build a chatbot with me
+title:  Build a chatbot with me and break the entire internet
 author: Caleb Lucas
 datePublished: 17/09/2019
 headerImage: messaging.png
@@ -9,7 +9,7 @@ tags:
     - robots
 ---
 
-## Build a chatbot with me
+## Build a chatbot with me and break the entire internet
 
 {START}
 

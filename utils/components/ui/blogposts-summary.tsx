@@ -4,10 +4,11 @@ import { Post } from '../../model/posts';
 import BlogPost from './blogpost';
 import styled from 'styled-components';
 import { HeaderThree, FAIconText, TextLink } from '../primitive-ui/text';
-import Link from 'next/link';
+import { SecondaryButton } from '../primitive-ui/button';
 
 export interface PostsSummaryProps {
     posts?: Post[]
+    type?: "home" | "blog"
 }
 
 export interface BlogPostHolderProps {
@@ -18,24 +19,20 @@ const BlogPostHolder = styled.article<BlogPostHolderProps>(props => ({
     maxWidth: "317.33px",
     paddingRight: props.dataIndex % 3 === 0 ? "0px" : "10px",
     paddingBottom: "28px",
-    "@media only screen and (max-width: 992px)": {
-        maxWidth: "317.33px",
-        paddingRight: props.dataIndex % 3 === 0 ? "0px" : "10px",
-    },
     "@media only screen and (max-width: 767px)": {
         paddingRight: "0px",
         maxWidth: "100%"
     }
 }))
 
-const LinkOut = styled.div(props => ({}))
-
 const BlogPosts: FunctionComponent<PostsSummaryProps> = (props) => {
     return (
         <>{
             props.posts.map((post, index) => (
                 <BlogPostHolder key={index + 1} dataIndex={index + 1}>
-                    <BlogPost data={post} />
+                    <TextLink href={`/blog/[pid]`} name={`/blog/${post.pid}`}>
+                        <BlogPost data={post} />
+                    </TextLink>
                 </BlogPostHolder>
             ))
         }</>
@@ -57,20 +54,43 @@ const HeaderIntro = styled(HeaderThree)(props => ({
     display: "inline-table"
 }))
 
+const OutBlogButton = styled(SecondaryButton)(props => ({
+    width: "318px",
+    background: "#36DCBA",
+    color: "#FFFFFF",
+    "@media only screen and (max-width: 768px)": {
+        width: "100%",
+    }
+}))
+
 export const BlogPostsSummary: FunctionComponent<PostsSummaryProps> = (props) => {
     return (
         <div>
-            <FlexRowNoWrap style={{paddingBottom: "32px"}}>
+            <FlexRowNoWrap style={{ paddingBottom: "32px" }}>
                 <HeaderText>
                     <IconText icon={["far", "newspaper"]} />
-                    <HeaderIntro>BLOG POSTS</HeaderIntro>
+                    <HeaderIntro>
+                        {props.type !== "home" ? `SHOWING ALL POSTS`
+                            : "BLOG POSTS"}
+                    </HeaderIntro>
                 </HeaderText>
-                <TextLink href="/blog" font="CooperHewitt">Go to blog →</TextLink>
+                {
+                    props.type === "home" && <TextLink href="/blog" font="CooperHewitt">Go to blog →</TextLink>
+                }
             </FlexRowNoWrap>
 
             <FlexRowWrap>
                 <BlogPosts posts={props.posts} />
             </FlexRowWrap>
+            <FlexRowNoWrap style={{ paddingBottom: "32px", justifyContent: "center" }}>
+                {
+                    props.type === "home" && (
+                        <TextLink href="/blog">
+                            <OutBlogButton>GO TO BLOG</OutBlogButton>
+                        </TextLink>
+                    )
+                }
+            </FlexRowNoWrap>
         </div>
     )
 }

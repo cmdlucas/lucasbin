@@ -62,11 +62,12 @@ const TopOnBorderContent = styled(OnBorderContent)(props => ({
 }))
 
 const BottomOnBorderNoContent = styled(OnBorderNoContent)(props => ({
-    alignSelf: "end"
+    alignSelf: "flex-end"
 }))
 
 const BottomOnBorderContent = styled(OnBorderContent)(props => ({
     justifyContent: "end",
+    flexDirection: "row-reverse"
 }))
 
 const HeaderText = styled(AbsolutePosition)(props => ({
@@ -104,7 +105,7 @@ const BottomDivision = () => (
             <BottomOnBorderNoContent> <HrLine /> </BottomOnBorderNoContent>
             <BottomOnBorderContent>
                 <Link href="/projects">
-                    <a><PrimaryButton> SOME PROJECTS </PrimaryButton></a>
+                    <a><PrimaryButton> PROJECTS </PrimaryButton></a>
                 </Link>
             </BottomOnBorderContent>
         </FlexRowNoWrap>
