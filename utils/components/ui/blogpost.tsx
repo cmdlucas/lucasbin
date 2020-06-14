@@ -35,7 +35,8 @@ const Title = styled(HeaderThree)(props => ({
 
 const Summary = styled(Paragraph)(props => ({
     paddingBottom: "24px",
-    wordWrap: "break-word"
+    wordWrap: "break-word",
+    color: props.theme.main.textColor
 }))
 
 const ContentFooter = styled.div(props => ({
@@ -51,8 +52,7 @@ const Author = styled.div(props => ({}))
 
 const Icon = styled(FAIconText)(props => ({
     color: "#707070",
-    paddingRight: "12px",
-    verticalAlign: "top"
+    paddingRight: "12px"
 }))
 const IconText = styled.span(props => ({
     color: "#707070",

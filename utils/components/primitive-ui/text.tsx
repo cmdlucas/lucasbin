@@ -21,7 +21,7 @@ export const ExternalTextLink = styled.a<TextLinkProps>(props =>
     textLinkTheme(props.theme, props.color, props.font))
 
 export const TextLink: FunctionComponent<TextLinkProps> = ({href, name, color, font, children}) => (
-    <Link href={href} as={name} passHref st>
+    <Link href={href} as={name} passHref>
         <ExternalTextLink color={color} font={font}>{children}</ExternalTextLink>
     </Link>
 )
@@ -49,6 +49,5 @@ export const FAIconText = styled(FontAwesomeIcon)(props => ({
 }))
 
 export const Paragraph = styled.p(props => ({
-    fontSize: "1em",
-    color: props.theme.main.textColor
+    fontSize: "1em"
 }))

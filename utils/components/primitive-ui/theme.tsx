@@ -29,7 +29,7 @@ export const lightTheme: ThemeProperties = {
 
 export const darkTheme: ThemeProperties = {
     background: "#262626",
-    textColor: "#FFFFFF",
+    textColor: "#F3F3F3",
     linkColor: "#CEC652",
     borderColor: "#555555",
     buttonPrimary: {

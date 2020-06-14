@@ -1,11 +1,16 @@
 import React, { useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import { HMFContainer } from '../../utils/components/primitive-ui/container';
 import { Post, allPosts, pidToPostIndex } from '../../utils/model/posts';
-import { HeaderOne, FAIconText } from '../../utils/components/primitive-ui/text';
+import { HeaderOne, FAIconText, TextLink, Paragraph } from '../../utils/components/primitive-ui/text';
 import { useRouter } from 'next/router';
 import ReactMarkdown from 'react-markdown';
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { docco as lightCode, vs2015 as darkCode } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { Theme } from '../../utils/components/primitive-ui/theme';
+import { RelativePosition } from '../../utils/components/primitive-ui/global';
+import { Flex, FlexRowNoWrap } from '../../utils/components/primitive-ui/flexbox';
 
 interface SinglePostProps {
     prevPost: Post
@@ -49,24 +54,71 @@ const Author = styled(Artifact)(props => ({}))
 const Icon = styled(FAIconText)(props => ({
     color: "#707070",
     paddingRight: "12px",
-    verticalAlign: "top"
 }))
+
 const IconText = styled.span(props => ({
     color: "#707070",
 }))
 
 const ContentContainer = styled.div`
-width: 768px;
-margin: 0px auto;
-"@media only screen and (max-width: 768px)": {
-    width: 100%;
-}
+    width: 768px;
+    margin: 0px auto;
+    padding-bottom: 52px;
 
-h1, h2, h3, h4, h5, h6, p {
-    margin: 16px 0px;
-}
+    @media only screen and (max-width: 768px) {
+        width: 100%;
+    }
 
-p
+    h1, h2, h3, h4, h5, h6, p, strong, a {
+        font-family: Poppins;
+        margin: 16px 0px;
+    }
+
+    pre {
+        border-radius: 8px;
+        margin-top: 24px;
+    }
+
+    p code {
+        background: ${props => props.theme.type === "light" ? "#EDEDED" : "#1E1E1E"};
+        padding: 4px 8px;
+        color: ${props => props.theme.type === "light" ? "#666666" : "#ACACAC"};
+        border-radius: 4px;
+    }
+
+`
+
+const PostLinksHolder = styled(Flex)(props => ({
+    flexDirection: "row",
+    ".item": {
+        flexGrow: 1,
+        width: "50%"
+    },
+    "@media only screen and (max-width: 767px)": {
+        flexDirection: "column",
+        ".item": {
+            width: "100%"
+        }
+    }
+}))
+
+const PostLinkFlex = styled(FlexRowNoWrap)`
+    font-family: Poppins;
+    .arrow-text {
+        color: #707070;
+    }
+    .link-holder {
+        flex-grow: 1;
+        padding-left: 24px;
+    }
+`
+
+const NextPostLinkFlex = styled(PostLinkFlex)`
+    flex-direction: row-reverse;
+    text-align: right;
+    .link-holder {
+        padding: 0px 24px 0px 0px;
+    }
 `
 
 export function SinglePost({ prevPost, currPost, nextPost }: SinglePostProps) {
@@ -74,6 +126,7 @@ export function SinglePost({ prevPost, currPost, nextPost }: SinglePostProps) {
         useRouter().replace("/");
         return <></>
     }
+    const theme: Theme = useTheme();
     useEffect(() => { document.title = currPost.metadata.title })
     return (
         <SinglePostHomeContainer>
@@ -92,8 +145,47 @@ export function SinglePost({ prevPost, currPost, nextPost }: SinglePostProps) {
                         <IconText style={{ color: '#707070' }}>{currPost.metadata.author}</IconText>
                     </Author>
                 </Artifacts>
-                <ReactMarkdown source={currPost.content} />
+                <div>
+                    <ReactMarkdown
+                        source={currPost.content}
+                        renderers={{
+                            code: ({ language, value }) => (
+                                <SyntaxHighlighter language={language}
+                                    style={theme.type === "light" ? lightCode : darkCode}>
+                                    {value}
+                                </SyntaxHighlighter>
+                            )
+                        }} />
+                </div>
             </ContentContainer>
+            <PostLinksHolder>
+                <div className="item">
+                    {prevPost && <TextLink href="/blog/[pid]" name={`/blog/${prevPost.pid}`}>
+                        <PostLinkFlex>
+                            <div className="arrow-holder">
+                                <span>←</span>
+                            </div>
+                            <div className="link-holder">
+                                <Paragraph className="arrow-text">Previous</Paragraph>
+                                <Paragraph>{prevPost.metadata.title}</Paragraph>
+                            </div>
+                        </PostLinkFlex>
+                    </TextLink>}
+                </div>
+                <div className="item">
+                    {nextPost && <TextLink href="/blog/[pid]" name={`/blog/${nextPost.pid}`}>
+                        <NextPostLinkFlex>
+                            <div className="arrow-holder">
+                                <span>→</span>
+                            </div>
+                            <div className="link-holder">
+                                <Paragraph className="arrow-text">Next</Paragraph>
+                                <Paragraph>{nextPost.metadata.title}</Paragraph>
+                            </div>
+                        </NextPostLinkFlex>
+                    </TextLink>}
+                </div>
+            </PostLinksHolder>
         </SinglePostHomeContainer>
     )
 }

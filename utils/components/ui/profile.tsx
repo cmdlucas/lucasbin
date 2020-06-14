@@ -93,9 +93,9 @@ const TopDivision = () => (
 
 const MidDivision = () => (
     <Division type="middle">
-        <Paragraph>Hi. I'm a software engineer building apps and dApps for the web. My core skills are centered around the Javascript, PHP, Java and Ethereum ecosystem.  </Paragraph>
+        <Paragraph><code>Hi. I'm a software engineer building apps and dApps for the web. My core skills are centered around the Javascript, PHP, Java and Ethereum ecosystem.  </code></Paragraph>
         <br />
-        <Paragraph>You may also find me entrepreneuring, gisting about blockchain, reading about Space, singing horribly, watching soccer or simply surfing the internet and learning new stuff.</Paragraph>
+        <Paragraph><code>You may also find me entrepreneuring, gisting about blockchain, reading about Space, singing horribly, watching soccer or simply surfing the internet and learning new stuff.</code></Paragraph>
     </Division>
 )
 
