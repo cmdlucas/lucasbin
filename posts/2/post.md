@@ -24,6 +24,7 @@ import ImageSelectPreview from 'react-image-select-pv';
 const SimpleDiv = () => {
     return (
         <div>
+            // This will render successfully
             <ImageSelectPreview />
         </div>
     )

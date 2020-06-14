@@ -1,6 +1,6 @@
 import App, { AppProps } from 'next/app'
 import Head from 'next/head';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useEffect } from 'react';
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from '../utils/components/primitive-ui/global'
 import { defaultTheme, Theme, invertTheme, invertThemeType } from '../utils/components/primitive-ui/theme'
@@ -8,6 +8,8 @@ import Layout from '../utils/components/layout/layout'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
 import { faCalendarAlt, faUser, faNewspaper } from '@fortawesome/free-regular-svg-icons'
+import router from 'next/router'
+import nprogress from 'nprogress';
 
 library.add(faMoon, faSun, faCalendarAlt, faUser, faNewspaper);
 
@@ -35,8 +37,17 @@ export class MyApp extends App<{}, {}, { theme: Theme }> {
         })
     }
 
+    componentDidMount() {
+        router.events.on('routeChangeStart', () => nprogress.start())
+        router.events.on('hashChangeStart', () => nprogress.inc())
+        router.events.on('hashChangeComplete', () => nprogress.inc())
+        router.events.on('beforeHistoryChange', () => nprogress.inc())
+        router.events.on('routeChangeComplete', () => nprogress.done())
+        router.events.on('routeChangeError', () => nprogress.done())
+    }
+
     render(): ReactElement {
-        const { Component, pageProps } = this.props
+        const { Component, pageProps } = this.props;
         return (
             <>
                 <Head>
