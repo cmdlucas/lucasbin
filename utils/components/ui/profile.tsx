@@ -8,7 +8,7 @@ import { PrimaryButton } from '../primitive-ui/button';
 import { generalSkin } from '../primitive-ui/skin';
 import { Theme } from '../primitive-ui/theme';
 
-const ProfileSkin = styled.div(props => ({
+export const ProfileSkin = styled.div(props => ({
     ...generalSkin(props.theme),
     background: props.theme.type === "light" ? "#FFFEEE" : "#333333"
 }))
@@ -43,7 +43,7 @@ const defineBorder = (type: DivisionType, theme: Theme) => {
     }
 }
 
-const Division = styled.div<DivisionProps>(props => ({
+export const Division = styled.div<DivisionProps>(props => ({
     ...definePadding(props.type),
     ...defineBorder(props.type, props.theme)
 }))
@@ -74,11 +74,11 @@ const HeaderText = styled(AbsolutePosition)(props => ({
     top: "-12px",
 }))
 
-const HeaderIntro = styled(HeaderThree)(props => ({
+export const HeaderIntro = styled(HeaderThree)(props => ({
     fontFamily: "CooperHewitt"
 }))
 
-const TopDivision = () => (
+export const TopDivision = () => (
     <Division type="top">
         <FlexRowNoWrap>
             <TopOnBorderContent>
@@ -91,7 +91,7 @@ const TopDivision = () => (
     </Division>
 )
 
-const MidDivision = () => (
+export const MidDivision = () => (
     <Division type="middle">
         <Paragraph><code>Hi. I'm a software engineer building apps and dApps for the web. My core skills are centered around the Javascript, PHP, Java and Ethereum ecosystem.  </code></Paragraph>
         <br />
@@ -99,7 +99,7 @@ const MidDivision = () => (
     </Division>
 )
 
-const BottomDivision = () => (
+export const BottomDivision = () => (
     <Division type="bottom">
         <FlexRowNoWrap>
             <BottomOnBorderNoContent> <HrLine /> </BottomOnBorderNoContent>

@@ -1,5 +1,5 @@
-import { Markdown } from "../../utils/tool/markdown";
-import { PostFile } from "../../posts/_reader";
+import { Markdown } from "../utils/tool/markdown";
+import { PostFile } from "../posts/_reader";
 import path from 'path'
 
 export const markdown01 = `

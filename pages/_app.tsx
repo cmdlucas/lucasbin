@@ -1,6 +1,6 @@
 import App, { AppProps } from 'next/app'
 import Head from 'next/head';
-import React, { ReactElement, useEffect } from 'react';
+import React, { ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle } from '../utils/components/primitive-ui/global'
 import { defaultTheme, Theme, invertTheme, invertThemeType } from '../utils/components/primitive-ui/theme'

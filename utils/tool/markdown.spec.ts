@@ -1,9 +1,19 @@
 import {getMarkdownData} from './markdown';
-import { markdown01PostFile } from '../../__tests__/__fixtures__/samplepost';
+import { markdown01PostFile } from '../../__fixtures__/samplepost';
 
 describe("Markdown", () => {
-    it("should contain metadata content", () => {
-        const markdownData = getMarkdownData([markdown01PostFile])
-        expect(Object.keys(markdownData[0].metadata).length).toBe(4);
+    let markdownData = [];
+    beforeAll(() => { markdownData =  getMarkdownData([markdown01PostFile]) })
+
+    it("should contain metadata", () => {
+        expect(Object.keys(markdownData[0].metadata).length).toBeGreaterThan(0);
+    })
+
+    it("should contain path_to_file", () => {
+        expect(markdownData[0].path_to_file.length).toBeGreaterThan(0);
+    })
+
+    it("should contain content", () => {
+        expect(markdownData[0].content.length).toBeGreaterThan(0);
     })
 })
