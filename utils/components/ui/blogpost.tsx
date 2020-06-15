@@ -15,7 +15,7 @@ interface BlogPostProps {
     data?: Post
 }
 
-const PostHeaderImage = styled.img(props => ({
+export const PostHeaderImage = styled.img(props => ({
     width: "100%",
     minHeight: "250px"
 }))
@@ -24,7 +24,7 @@ const ContentHolder = styled.div(props => ({
     padding: "20px"
 }))
 
-const Title = styled(HeaderThree)(props => ({
+export const Title = styled(HeaderThree)(props => ({
     fontFamily: "CooperHewitt",
     paddingBottom: "24px",
     textOverflow: "ellipsis",
@@ -33,7 +33,7 @@ const Title = styled(HeaderThree)(props => ({
     color: props.theme.main.textColor
 }))
 
-const Summary = styled(Paragraph)(props => ({
+export const Summary = styled(Paragraph)(props => ({
     paddingBottom: "24px",
     wordWrap: "break-word",
     color: props.theme.main.textColor
@@ -50,11 +50,11 @@ const DatePublished = styled.div(props => ({
 
 const Author = styled.div(props => ({}))
 
-const Icon = styled(FAIconText)(props => ({
+export const Icon = styled(FAIconText)(props => ({
     color: "#707070",
     paddingRight: "12px"
 }))
-const IconText = styled.span(props => ({
+export const IconText = styled.span(props => ({
     color: "#707070",
 }))
 export const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {

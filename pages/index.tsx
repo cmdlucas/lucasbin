@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { HMFContainer } from '../utils/components/primitive-ui/container';
 import Profile from '../utils/components/ui/profile';
-import BlogPostsSummary from '../utils/components/ui/blogposts-summary';
+import BlogPostsSummary from '../utils/components/ui/blogpostssummary';
 import { allPosts, Post } from '../utils/model/posts';
 
 const HomeContainer = styled(HMFContainer)(props => ({

@@ -1,5 +1,5 @@
 import {getMarkdownData} from './markdown';
-import { markdown01PostFile } from '../../__fixtures__/samplepost';
+import { markdown01PostFile } from '../../__tests__/__fixtures__/samplepost';
 
 describe("Markdown", () => {
     let markdownData = [];

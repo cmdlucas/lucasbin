@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { HMFContainer } from '../../utils/components/primitive-ui/container';
-import BlogPostsSummary from '../../utils/components/ui/blogposts-summary';
+import BlogPostsSummary from '../../utils/components/ui/blogpostssummary';
 import { Post, allPosts } from '../../utils/model/posts';
 
 const BlogHomeContainer = styled(HMFContainer)(props => ({

@@ -1,5 +1,5 @@
 ## About
-This is the official repository for [https://lucasbin.com](https://lucasbin.com)
+This is the official repository for upcoming [https://lucasbin.com](https://lucasbin.com) version 2.0
 
 Built with: [NextJS](https://nextjs.org/)
 

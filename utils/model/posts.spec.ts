@@ -1,5 +1,5 @@
 import posts, { getPostSummary, getPosts } from "./posts"
-import { markdown01Data } from "../../__fixtures__/samplepost";
+import { markdown01Data } from "../../__tests__/__fixtures__/samplepost";
 
 describe("Posts Model", () => {
     it("getPostSummary() should return the summary of a post with a fixed length of 120", () => {
