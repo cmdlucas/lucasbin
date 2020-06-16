@@ -3,8 +3,8 @@ import { generalSkin } from '../primitive-ui/skin';
 import { HMFContainer } from '../primitive-ui/container';
 import { Flex } from '../primitive-ui/flexbox';
 import styled from 'styled-components';
-import Logo from '../images/logo';
-import MenuBar from '../images/menubar';
+import Logo from '../icon/logo';
+import MenuBar from '../icon/menubar';
 import NavMenu from './navmenu';
 
 const HeaderHolder = styled.header(props => ({

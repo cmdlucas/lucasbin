@@ -32,9 +32,12 @@ const HeaderText = styled(HeaderOne)(props => ({
     paddingBottom: "48px"
 }))
 
-const HeaderImage = styled.img(props => ({
-    width: "100%",
-    paddingBottom: "24px"
+const HeaderImage = styled.div(props => ({
+    padding: "0px 0px 24px 0px",
+    "@media only screen and (max-width: 768px)": {
+        width: "calc(100% + 32px)",
+        margin: "0px 0px 0px -16px",
+    }
 }))
 
 const Artifacts = styled.div(props => ({
@@ -75,8 +78,16 @@ const ContentContainer = styled.div`
     }
 
     pre {
+        width: 100%;
         border-radius: 8px;
-        margin-top: 24px;
+        padding: 24px 32px !important;
+        margin: 24px 0px 0px -32px;
+
+        @media only screen and (max-width: 768px) {
+            border-radius: 0px;
+            padding: 24px 16px !important;
+            margin: 24px 0px 0px -16px;
+        }
     }
 
     p code {
@@ -132,7 +143,7 @@ export function SinglePost({ prevPost, currPost, nextPost }: SinglePostProps) {
         <SinglePostHomeContainer>
             <HeaderContainer>
                 <HeaderText> {currPost.metadata.title} </HeaderText>
-                <HeaderImage src={currPost.header_image} />
+                <HeaderImage><img width="100%" src={currPost.header_image} /> </HeaderImage>
             </HeaderContainer>
             <ContentContainer>
                 <Artifacts>

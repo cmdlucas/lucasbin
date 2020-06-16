@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import BlogPost from './blogpost';
 import { TextLink } from '../primitive-ui/text';
 import { Post } from '../../model/posts';
+import { FlexRowWrap } from '../primitive-ui/flexbox';
 
 export interface BlogPostHolderProps {
     dataIndex: number
@@ -24,7 +25,7 @@ interface BlogPostsProps {
 
 export const BlogPosts: FunctionComponent<BlogPostsProps> = (props) => {
     return (
-        <>{
+        <FlexRowWrap>{
             props.posts.map((post, index) => (
                 <BlogPostHolder key={index + 1} dataIndex={index + 1}>
                     <TextLink href={`/blog/[pid]`} name={`/blog/${post.pid}`}>
@@ -32,7 +33,7 @@ export const BlogPosts: FunctionComponent<BlogPostsProps> = (props) => {
                     </TextLink>
                 </BlogPostHolder>
             ))
-        }</>
+        }</FlexRowWrap>
     )
 }
 

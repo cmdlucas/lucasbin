@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import { HMFContainer } from '../utils/components/primitive-ui/container';
 import Profile from '../utils/components/ui/profile';
-import BlogPostsSummary from '../utils/components/ui/blogpostssummary';
 import { allPosts, Post } from '../utils/model/posts';
+import PageLead from '../utils/components/ui/pagelead';
+import { TextLink } from '../utils/components/primitive-ui/text';
+import { BlogPosts } from '../utils/components/ui/blogposts';
+import { SecondaryButton } from '../utils/components/primitive-ui/button';
 
 const HomeContainer = styled(HMFContainer)(props => ({
     padding: "0px 8px",
@@ -16,6 +19,15 @@ const ComponentWrapper = styled.div(props => ({
     paddingBottom: "72px"
 }))
 
+const OutBlogButton = styled(SecondaryButton)(props => ({
+    width: "100%",
+    background: "#36DCBA",
+    color: "#FFFFFF",
+    "@media only screen and (max-width: 768px)": {
+        width: "100%",
+    }
+}))
+
 interface HomeProps {
     postsSummary: Post[]
 }
@@ -24,7 +36,16 @@ export function Home(props: HomeProps) {
     return (
         <HomeContainer>
             <ComponentWrapper><Profile /></ComponentWrapper>
-            <BlogPostsSummary type="home" posts={props.postsSummary} />
+            <>
+                <PageLead text="BLOG POSTS" icon={["far", "newspaper"]}
+                    rightComponent={() => <TextLink href="/blog" font="CooperHewitt">Go to blog →</TextLink>} />
+                    
+                <BlogPosts posts={props.postsSummary} />
+
+                <TextLink href="/blog">
+                    <OutBlogButton>GO TO BLOG</OutBlogButton>
+                </TextLink>
+            </>
         </HomeContainer>
     )
 }

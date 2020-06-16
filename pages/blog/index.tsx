@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { HMFContainer } from '../../utils/components/primitive-ui/container';
-import BlogPostsSummary from '../../utils/components/ui/blogpostssummary';
 import { Post, allPosts } from '../../utils/model/posts';
+import { BlogPosts } from '../../utils/components/ui/blogposts';
+import PageLead from '../../utils/components/ui/pagelead';
 
 const BlogHomeContainer = styled(HMFContainer)(props => ({
     padding: "0px 8px",
@@ -12,13 +13,14 @@ const BlogHomeContainer = styled(HMFContainer)(props => ({
 }))
 
 interface HomeProps {
-    postsSummary: Post[]
+    posts: Post[]
 }
 
 export function Home(props: HomeProps) {
     return (
         <BlogHomeContainer>
-            <BlogPostsSummary type="blog" posts={props.postsSummary} />
+        <PageLead text="SHOWING ALL POSTS" icon={["far", "newspaper"]} />
+            <BlogPosts posts={props.posts} />
         </BlogHomeContainer>
     )
 }
@@ -26,7 +28,7 @@ export function Home(props: HomeProps) {
 export async function getStaticProps() {
     return {
         props: {
-            postsSummary: allPosts
+            posts: allPosts
         }
     }
 }

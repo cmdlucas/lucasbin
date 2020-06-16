@@ -48,6 +48,10 @@ export const FAIconText = styled(FontAwesomeIcon)(props => ({
     verticalAlign: "text-top"
 }))
 
+export const IconText = styled(FAIconText)(props => ({
+    paddingRight: "12px"
+}))
+
 export const Paragraph = styled.p(props => ({
     fontSize: "1em"
 }))
