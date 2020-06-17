@@ -10,6 +10,10 @@ tags:
     - php
 ---
 
+{SUMMARY}
+
+GraphQL has been on a hype recently; to be fair, it's worth it. The need might be quite insidious when building less complex APIs, however, as with all applications.
+
 {START}
 
 _This walkthrough / guide is intended for those who have basic knowledge about building APIs._
@@ -103,7 +107,7 @@ mutation MakeRooms ($keys: [ID!]) {
 
 Look bottom-left, drag up the area labeled QUERY VARIABLES and paste this into the text box:
 
-```
+```json
 {
   "keys": [23, 455, 75, 746] 
 }
@@ -113,7 +117,7 @@ When you click the Run button, you have the option to select from the dropdown b
 
 **Note:** If we were to send this query without using ChromeiQL, we would either want to send the `Rooms` query or `MakeRooms` mutation. Within either of those, we can specify as many "sub-query" declared within either *Query* or *Mutation* as supported in the schema in our *schema.graphql* file (located in */src/config*). 
 
-```
+```graphql
 type Info {
     keyToBin: String!
     timestamp: Int!
@@ -144,7 +148,7 @@ As you can see, within the `type Query {}` schema above, we specified `roomsHavi
 
 In your ChromeiQL, change the query field's content to this:
 
-```
+```graphql
 query Rooms($search_keys: [ID!]!) {
    rooms{
      key
@@ -166,7 +170,7 @@ query Rooms($search_keys: [ID!]!) {
 
 In the `QUERY VARIABLES` area, change the content to this:
 
-```
+```json
 {
    "keys": [23, 455, 75, 746],
    "search_keys": [23, 75]
@@ -175,7 +179,7 @@ In the `QUERY VARIABLES` area, change the content to this:
 
 To get some result, first we run and select `MakeRooms`, then we run and select `Rooms` from the dropdown. As a result of the latter action, we get this response from the server:
 
-```
+```json
 {
    "data": {
      "rooms": [
@@ -233,7 +237,7 @@ Now, install the dependencies required (which includes those required for GraphQ
 
 Navigate to _/routes/web.php_ and add this:
 
-```
+```php
 use Siler\GraphQL;
 
 class Init {
@@ -263,7 +267,7 @@ Route::post('/play', function() {
 
 Create a _schema.graphql_ file in the routes folder (could be anywhere else, just make sure you read it using the correct URL) and add this:
 
-```
+```graphql
 type Query {
   message: String!
 }
@@ -277,7 +281,7 @@ Run: `php artisan serve`
 
 Now, we can query from ChromeiQL and get a response. Set your endpoint to `http://localhost:8000/play`, paste this into the query field:
 
-```
+```graphql
 query Message {
   message
 }
@@ -288,7 +292,7 @@ mutation Sum($a: Int, $b: Int) {
 
 Then this into the `QUERY VARIABLES` field:
 
-```
+```json
 {
   "a": 5, "b": 6
 }
@@ -296,7 +300,7 @@ Then this into the `QUERY VARIABLES` field:
 
 When we run and select `Sum`, we get this:
 
-```
+```json
 {
    "data": {
      "sum": 11

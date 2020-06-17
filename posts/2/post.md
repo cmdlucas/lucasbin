@@ -10,6 +10,10 @@ tags:
     - react
 ---
 
+{SUMMARY}
+
+Building responsive applications is a norm. It's not so much of a complicated thing to do when working on Single Page Applications (SPA) with React.
+
 {START}
 
 ### BACKGROUND

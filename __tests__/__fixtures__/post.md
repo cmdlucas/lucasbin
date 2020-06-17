@@ -9,7 +9,9 @@ tags:
     - elon musk
 ---
 
-## SpaceX Launch
+{SUMMARY}
+
+Elon musk has achieved the unthinkable. He has succeeded in launching man's first commercial spacecraft and this will change the world in ways that **the earth has never seen before**.
 
 {START}
 

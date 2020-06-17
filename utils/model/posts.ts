@@ -34,7 +34,7 @@ export const getMarkdown = () => {
  * Get the summary for post
  */
 export const getPostSummary = (markdown: Markdown) => {
-    return markdown.content.split("{START}")[1].trim().substring(0, 120);
+    return markdown.content.split("{SUMMARY}")[1].trim().substring(0, 110);
 }
 
 /**
@@ -65,7 +65,11 @@ export const mapPidToPostIndex = (posts: Post[]) => {
     return map;
 }
 
-export const allPosts: Post[] = getPosts();
+export const allPosts: Post[] = (()  => {
+    const posts = getPosts();
+    posts.sort((postA, postB) => postB.metadata.datePublished.localeCompare(postA.metadata.datePublished))
+    return posts;
+})();
 
 export const pidToPostIndex: PidToPostMap = mapPidToPostIndex(allPosts);
 

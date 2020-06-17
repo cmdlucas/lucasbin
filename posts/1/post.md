@@ -11,6 +11,10 @@ tags:
     - react-image-select
 ---
 
+{SUMMARY}
+
+Recently, I've been doing a lot of stuff with images. However, one simple repetitive feature stood out in all of the projects: selecting images and being able to remove any or all of them from the screen after selection.
+
 {START}
 
 Recently, I've been doing a lot of stuff with images. However, one simple repetitive feature stood out in all of the projects: selecting images and being able to remove any or all of them from the screen after selection.
