@@ -23,8 +23,8 @@ describe("Profile Component", () => {
 
 describe("TopDivision Component", () => {
     const wrapper = shallow(<TopDivision />);
-    it("should contain PROFILE as part of header", () => {
-        expect(wrapper.contains("PROFILE")).toBeTruthy();
+    it("should contain img as part of header", () => {
+        expect(wrapper.find("img")).toBeTruthy();
     })
 
     it("should render a HrLine component", () => {
