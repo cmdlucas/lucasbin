@@ -50,7 +50,7 @@ export const OneProject: FunctionComponent<Project> = (props) => {
             <FlexRowWrap>
             {
                 props.builtWith.map((tech, index) => (
-                    <code style={{ marginLeft: index > 0 ? "12px" : "0px" }}>
+                    <code style={{ marginLeft: index > 0 ? "12px" : "0px" }} key={index}>
                         {tech}
                     </code>
                 ))

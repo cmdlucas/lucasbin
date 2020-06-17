@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import { HMFContainer } from '../utils/components/primitive-ui/container';
 import Profile from '../utils/components/ui/profile';
@@ -7,6 +7,7 @@ import PageLead from '../utils/components/ui/pagelead';
 import { TextLink } from '../utils/components/primitive-ui/text';
 import { BlogPosts } from '../utils/components/ui/blogposts';
 import { SecondaryButton } from '../utils/components/primitive-ui/button';
+import { rowsFromDataNodes } from '../utils/tool/helper';
 
 const HomeContainer = styled(HMFContainer)(props => ({
     padding: "0px 8px",
@@ -29,10 +30,11 @@ const OutBlogButton = styled(SecondaryButton)(props => ({
 }))
 
 interface HomeProps {
-    postsSummary: Post[]
+    postsSummary: Post[][]
 }
 
 export function Home(props: HomeProps) {
+    useEffect(() => {document.title = "Caleb I. Lucas - Home"});
     return (
         <HomeContainer>
             <ComponentWrapper><Profile /></ComponentWrapper>
@@ -53,7 +55,7 @@ export function Home(props: HomeProps) {
 export async function getStaticProps() {
     return {
         props: {
-            postsSummary: allPosts.slice(0, 3)
+            postsSummary:  rowsFromDataNodes<Post>(allPosts.slice(0, 3), 3)
         }
     }
 }

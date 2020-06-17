@@ -66,6 +66,7 @@ export const mapPidToPostIndex = (posts: Post[]) => {
 }
 
 export const allPosts: Post[] = getPosts();
+
 export const pidToPostIndex: PidToPostMap = mapPidToPostIndex(allPosts);
 
 export default { getMarkdown, getPosts, mapPidToPostIndex, getPostSummary };

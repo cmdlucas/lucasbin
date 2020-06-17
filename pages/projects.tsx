@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useEffect } from 'react';
 import { Project, allProjects } from '../utils/model/projects';
 import styled from 'styled-components';
 import { HMFContainer } from '../utils/components/primitive-ui/container';
@@ -20,41 +20,32 @@ const ProjectsContainer = styled(HMFContainer)(props => ({
 }))
 
 const ComponentWrapper = styled.div(props => ({
-    paddingBottom: "48px",
-    ".project-row": {
-        ".project-holder:nth-child(1) .inner-project-holder": {
-            marginRight: "8px"
-        },
-        ".project-holder:nth-child(2) .inner-project-holder": {
-            marginLeft: "8px"
-        },
-        marginBottom: "24px"
-    },
-    "@media only screen and (max-width: 475px)": {
-        ".project-row": {
-            ".project-holder:nth-child(1) .inner-project-holder": {
-                marginRight: "0px",
-                marginBottom: "24px"
-            },
-            ".project-holder:nth-child(2) .inner-project-holder": {
-                marginLeft: "0px",
-                marginBottom: "24px"
-            },
-            marginBottom: "0px"
-        }
-    }
+    paddingBottom: "48px"
 }))
 
-const ProjectHolderWrapper = styled(FlexRow)(props => ({
+const ProjectHolderRow = styled(FlexRow)(props => ({
     alignItems: "baseline",
-    "@media only screen and (max-width: 475px)": {
-        flexDirection: "column"
+    ".project-holder:nth-child(1) .inner-project-holder": {
+        marginRight: "8px"
+    },
+    ".project-holder:nth-child(2) .inner-project-holder": {
+        marginLeft: "8px"
+    },
+    "@media only screen and (max-width: 479px)": {
+        flexDirection: "column",
+        ".project-holder:nth-child(1) .inner-project-holder": {
+            marginRight: "0px",
+        },
+        ".project-holder:nth-child(2) .inner-project-holder": {
+            marginLeft: "0px",
+        }
     }
 }))
 
 const ProjectHolder = styled.div(props => ({
     width: "50%",
-    "@media only screen and (max-width: 475px)": {
+    marginBottom: "24px",
+    "@media only screen and (max-width: 479px)": {
         width: "100%",
     }
 }))
@@ -76,13 +67,14 @@ const ConnectButton = styled(PrimaryButton)(props => ({
 }))
 
 export const Projects: FunctionComponent<ProjectProps> = ({ projects }) => {
+    useEffect(() => {document.title = "Caleb I. Lucas - Projects"});
     return (
         <ProjectsContainer>
             <PageLead icon={["fas", "suitcase"]} text="FEATURED PROJECTS" />
             <ComponentWrapper>
                 {
                     projects.map((projectRow, i) => (
-                        <ProjectHolderWrapper key={i} className="project-row">
+                        <ProjectHolderRow key={i}>
                             {
                                 projectRow.map((project, index) => (
                                     <ProjectHolder className="project-holder" key={index}>
@@ -92,7 +84,7 @@ export const Projects: FunctionComponent<ProjectProps> = ({ projects }) => {
                                     </ProjectHolder>
                                 ))
                             }
-                        </ProjectHolderWrapper>
+                        </ProjectHolderRow>
                     ))
                 }
             </ComponentWrapper>

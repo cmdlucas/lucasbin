@@ -7,11 +7,12 @@ import { defaultTheme, Theme, invertTheme, invertThemeType } from '../utils/comp
 import Layout from '../utils/components/layout/layout'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMoon, faSun, faSuitcase } from '@fortawesome/free-solid-svg-icons'
+import { faGithub, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faCalendarAlt, faUser, faNewspaper, faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import router from 'next/router'
 import nprogress from 'nprogress';
 
-library.add(faMoon, faSun, faCalendarAlt, faUser, faNewspaper, faEnvelope, faSuitcase);
+library.add(faMoon, faSun, faCalendarAlt, faUser, faNewspaper, faEnvelope, faSuitcase, faGithub, faTwitter, faLinkedin);
 
 export class MyApp extends App<{}, {}, { theme: Theme }> {
     constructor(props: AppProps) {

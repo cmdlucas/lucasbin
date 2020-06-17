@@ -13,6 +13,12 @@ export interface PostFile {
  * @return {PostFile[]}
  */
 export function readPosts(): PostFile[] {
+    /**
+     * Using process.pwd() because the directory into which next compiles
+     * the code will be different from our current dir resolved using __dirname.
+     * 
+     * See @link https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation
+     */
     const postsRootDir = path.join(process.cwd(), "posts");
     const thisDirContent = fs.readdirSync(postsRootDir, { withFileTypes: true });
     const postDirs = thisDirContent.filter(name => name.isDirectory());
