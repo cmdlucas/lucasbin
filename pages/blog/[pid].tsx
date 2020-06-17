@@ -144,7 +144,7 @@ const NextPostLinkFlex = styled(PostLinkFlex)`
 
 export function SinglePost({ prevPost, currPost, nextPost }: SinglePostProps) {
     if (!currPost) {
-        useRouter().replace("/");
+        useEffect(() => {useRouter().replace("/")});
         return <></>
     }
     const theme: Theme = useTheme();

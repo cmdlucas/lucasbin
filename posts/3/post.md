@@ -310,4 +310,4 @@ When we run and select `Sum`, we get this:
 
 Very straightforward!
 
-If you have questions, additions or corrections, please feel free to [connect and send me a message](https://lucasbin.com/connect).
+If you have questions, additions or corrections, please feel free to [connect and send me a message](/connect).
