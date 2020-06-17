@@ -39,7 +39,7 @@ export function Home(props: HomeProps) {
         <HomeContainer>
             <ComponentWrapper><Profile /></ComponentWrapper>
             <>
-                <PageLead text="BLOG POSTS" icon={["far", "newspaper"]}
+                <PageLead text="RECENT BLOG POSTS" icon={["far", "newspaper"]}
                     rightComponent={() => <TextLink href="/blog" font="CooperHewitt">Go to blog →</TextLink>} />
                     
                 <BlogPosts posts={props.postsSummary} />
