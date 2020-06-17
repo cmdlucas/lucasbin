@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageLead Component should render TextLink when supplied 1`] = `
+<div
+  className="sc-AxmLO sc-fzozJi sc-fzpans eUsDwx"
+  style={
+    Object {
+      "paddingBottom": "32px",
+    }
+  }
+>
+  <div
+    className="sc-fznyAO cSspzq"
+  >
+    <h3
+      className="sc-AxhUy sc-fznKkj kbrzHX"
+    >
+       
+      BLOG
+       
+    </h3>
+  </div>
+  <a
+    className="sc-AxjAm hMlpaj"
+    href="/blog"
+    onClick={[Function]}
+    onMouseEnter={[Function]}
+  />
+</div>
+`;

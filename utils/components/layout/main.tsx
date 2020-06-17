@@ -14,7 +14,8 @@ const MainHolder = styled.main(props => ({
 
 const MainContainer = styled(HMFContainer)(props => ({
     width: "100%",
-    maxWidth: "992px"
+    maxWidth: "992px",
+    minHeight: "calc(100vh - 208px - 76px)"
 }))
 
 interface MainProps { }

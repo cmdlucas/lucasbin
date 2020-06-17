@@ -36,7 +36,7 @@ const navFlyInAnimation = (props: NavMenuHolderProps) =>
 
 const NavMenuHolder = styled.nav`
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 10000;
     top: -400px;
     animation: ${navFlyInAnimation};
@@ -55,7 +55,7 @@ const EachMenuText: FunctionComponent<{ href: string, theme: DefaultTheme }> = (
     const router = useRouter();
     const active = router.pathname === href;
     return (
-        <TextLink href={href} color={active ? theme.main.linkColor : theme.main.textColor} >
+        <TextLink font="CooperHewitt" href={href} color={active ? theme.main.linkColor : theme.main.textColor} >
             {children}
         </TextLink>
     )
@@ -84,6 +84,10 @@ interface NavMenuProps {
     setOpen(): void
 }
 
+const ThemeSwitcherText = styled(IsolatedText)(props => ({
+    fontFamily: "CooperHewitt"
+}))
+
 export const NavMenu: FunctionComponent<NavMenuProps> = ({ setOpen, open, theme }) => {
     return (
         <NavMenuHolder open={open} onClick={setOpen}>
@@ -96,9 +100,9 @@ export const NavMenu: FunctionComponent<NavMenuProps> = ({ setOpen, open, theme 
                         <EachRow title="CONNECT" link="/connect" />
                         <NavListRow><HeaderTwo><span onClick={theme.switchTheme}>
                             {theme.type === "light" ?
-                                <><FAIconText icon="moon" /> <IsolatedText>GO DARK</IsolatedText></>
+                                <><FAIconText icon="moon" /> <ThemeSwitcherText>GO DARK</ThemeSwitcherText></>
                                 :
-                                <><FAIconText icon="sun" /> <IsolatedText>LIGHTS ON</IsolatedText></>
+                                <><FAIconText icon="sun" /> <ThemeSwitcherText>LIGHTS ON</ThemeSwitcherText></>
                             }
                         </span></HeaderTwo></NavListRow>
                     </List>

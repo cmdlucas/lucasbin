@@ -11,7 +11,7 @@ export const PrimaryButton = styled.button(props => ({
     padding: "13.5px 20px"
 }))
 
-export const SecondaryButton = styled.button(props => ({
+export const SecondaryButton = styled(PrimaryButton)(props => ({
     background: props.theme.main.buttonSecondary.background,
     color: props.theme.main.buttonSecondary.color,
 }))

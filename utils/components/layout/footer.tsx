@@ -14,7 +14,7 @@ const FooterHolder = styled.footer(props => ({
 const FooterSkin = styled.div(props => ({
     ...generalSkin(props.theme),
     height: "88px",
-    borderTop: "1px solid #EDEDED"
+    borderTop: `1px solid ${props.theme.main.borderColor}`
 }))
 
 const FooterContainer = styled(HMFContainer)(props => ({

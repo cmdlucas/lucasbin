@@ -22,4 +22,3 @@ export const FlexRowNoWrap = styled(FlexRow)(props => ({
 export const FlexColumn = styled(Flex)(props => ({
     flexDirection: "column"
 }))
-
