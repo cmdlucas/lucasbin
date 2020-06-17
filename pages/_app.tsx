@@ -6,12 +6,12 @@ import { GlobalStyle } from '../utils/components/primitive-ui/global'
 import { defaultTheme, Theme, invertTheme, invertThemeType } from '../utils/components/primitive-ui/theme'
 import Layout from '../utils/components/layout/layout'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons'
-import { faCalendarAlt, faUser, faNewspaper } from '@fortawesome/free-regular-svg-icons'
+import { faMoon, faSun, faSuitcase } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarAlt, faUser, faNewspaper, faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import router from 'next/router'
 import nprogress from 'nprogress';
 
-library.add(faMoon, faSun, faCalendarAlt, faUser, faNewspaper);
+library.add(faMoon, faSun, faCalendarAlt, faUser, faNewspaper, faEnvelope, faSuitcase);
 
 export class MyApp extends App<{}, {}, { theme: Theme }> {
     constructor(props: AppProps) {
