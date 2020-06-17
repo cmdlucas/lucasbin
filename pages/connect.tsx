@@ -47,7 +47,7 @@ export const Connect: FunctionComponent<{brands: {icon: IconName, link: string}[
                 <br />
                 <HeaderThree>Shoot me a mail: </HeaderThree>
                 <br />
-                <Paragraph>caleb_at_lucasbin_dot_com</Paragraph>
+                <Paragraph><strong>caleb_at_lucasbin_dot_com</strong></Paragraph>
             </ComponentWrapper>
         </ConnectContainer>
     )
