@@ -2,8 +2,8 @@ import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import BlogPost from './blogpost';
 import { TextLink } from '../primitive-ui/text';
-import posts, { Post } from '../../model/posts';
-import { FlexRowWrap, FlexRow } from '../primitive-ui/flexbox';
+import { Post } from '../../model/posts';
+import { FlexRow } from '../primitive-ui/flexbox';
 
 export interface BlogPostHolderProps {
     dataIndex: number
