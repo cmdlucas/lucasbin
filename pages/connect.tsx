@@ -26,7 +26,7 @@ const IconWrapper = styled.span(props => ({
     }
 }))
 
-export const Connect: FunctionComponent<{brands: IconName[]}> = ({ brands }) => {
+export const Connect: FunctionComponent<{brands: {icon: IconName, link: string}[]}> = ({ brands }) => {
     useEffect(() => {document.title = "Connect with me."});
     return (
         <ConnectContainer>
@@ -36,8 +36,8 @@ export const Connect: FunctionComponent<{brands: IconName[]}> = ({ brands }) => 
                 {
                     brands.map((brand, index) => (
                         <IconWrapper key={index}>
-                            <ExternalTextLink>
-                                <Icon icon={["fab", brand]} />
+                            <ExternalTextLink href={brand.link}>
+                                <Icon icon={["fab", brand.icon]} />
                             </ExternalTextLink>
                         </IconWrapper>
                     ))
@@ -56,7 +56,11 @@ export const Connect: FunctionComponent<{brands: IconName[]}> = ({ brands }) => 
 export const getStaticProps = async () => {
     return {
         props: {
-            brands: ["twitter", "linkedin", "github"]
+            brands: [
+                { icon: "twitter", link: "https://twitter.com/cmdlucas"},
+                { icon: "linkedin", link: "https://linkedin.com/in/cmdlucas"}, 
+                { icon: "github", link: "https://github.com/cmdlucas"}
+            ]
         } 
     }
 } 
