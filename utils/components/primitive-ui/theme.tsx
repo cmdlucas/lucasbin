@@ -54,7 +54,7 @@ export const invertTheme = (themeType: ThemeType) => themeType === "light" ? dar
 export const invertThemeType = (themeType: ThemeType) => themeType === "light" ? "dark" : "light";
 
 export const defaultTheme: Theme = {
-    type: "dark",
-    main: darkTheme,
+    type: "light",
+    main: lightTheme,
     switchTheme: () => {}
 }

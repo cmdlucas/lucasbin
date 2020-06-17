@@ -1,126 +1,30 @@
 ---
-title: SpaceX Launch
+title:  Select and preview images in React
 author: Caleb Lucas
-datePublished: 30/05/2020
-headerImage: rocket.png
-lastModifiedOn: 30/05/2020
+datePublished: 11/02/2019
+headerImage: react-image-select.png
+lastModifiedOn: 11/02/2019
 tags: 
-    - space
-    - elon musk
+    - javascript
+    - react
+    - images
+    - react-image-select
 ---
-
-## SpaceX Launch
 
 {START}
 
-Elon musk has achieved the unthinkable. He has succeeded in launching man's first commercial spacecraft and this will change the world in ways that **the earth has never seen before**.
+Recently, I've been doing a lot of stuff with images. However, one simple repetitive feature stood out in all of the projects: selecting images and being able to remove any or all of them from the screen after selection.
 
-Let's take a look at this:
+That's an easy functionality, right? Yeah, you're right. Or may be you're wrong. Well, I don't know. It's up to you and the framework or library you use. It also depends on how much time you're willing to put into making the code for this feature as clean and less smelly as possible. Even at that, it's still, well... easy, because we already have the powerful [FileReader](https://developer.mozilla.org/en/docs/Web/API/FileReader) API.
 
-```java
-package com.personal.algorithms;
+Let's take a look at this package [ImageSelectPreview](https://github.com/cmdlucas/react-image-select-pv) where the [FileReader](https://developer.mozilla.org/en/docs/Web/API/FileReader) API is used extensively. I made it because I was tired of copying and pasting codes every time I needed that "simple" feature in my project. Yes, it only works with React (because, React for the win in terms of simplicity, imo), but if you don't use React, you can take advantage of this idea and build one that works with whatever library or framework you use (unless my little speech is already making you a React convertee, then I'm winning. Haha).
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+#### Okay. Why should you? 
 
-/**
- * Generate all unique possible solutions of an n x n chess board where
- * each row and column have only one possible queen that cannot be attacked
- * horizontally, vertically or diagonally
- *
- * The solutions are unique in the sense that no symmetrical reflection or rotation is respected
- *
- * @author Caleb I. Lucas
- */
-public class NQueensAllPossibleSolutions {
+You mean, why shouldn't you? Like, why shouldn't you let your users preview their images when they select them? Yeah sure, it's not a profile picture crop-filter-adjust kill-it-all functionality but, your users will be happy when they can select images and just "unselect" them seamlessly. Who likes to be stressed? Only you, of course.
 
-    int[][] Q;
-    List<int[]> solutions;
+Anyway, the package is still limited to button prompt but I will definitely be adding a drag-and-drop functionality soon. You can comment below if you feel it's unnecessary. At the end of the day, we all want beautiful UIs that give amazing UXs; [ImageSelectPreview](https://github.com/cmdlucas/react-image-select-pv) is just a very tiny tool in our toolbox for achieving that goal.
 
-    /**
-     * Generate possible representations of the board
-     * In the returned value, each row is a solution represented as placement of the queen on the board
-     * i.e (index -> row; value -> column)
-     * @param n - size of the 2D board
-     * @return array
-     */
-    int[][] nQueens(int n) {
-        Q = new int[n][n];
-        solutions = new ArrayList<>();
-        nQueensPermutation(0, new int[n]);
-        int[][] res = new int[solutions.size()][];
-        for(int i = 0; i < res.length; i++){
-            res[i] = solutions.get(i);
-        }
-        return res;
-    }
+__________________________________________________________________________
 
-    /**
-     * Generate the possible permutations
-     * @param row - row on which we need to find a solution for
-     * @param pos - maps each row to the column where queen should be placed
-     * @return - boolean if row was solved
-     */
-    boolean nQueensPermutation(int row, int[] pos)
-    {
-        if(row >= Q.length) return true;
-
-        for(int i = 0; i < Q.length; i++) {
-            Q[row][i] = 1;
-            int prevValueAtRow = pos[row];
-            pos[row] = i + 1;
-            if(row == 0 || insertQueenIntoBoard(row, i)) {
-                if(nQueensPermutation(row + 1, pos)) {
-                    solutions.add(Arrays.copyOf(pos, pos.length));
-                }
-            }
-            Q[row][i] = 0;
-            pos[row] = prevValueAtRow;
-        }
-
-        return false;
-    }
-
-    /**
-     * Check if the cell can be filled
-     * @param row - the row on the board
-     * @param col - the col on the board
-     * @return boolean
-     */
-    boolean insertQueenIntoBoard(int row, int col) {
-        // queen is safe horizontally since other horizontally adjacent cells to the left
-        // most definitely failed that's why we are on this cell
-
-        // confirm that the queen is safe vertically
-        for(int j = row - 1; j >= 0; j--){
-            if(Q[j][col] == 1) {
-                return false;
-            }
-        }
-
-        // confirm that the queen is safe top-left to cell
-        for(int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
-            if(Q[i][j] == 1) {
-                return false;
-            }
-        }
-
-        // confirm that the queen is safe top-right to cell
-        for(int i = row - 1, j = col + 1; i >= 0 && j < Q.length; i--, j++) {
-            if(Q[i][j] == 1) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    public static void main(String[] args) {
-        NQueensAllPossibleSolutions nQueensAllPossibleSolutions = new NQueensAllPossibleSolutions();
-        System.out.println(Arrays.deepToString(nQueensAllPossibleSolutions.nQueens(3)));
-        System.out.println(Arrays.deepToString(nQueensAllPossibleSolutions.nQueens(4)));
-        System.out.println(Arrays.deepToString(nQueensAllPossibleSolutions.nQueens(5)));
-    }
-}
-```
+[ImageSelectPreview](https://github.com/cmdlucas/react-image-select-pv) has been updated to include drop-in (drag-and-drop) functionality. See the docs to learn more about the APIs as props and add it into your project.

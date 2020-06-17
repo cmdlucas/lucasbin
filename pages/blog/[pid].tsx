@@ -9,7 +9,6 @@ import ReactMarkdown from 'react-markdown';
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { docco as lightCode, vs2015 as darkCode } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { Theme } from '../../utils/components/primitive-ui/theme';
-import { RelativePosition } from '../../utils/components/primitive-ui/global';
 import { Flex, FlexRowNoWrap } from '../../utils/components/primitive-ui/flexbox';
 
 interface SinglePostProps {
@@ -72,12 +71,20 @@ const ContentContainer = styled.div`
         width: 100%;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6, p, strong, a {
         font-family: Poppins;
     }
 
     h1, h2, h3, h4, h5, h6, p, strong, a {
         margin: 16px 0px;
+    }
+
+    img {
+        margin: 24px 0px;
+    }
+
+    a {
+        color: ${props => props.theme.main.linkColor}
     }
 
     pre {
@@ -162,6 +169,7 @@ export function SinglePost({ prevPost, currPost, nextPost }: SinglePostProps) {
                 <div>
                     <ReactMarkdown
                         source={currPost.content}
+                        escapeHtml={false}
                         renderers={{
                             code: ({ language, value }) => (
                                 <SyntaxHighlighter language={language}
