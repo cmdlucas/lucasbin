@@ -58,7 +58,7 @@ I'll be using  [Siler](https://siler.leocavalcante.dev/) (a micro-framework with
 
 Also, it is more comfy to play with GraphQL in the browser using the [ChromeiQL](https://chrome.google.com/webstore/detail/chromeiql/fkkiamalmpiidkljmicmjfbieiclmeij?hl=en) extension.
 
-Siler with my stand-alone app
+GraphQL with my stand-alone app
 ------------------------------
 
 Let's dive straight into the code. [See repo here](https://github.com/cmdlucas/siler-gql-play):
