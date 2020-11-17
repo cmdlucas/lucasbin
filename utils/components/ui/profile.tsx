@@ -92,7 +92,7 @@ export const TopDivision = () => (
 
 export const MidDivision = () => (
     <Division type="middle">
-        <Paragraph><code>Hi. I'm a software engineer building apps and dApps for the web. My core skills are centered around the Javascript, PHP, Java and Ethereum ecosystems.  </code></Paragraph>
+        <Paragraph><code>Hi. I'm a software engineer building apps and dApps for the web. My core skills are centered around the Javascript, PHP, JVM and Ethereum ecosystems.  </code></Paragraph>
         <br />
         <Paragraph><code>You may also find me entrepreneuring, gisting about blockchain, reading about Space, singing horribly, watching soccer or simply surfing the internet and learning new stuff.</code></Paragraph>
     </Division>
