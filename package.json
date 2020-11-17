@@ -18,7 +18,7 @@
         "@fortawesome/free-regular-svg-icons": "^5.13.0",
         "@fortawesome/free-solid-svg-icons": "^5.13.0",
         "@fortawesome/react-fontawesome": "^0.1.10",
-        "@types/react-syntax-highlighter": "^11.0.4",
+        "@types/react-syntax-highlighter": "^13.5.0",
         "base64-img": "^1.0.4",
         "next": "9.4.4",
         "nprogress": "^0.2.0",
