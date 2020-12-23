@@ -20,7 +20,7 @@
         "@fortawesome/react-fontawesome": "^0.1.10",
         "@types/react-syntax-highlighter": "^13.5.0",
         "base64-img": "^1.0.4",
-        "next": "9.4.4",
+        "next": "10.0.4",
         "nprogress": "^0.2.0",
         "react": "16.13.1",
         "react-dom": "16.13.1",
