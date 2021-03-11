@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { FlexRowNoWrap } from '../primitive-ui/flexbox';
-import { Post } from '../../model/posts';
+import { FlexRowNoWrap } from '../shared/primitive-ui/flexbox';
+import { Post } from './data/posts.dao';
 import styled from 'styled-components';
-import { RelativePosition } from '../primitive-ui/global';
-import { HeaderThree, Paragraph, FAIconText } from '../primitive-ui/text';
+import { RelativePosition } from '../shared/primitive-ui/global';
+import { HeaderThree, Paragraph, FAIconText } from '../shared/primitive-ui/text';
 
 const BlogPostSkin = styled(RelativePosition)(props => ({
     borderRadius: "8px",

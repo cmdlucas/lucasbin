@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { HMFContainer } from '../utils/components/primitive-ui/container';
-import Profile from '../utils/components/ui/profile';
-import { allPosts, Post } from '../utils/model/posts';
-import PageLead from '../utils/components/ui/pagelead';
-import { TextLink } from '../utils/components/primitive-ui/text';
-import { BlogPosts } from '../utils/components/ui/blogposts';
-import { SecondaryButton } from '../utils/components/primitive-ui/button';
-import { rowsFromDataNodes } from '../utils/tool/helper';
+import { HMFContainer } from '../src/shared/primitive-ui/container';
+import Profile from '../src/profile/profile.ui';
+import { allPosts, Post } from '../src/blogposts/data/posts.dao';
+import PageLead from '../src/pagelead/pagelead.ui';
+import { TextLink } from '../src/shared/primitive-ui/text';
+import { BlogPosts } from '../src/blogposts/blogposts.ui';
+import { SecondaryButton } from '../src/shared/primitive-ui/button';
+import { rowsFromDataNodes } from '../src/shared/tool/helper';
 
 const HomeContainer = styled(HMFContainer)(props => ({
     padding: "0px 8px",
@@ -22,6 +22,8 @@ const ComponentWrapper = styled.div(props => ({
 
 const OutBlogButton = styled(SecondaryButton)(props => ({
     width: "100%",
+
+
     background: "#36DCBA",
     color: "#FFFFFF",
     "@media only screen and (max-width: 768px)": {

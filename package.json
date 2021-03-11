@@ -9,7 +9,9 @@
         "test:unit": "jest",
         "test:coverage": "jest --coverage",
         "test:e2e": "jest --config ./jest.e2e.json",
-        "test": "npm run test:unit && npm run test:e2e"
+        "test": "npm run test:unit && npm run test:e2e",
+        "build-start": "next build && next start"
+        
     },
     "dependencies": {
         "@cmdlucas/markdown-metadata": "^1.0.7",

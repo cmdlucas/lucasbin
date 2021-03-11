@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import BlogPost from './blogpost';
-import { TextLink } from '../primitive-ui/text';
-import { Post } from '../../model/posts';
-import { FlexRow } from '../primitive-ui/flexbox';
+import { TextLink } from '../shared/primitive-ui/text';
+import { Post } from './data/posts.dao';
+import { FlexRow } from '../shared/primitive-ui/flexbox';
 
 export interface BlogPostHolderProps {
     dataIndex: number

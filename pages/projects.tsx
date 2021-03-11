@@ -1,12 +1,12 @@
 import React, { FunctionComponent, useEffect } from 'react';
-import { Project, allProjects } from '../utils/model/projects';
+import { Project, allProjects } from '../src/project/projects.data';
 import styled from 'styled-components';
-import { HMFContainer } from '../utils/components/primitive-ui/container';
-import { PrimaryButton } from '../utils/components/primitive-ui/button';
-import { IconText, TextLink } from '../utils/components/primitive-ui/text';
-import OneProject from '../utils/components/ui/project';
-import { FlexRowNoWrap, FlexRow } from '../utils/components/primitive-ui/flexbox';
-import PageLead from '../utils/components/ui/pagelead';
+import { HMFContainer } from '../src/shared/primitive-ui/container';
+import { PrimaryButton } from '../src/shared/primitive-ui/button';
+import { IconText, TextLink } from '../src/shared/primitive-ui/text';
+import OneProject from '../src/project/project.ui';
+import { FlexRowNoWrap, FlexRow } from '../src/shared/primitive-ui/flexbox';
+import PageLead from '../src/pagelead/pagelead.ui';
 
 interface ProjectProps {
     projects: Project[][]

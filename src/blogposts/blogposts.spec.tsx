@@ -1,8 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { BlogPosts } from './blogposts';
+import { BlogPosts } from './blogposts.ui';
 import { BlogPost } from './blogpost';
-import { markdown01Data } from '../../../__tests__/__fixtures__/samplepost';
+import { markdown01Data } from '../../e2e/__fixtures__/samplepost';
 
 describe("BlogPosts Component", () => {
     const posts = [[markdown01Data]];

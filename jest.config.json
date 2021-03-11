@@ -13,7 +13,7 @@
         "^.+\\.tsx?$": "ts-jest"
     },
     "testPathIgnorePatterns": [
-        "<rootDir>/__tests__",
+        "<rootDir>/e2e",
         "<rootDir>/.next",
         "<rootDir>/public",
         "<rootDir>/node_modules"
