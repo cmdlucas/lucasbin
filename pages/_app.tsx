@@ -2,9 +2,9 @@ import App, { AppProps } from 'next/app'
 import Head from 'next/head';
 import React, { ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyle } from '../src/shared/components/primitive-ui/global'
-import { defaultTheme, Theme, invertTheme, invertThemeType } from '../src/shared/components/primitive-ui/theme'
-import Layout from '../src/shared/components/layout/layout'
+import { GlobalStyle } from '../src/shared/primitive-ui/global'
+import { defaultTheme, Theme, invertTheme, invertThemeType } from '../src/shared/primitive-ui/theme'
+import Layout from '../src/shared/layout/layout'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faMoon, faSun, faSuitcase } from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
