@@ -1,7 +1,6 @@
-import { Markdown } from "../../utils/tool/markdown";
-import { PostFile } from "../../posts/_reader";
+import { PostFile } from "../../src/blogposts/data/posts.reader";
 import path from 'path'
-import { Post } from "../../utils/model/posts";
+import { Post } from "../../src/blogposts/data/posts.dao";
 
 export const markdown01 = `
 ---

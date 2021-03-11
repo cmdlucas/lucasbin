@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { Profile, TopDivision, MidDivision, BottomDivision } from './profile';
-import { PrimaryButton } from '../primitive-ui/button';
-import { HrLine } from '../primitive-ui/global';
-import { Paragraph } from '../primitive-ui/text';
+import { Profile, TopDivision, MidDivision, BottomDivision } from './profile.ui';
+import { PrimaryButton } from '../shared/primitive-ui/button';
+import { HrLine } from '../shared/primitive-ui/global';
+import { Paragraph } from '../shared/primitive-ui/text';
 
 describe("Profile Component", () => {
     const wrapper = shallow(<Profile />);

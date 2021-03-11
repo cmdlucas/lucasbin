@@ -6,8 +6,8 @@
         "ts",
         "tsx"
     ],
-    "rootDir": "./__tests__",
-    "testRegex": ".*\\.e2e\\.spec\\.tsx?$",
+    "rootDir": "./e2e",
+    "testRegex": ".*\\.spec\\.tsx?$",
     "displayName": "End-to-End Tests",
     "transform": {
         "^.+\\.tsx?$": "ts-jest"

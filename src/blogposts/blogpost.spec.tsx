@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { BlogPost, PostHeaderImage, Title, Summary, Icon, IconText } from './blogpost';
-import { markdown01Data } from '../../../__tests__/__fixtures__/samplepost';
+import { markdown01Data } from '../../e2e/__fixtures__/samplepost';
 
 describe("BlogPost Component", () => {
     const wrapper = shallow(<BlogPost data={markdown01Data} />)

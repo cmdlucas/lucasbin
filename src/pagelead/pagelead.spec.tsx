@@ -1,9 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow, mount } from 'enzyme';
-import PageLead, { HeaderIntro, HeaderText } from './pagelead';
-import { IconText, TextLink } from '../primitive-ui/text';
-import { defaultTheme } from '../primitive-ui/theme';
+import PageLead, { HeaderIntro, HeaderText } from './pagelead.ui';
+import { IconText, TextLink } from '../shared/primitive-ui/text';
+import { defaultTheme } from '../shared/primitive-ui/theme';
 import { ThemeProvider } from 'styled-components';
 
 describe("PageLead Component", () => {

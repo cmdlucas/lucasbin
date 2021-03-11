@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import styled, { useTheme } from 'styled-components';
-import { HMFContainer } from '../../utils/components/primitive-ui/container';
-import { Post, allPosts, pidToPostIndex } from '../../utils/model/posts';
-import { HeaderOne, FAIconText, TextLink, Paragraph } from '../../utils/components/primitive-ui/text';
+import { HMFContainer } from '../../src/shared/primitive-ui/container';
+import { Post, allPosts, pidToPostIndex } from '../../src/blogposts/data/posts.dao';
+import { HeaderOne, FAIconText, TextLink, Paragraph } from '../../src/shared/primitive-ui/text';
 import { useRouter } from 'next/router';
 import ReactMarkdown from 'react-markdown';
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import { docco as lightCode, vs2015 as darkCode } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import { Theme } from '../../utils/components/primitive-ui/theme';
-import { Flex, FlexRowNoWrap } from '../../utils/components/primitive-ui/flexbox';
+import { Theme } from '../../src/shared/primitive-ui/theme';
+import { Flex, FlexRowNoWrap } from '../../src/shared/primitive-ui/flexbox';
 
 interface SinglePostProps {
     prevPost: Post

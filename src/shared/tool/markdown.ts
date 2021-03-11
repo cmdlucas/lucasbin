@@ -1,5 +1,5 @@
 import { parse as markdownYamlMetadataParser, MarkdownParserConfig, AnyMap, MarkdownData } from '@cmdlucas/markdown-metadata'
-import { PostFile } from '../../posts/_reader';
+import { PostFile } from '../../blogposts/data/posts.reader';
 
 export interface MetadataContent extends AnyMap {
     title?: string

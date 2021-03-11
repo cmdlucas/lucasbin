@@ -1,25 +1,25 @@
 import React, { FunctionComponent, useEffect } from 'react';
 import styled from 'styled-components';
-import { IconText, HeaderThree, ExternalTextLink, Paragraph } from '../utils/components/primitive-ui/text';
-import { HMFContainer } from '../utils/components/primitive-ui/container';
+import { IconText, HeaderThree, ExternalTextLink, Paragraph } from '../src/shared/primitive-ui/text';
+import { HMFContainer } from '../src/shared/primitive-ui/container';
 import { IconName } from '@fortawesome/fontawesome-svg-core';
 
-const ConnectContainer = styled(HMFContainer)(props => ({
+const ConnectContainer = styled(HMFContainer)(() => ({
     padding: "0px 8px",
     "@media only screen and (max-width: 768px)": {
         padding: "0px 16px"
     }
 }))
 
-const ComponentWrapper = styled.div(props => ({
+const ComponentWrapper = styled.div(() => ({
     paddingBottom: "72px"
 }))
 
-const Icon = styled(IconText)(props => ({
+const Icon = styled(IconText)(() => ({
     fontSize: "1em"
 }))
 
-const IconWrapper = styled.span(props => ({
+const IconWrapper = styled.span(() => ({
     marginRight: "28px",
     "&::nth-last-child()": {
         marginRight: "0px"

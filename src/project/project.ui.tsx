@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
-import { Project } from '../../model/projects';
+import { Project } from './projects.data';
 import styled from 'styled-components';
-import { AbsolutePosition, RelativePosition } from '../primitive-ui/global';
-import { HeaderThree, Paragraph } from '../primitive-ui/text';
-import { FlexRowWrap } from '../primitive-ui/flexbox';
+import { AbsolutePosition, RelativePosition } from '../shared/primitive-ui/global';
+import { HeaderThree, Paragraph } from '../shared/primitive-ui/text';
+import { FlexRowWrap } from '../shared/primitive-ui/flexbox';
 
 const ImageHolder = styled(RelativePosition)`
     overflow: hidden;

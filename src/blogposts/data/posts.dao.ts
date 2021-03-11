@@ -1,5 +1,5 @@
-import { readPostsContent } from "../../posts/_reader"
-import { getMarkdownData, Markdown } from "../tool/markdown";
+import { readPostsContent } from "./posts.reader"
+import { getMarkdownData, Markdown } from "../../shared/tool/markdown";
 import path from 'path';
 import imageToBase64 from 'base64-img';
 import slugify from "slugify";
@@ -14,42 +14,26 @@ export interface PidToPostMap {
     [x: string]: number
 }
 
-/**
- * Generate SEO friendly URL
- * @param title 
- */
 const seoUrl = (title: string) => {
     const strippedTitle = title.toLowerCase().replace(/and/g, "").replace(/ a /g, " ").replace(/the/g, "").trim();
     return slugify(strippedTitle, { lower: true, strict: true,  replacement: '-' })
 }
 
-/**
- * Get the markdown data for all posts
- */
 export const getMarkdown = () => {
     return getMarkdownData(readPostsContent());
 }
 
-/**
- * Get the summary for post
- */
 export const getPostSummary = (markdown: Markdown) => {
     return markdown.content.split("{SUMMARY}")[1].trim().substring(0, 110);
 }
 
-/**
- * Get the summary for post
- */
 export const getPostHeaderImage = (markdown: Markdown) => {
     const headerImageFilePath = path.join(markdown.path_to_file, markdown.metadata.headerImage);
     return imageToBase64.base64Sync(headerImageFilePath);
 }
 
-/**
- * Get all the written posts
- */
 export const getPosts = () => {
-    return getMarkdown().map((markdown, index) => {
+    return getMarkdown().map((markdown) => {
         const summary = getPostSummary(markdown);
         const header_image = getPostHeaderImage(markdown);
         return { 

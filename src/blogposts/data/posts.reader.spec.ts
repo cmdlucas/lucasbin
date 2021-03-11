@@ -1,4 +1,4 @@
-import { readPosts, readPostsContent, PostFile } from "./_reader"
+import { readPosts, readPostsContent, PostFile } from "./posts.reader"
 
 describe("Posts Reader", () => {
     let postFiles: PostFile[];
