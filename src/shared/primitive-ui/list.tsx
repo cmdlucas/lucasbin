@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const List = styled.ul(props => ({
+export const List = styled.ul(() => ({
     listStyleType: "none",
     padding: 0
 }))
 
-export const ListRow = styled.li(props => ({
+export const ListRow = styled.li(() => ({
     width: "100%"
 }))

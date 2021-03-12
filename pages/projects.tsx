@@ -7,22 +7,24 @@ import { IconText, TextLink } from '../src/shared/primitive-ui/text';
 import OneProject from '../src/project/project.ui';
 import { FlexRowNoWrap, FlexRow } from '../src/shared/primitive-ui/flexbox';
 import PageLead from '../src/pagelead/pagelead.ui';
+import { GetStaticPropsResult } from 'next';
 
 interface ProjectProps {
     projects: Project[][]
 }
 
-const ProjectsContainer = styled(HMFContainer)(props => ({
+const ProjectsContainer = styled(HMFContainer)(() => ({
     padding: "0px 8px",
     "@media only screen and (max-width: 768px)": {
         padding: "0px 16px"
     }
 }))
 
-const ComponentWrapper = styled.div(props => ({
+const ComponentWrapper = styled.div(() => ({
     paddingBottom: "48px"
 }))
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ProjectHolderRow = styled(FlexRow)(props => ({
     alignItems: "baseline",
     ".project-holder:nth-child(1) .inner-project-holder": {
@@ -42,7 +44,7 @@ const ProjectHolderRow = styled(FlexRow)(props => ({
     }
 }))
 
-const ProjectHolder = styled.div(props => ({
+const ProjectHolder = styled.div(() => ({
     width: "50%",
     marginBottom: "24px",
     "@media only screen and (max-width: 479px)": {
@@ -50,7 +52,7 @@ const ProjectHolder = styled.div(props => ({
     }
 }))
 
-const ConnectButtonHolder = styled(FlexRowNoWrap)(props => ({
+const ConnectButtonHolder = styled(FlexRowNoWrap)(() => ({
     justifyContent: "center",
     "a": {
         width: "318px",
@@ -60,7 +62,7 @@ const ConnectButtonHolder = styled(FlexRowNoWrap)(props => ({
     }
 }))
 
-const ConnectButton = styled(PrimaryButton)(props => ({
+const ConnectButton = styled(PrimaryButton)(() => ({
     width: "100%",
     color: "#FFFFFF",
     background: "#366DDC"
@@ -100,7 +102,7 @@ export const Projects: FunctionComponent<ProjectProps> = ({ projects }) => {
     )
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps = async (): Promise<GetStaticPropsResult<ProjectProps>> => {
     // Break into two items per row
     const projects = [[]];
     allProjects.forEach(project => {

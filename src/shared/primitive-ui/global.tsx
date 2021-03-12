@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
@@ -95,7 +96,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 `
 
-export const AbsolutePosition = styled.div(props => ({
+export const AbsolutePosition = styled.div((props) => ({
     position: "absolute",
 }))
 
