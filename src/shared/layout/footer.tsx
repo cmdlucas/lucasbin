@@ -2,12 +2,12 @@ import React, { FunctionComponent } from 'react'
 import { useRouter } from 'next/router';
 import { generalSkin } from '../primitive-ui/skin';
 import { FlexRowNoWrap } from '../primitive-ui/flexbox';
-import styled, { withTheme, DefaultTheme, CSSObject } from 'styled-components';
+import styled, { withTheme, WebsiteDefaultTheme, CSSObject } from 'styled-components';
 import { TextLink, IsolatedText, ExternalTextLink } from '../primitive-ui/text';
 import { defaultTheme } from '../primitive-ui/theme';
 import { HMFContainer } from '../primitive-ui/container';
 
-const FooterHolder = styled.footer(props => ({
+const FooterHolder = styled.footer(() => ({
     marginBottom: "auto"
 }))
 
@@ -17,10 +17,11 @@ const FooterSkin = styled.div(props => ({
     borderTop: `1px solid ${props.theme.main.borderColor}`
 }))
 
-const FooterContainer = styled(HMFContainer)(props => ({
+const FooterContainer = styled(HMFContainer)(() => ({
     height: "100%"
 }))
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const FooterFlex = styled(FlexRowNoWrap)(props => ({
     padding: "0px 8px",
     "@media only screen and (max-width: 768px)": {
@@ -34,6 +35,7 @@ const eachFooterItemResponsive: CSSObject = {
     flexGrow: 0
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const LeftFooter = styled.div(props => ({
     textAlign: "left",
     flexGrow: 1,
@@ -42,6 +44,7 @@ const LeftFooter = styled.div(props => ({
     }
 }))
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const RightFooter = styled.div(props => ({
     textAlign: "right",
     flexGrow: 1,
@@ -50,14 +53,14 @@ const RightFooter = styled.div(props => ({
     }
 }))
 
-const FooterText = styled.span(props => ({
+const FooterText = styled.span(() => ({
     color: "#CCCCCC",
     fontSize: "1rem",
     fontFamily: "CooperHewitt"
 }))
 
 interface FooterProps {
-    theme: DefaultTheme
+    theme: WebsiteDefaultTheme
 }
 
 export const Footer: FunctionComponent<FooterProps> = ({ theme }) => {

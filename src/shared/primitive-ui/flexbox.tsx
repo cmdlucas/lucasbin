@@ -1,6 +1,7 @@
-import styled, { DefaultTheme, CSSObject } from 'styled-components';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import styled from 'styled-components';
 
-export const Flex = styled.div(props => ({
+export const Flex = styled.div(() => ({
     display: "flex",
     height: "100%",
     alignItems: "center"

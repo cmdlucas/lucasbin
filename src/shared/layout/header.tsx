@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FunctionComponent, useState } from 'react'
 import { generalSkin } from '../primitive-ui/skin';
 import { HMFContainer } from '../primitive-ui/container';
 import { Flex } from '../primitive-ui/flexbox';
@@ -7,6 +7,7 @@ import Logo from '../icon/logo';
 import MenuBar from '../icon/menubar';
 import NavMenu from './navmenu';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const HeaderHolder = styled.header(props => ({
     top: 0,
     left: 0,
@@ -21,24 +22,24 @@ const HeaderSkin = styled.div(props => ({
     borderBottom: `1px solid ${props.theme.main.borderColor}`
 }))
 
-const HeaderContainer = styled(HMFContainer)(props => ({
+const HeaderContainer = styled(HMFContainer)(() => ({
     height: "100%",
     "@media only screen and (max-width: 768px)": {
         padding: "0px 8px"
     }
 }))
 
-const HeaderFlex = styled(Flex)(props => ({}))
+const HeaderFlex = styled(Flex)(() => ({}))
 
-const LeftHeaderColumn = styled(Flex)(props => ({
+const LeftHeaderColumn = styled(Flex)(() => ({
     flexGrow: 1
 }))
 
-const RightHeaderColumn = styled(Flex)(props => ({
+const RightHeaderColumn = styled(Flex)(() => ({
     justifyContent: "flex-end",
 }))
 
-export function Header() {
+export const Header: FunctionComponent = () => {
     const [open, setOpen] = useState(false);
     return (
         <>

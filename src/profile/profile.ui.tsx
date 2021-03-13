@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { FlexRowNoWrap, Flex } from "../shared/primitive-ui/flexbox";
@@ -49,34 +49,36 @@ export const Division = styled.div<DivisionProps>((props) => ({
   ...defineBorder(props.type, props.theme),
 }));
 
-const OnBorderNoContent = styled.div((props) => ({
+const OnBorderNoContent = styled.div(() => ({
   flexGrow: 1,
 }));
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const OnBorderContent = styled(Flex)((props) => ({
   minWidth: "212px",
   position: "relative",
 }));
 
-const TopOnBorderContent = styled(OnBorderContent)((props) => ({
+const TopOnBorderContent = styled(OnBorderContent)(() => ({
   justifyContent: "start",
 }));
 
-const BottomOnBorderNoContent = styled(OnBorderNoContent)((props) => ({
+const BottomOnBorderNoContent = styled(OnBorderNoContent)(() => ({
   alignSelf: "flex-end",
 }));
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const BottomOnBorderContent = styled(OnBorderContent)((props) => ({
   justifyContent: "end",
   flexDirection: "row-reverse",
   paddingTop: "38px",
 }));
 
-export const HeaderIntro = styled(HeaderThree)((props) => ({
+export const HeaderIntro = styled(HeaderThree)(() => ({
   fontFamily: "CooperHewitt",
 }));
 
-export const TopDivision = () => (
+export const TopDivision: FunctionComponent = () => (
   <Division type="top">
     <FlexRowNoWrap>
       <TopOnBorderContent>
@@ -95,7 +97,7 @@ export const TopDivision = () => (
   </Division>
 );
 
-export const MidDivision = () => (
+export const MidDivision: FunctionComponent = () => (
   <Division type="middle">
     <Paragraph>
       <code>
@@ -115,11 +117,12 @@ export const MidDivision = () => (
   </Division>
 );
 
-export const BottomDivision = () => (
+export const BottomDivision: FunctionComponent = () => (
   <Division type="bottom">
     <FlexRowNoWrap>
       <BottomOnBorderNoContent>
-        {" "} <HrLine /> {" "}
+        {" "}
+        <HrLine />{" "}
       </BottomOnBorderNoContent>
       <BottomOnBorderContent>
         <Link href="/connect">
@@ -141,7 +144,7 @@ export const BottomDivision = () => (
   </Division>
 );
 
-export function Profile() {
+export const Profile: FunctionComponent = () => {
   return (
     <ProfileSkin>
       <TopDivision />
@@ -149,6 +152,6 @@ export function Profile() {
       <BottomDivision />
     </ProfileSkin>
   );
-}
+};
 
 export default React.memo(Profile);

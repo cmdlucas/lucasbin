@@ -30,15 +30,15 @@ export const IsolatedText = styled.span(props => ({
     color: props.color ?? props.theme.main.textColor
 }))
 
-export const HeaderOne = styled.h2(props => ({
+export const HeaderOne = styled.h2(() => ({
     fontSize: "2em"
 }))
 
-export const HeaderTwo = styled.h2(props => ({
+export const HeaderTwo = styled.h2(() => ({
     fontSize: "1.5em"
 }))
 
-export const HeaderThree = styled.h3(props => ({
+export const HeaderThree = styled.h3(() => ({
     fontSize: "1.17em"
 }))
 
@@ -48,10 +48,10 @@ export const FAIconText = styled(FontAwesomeIcon)(props => ({
     verticalAlign: "text-top"
 }))
 
-export const IconText = styled(FAIconText)(props => ({
+export const IconText = styled(FAIconText)(() => ({
     paddingRight: "12px"
 }))
 
-export const Paragraph = styled.p(props => ({
+export const Paragraph = styled.p(() => ({
     fontSize: "1em"
 }))

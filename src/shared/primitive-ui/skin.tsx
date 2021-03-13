@@ -1,6 +1,13 @@
-import { DefaultTheme } from 'styled-components';
+import { WebsiteDefaultTheme } from 'styled-components';
 
-export const generalSkin = (theme: DefaultTheme) => ({
+export interface GeneralSkin {
+    width: string;
+    backgroundColor: string;
+    color: string;
+    transition: string;
+}
+
+export const generalSkin = (theme: WebsiteDefaultTheme): GeneralSkin => ({
     width: "100%",
     backgroundColor: theme.main.background,
     color: theme.main.textColor,

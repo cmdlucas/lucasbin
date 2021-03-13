@@ -11,10 +11,11 @@ import { faGithub, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-ic
 import { faCalendarAlt, faUser, faNewspaper, faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import router from 'next/router'
 import nprogress from 'nprogress';
+import { AnyMap } from '@cmdlucas/markdown-metadata';
 
 library.add(faMoon, faSun, faCalendarAlt, faUser, faNewspaper, faEnvelope, faSuitcase, faGithub, faTwitter, faLinkedin);
 
-export class MyApp extends App<{}, {}, { theme: Theme }> {
+export class MyApp extends App<AnyMap, AnyMap, { theme: Theme }> {
     constructor(props: AppProps) {
         super(props);
 
@@ -26,11 +27,11 @@ export class MyApp extends App<{}, {}, { theme: Theme }> {
         }
     }
 
-    setThemeState(theme: Theme, callback = () => {}) {
+    setThemeState(theme: Theme, callback?: () => void): void {
         this.setState({ ...this.state, theme: { ...theme }}, callback)
     }
     
-    toggleTheme = () => {
+    toggleTheme = (): void => {
         this.setThemeState({
             ...this.state.theme,
             type: invertThemeType(this.state.theme.type),
@@ -38,7 +39,7 @@ export class MyApp extends App<{}, {}, { theme: Theme }> {
         })
     }
 
-    componentDidMount() {
+    componentDidMount(): void {
         router.events.on('routeChangeStart', () => nprogress.start())
         router.events.on('hashChangeStart', () => nprogress.inc())
         router.events.on('hashChangeComplete', () => nprogress.inc())

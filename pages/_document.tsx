@@ -1,9 +1,9 @@
 import Document, { DocumentContext } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import { AppType, AppPropsType } from 'next/dist/next-server/lib/utils'
+import { AppType, AppPropsType, DocumentInitialProps } from 'next/dist/next-server/lib/utils'
 
 export default class MyDocument extends Document {
-    static async getInitialProps(ctx: DocumentContext) {
+    static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
         const sheet = new ServerStyleSheet()
         const originalRenderPage = ctx.renderPage
 

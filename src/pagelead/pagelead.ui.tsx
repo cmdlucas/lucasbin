@@ -5,12 +5,12 @@ import { IconPrefix, IconName } from "@fortawesome/fontawesome-svg-core";
 import { FlexRowNoWrap } from "../shared/primitive-ui/flexbox";
 import { AnyMap } from "@cmdlucas/markdown-metadata";
 
-export const HeaderText = styled.div((props) => ({
+export const HeaderText = styled.div(() => ({
   flexGrow: 1,
   fontFamily: "CooperHewitt",
 }));
 
-export const HeaderIntro = styled(HeaderThree)((props) => ({
+export const HeaderIntro = styled(HeaderThree)(() => ({
   fontFamily: "CooperHewitt",
   display: "inline-table",
 }));
