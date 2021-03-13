@@ -7,7 +7,8 @@ import Logo from '../icon/logo';
 import MenuBar from '../icon/menubar';
 import NavMenu from './navmenu';
 
-const HeaderHolder = styled.header(() => ({
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const HeaderHolder = styled.header(props => ({
     top: 0,
     left: 0,
     zIndex: 12000,

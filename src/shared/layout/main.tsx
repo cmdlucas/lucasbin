@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, ReactNode } from 'react'
 import { generalSkin } from '../primitive-ui/skin';
 import { HMFContainer } from '../primitive-ui/container';
 import styled from 'styled-components';
@@ -18,7 +18,11 @@ const MainContainer = styled(HMFContainer)(() => ({
     minHeight: "calc(100vh - 208px - 76px)"
 }))
 
-export const Main: FunctionComponent = (props) => (
+interface MainProps {
+    children: ReactNode;
+}
+
+export const Main: FunctionComponent<MainProps> = (props) => (
     <MainSkin>
         <MainHolder>
             <MainContainer>
