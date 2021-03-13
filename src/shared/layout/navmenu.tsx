@@ -43,7 +43,7 @@ const navFlyOut = keyframes({
 
 const navFlyInAnimation = (props: NavMenuHolderProps) =>
   css`
-    ${props.open ? navFlyIn : navFlyOut} 0.2s linear 0s forwards
+    animation: ${props.open ? navFlyIn : navFlyOut} 0.2s linear 0s forwards
   `;
 
 const NavMenuHolder = styled.nav`
@@ -51,7 +51,7 @@ const NavMenuHolder = styled.nav`
   position: fixed;
   z-index: 10000;
   top: -400px;
-  animation: ${navFlyInAnimation};
+  ${navFlyInAnimation}
 `;
 const NavMenuSkin = styled.div((props) => ({
   ...generalSkin(props.theme),

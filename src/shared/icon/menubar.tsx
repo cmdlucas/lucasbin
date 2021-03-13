@@ -67,17 +67,17 @@ const bottomLineClosed = keyframes({
 
 const topLineAnimation = (props: MenuSvgLineProps) =>
   css`
-    ${props.open ? topLineOpen : topLineClosed} 0.2s linear 0s forwards;
+    animation: ${props.open ? topLineOpen : topLineClosed} 0.2s linear 0s forwards;
   `;
 
 const midLineAnimation = (props: MenuSvgLineProps) =>
   css`
-    ${props.open ? midLineOpen : midLineClosed} 0.2s linear 0s forwards;
+    animation: ${props.open ? midLineOpen : midLineClosed} 0.2s linear 0s forwards;
   `;
   
 const bottomLineAnimation = (props: MenuSvgLineProps) =>
   css`
-    ${props.open ? bottomLineOpen : bottomLineClosed} 0.2s linear 0s forwards;
+    animation: ${props.open ? bottomLineOpen : bottomLineClosed} 0.2s linear 0s forwards;
   `;
 
 interface MenuSvgLineProps {
@@ -85,15 +85,15 @@ interface MenuSvgLineProps {
 }
 
 const MenuSvgLineTop = styled.line<MenuSvgLineProps>`
-  animation: ${topLineAnimation};
+  ${topLineAnimation}
 `;
 
 const MenuSvgLineMid = styled.line<MenuSvgLineProps>`
-  animation: ${midLineAnimation};
+  ${midLineAnimation}
 `;
 
 const MenuSvgLineBottom = styled.line<MenuSvgLineProps>`
-  animation: ${bottomLineAnimation};
+  ${bottomLineAnimation}
 `;
 
 interface MenuBarProps {
