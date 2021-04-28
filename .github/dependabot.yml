@@ -1,0 +1,65 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: "@types/node"
+    versions:
+    - 14.14.34
+    - 14.14.37
+    - 14.14.41
+    - 15.0.0
+  - dependency-name: react-markdown
+    versions:
+    - 6.0.0
+  - dependency-name: "@typescript-eslint/eslint-plugin"
+    versions:
+    - 4.20.0
+    - 4.21.0
+  - dependency-name: "@typescript-eslint/parser"
+    versions:
+    - 4.21.0
+  - dependency-name: styled-components
+    versions:
+    - 5.2.1
+    - 5.2.2
+  - dependency-name: eslint
+    versions:
+    - 7.23.0
+  - dependency-name: "@types/jest"
+    versions:
+    - 26.0.21
+  - dependency-name: "@fortawesome/free-solid-svg-icons"
+    versions:
+    - 5.15.2
+  - dependency-name: ts-jest
+    versions:
+    - 26.5.1
+    - 26.5.2
+  - dependency-name: typescript
+    versions:
+    - 3.9.7
+    - 3.9.8
+  - dependency-name: "@types/react"
+    versions:
+    - 16.14.2
+    - 16.14.3
+  - dependency-name: next
+    versions:
+    - 10.0.5
+    - 10.0.6
+  - dependency-name: "@types/styled-components"
+    versions:
+    - 5.1.8
+  - dependency-name: "@fortawesome/free-brands-svg-icons"
+    versions:
+    - 5.15.2
+  - dependency-name: "@fortawesome/fontawesome-svg-core"
+    versions:
+    - 1.2.34
+  - dependency-name: "@fortawesome/free-regular-svg-icons"
+    versions:
+    - 5.15.2
