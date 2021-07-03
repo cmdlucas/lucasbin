@@ -125,7 +125,7 @@ export const NavMenu: FunctionComponent<NavMenuProps> = ({
         <NavMenuContainer>
           <List>
             <EachRow title="HOME" link="/" />
-            <EachRow title="PROJECTS" link="/projects" />
+            <EachRow title="WORK" link="/projects" />
             <EachRow title="BLOG" link="/blog" />
             <EachRow title="CONNECT" link="/connect" />
             <NavListRow>
