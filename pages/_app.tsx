@@ -2,7 +2,6 @@ import App, { AppProps } from 'next/app'
 import Head from 'next/head';
 import React, { ReactElement } from 'react';
 import { ThemeProvider } from 'styled-components'
-import { GlobalStyle } from '../src/shared/primitive-ui/global'
 import { defaultTheme, Theme, invertTheme, invertThemeType } from '../src/shared/primitive-ui/theme'
 import Layout from '../src/shared/layout/layout'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -12,6 +11,7 @@ import { faCalendarAlt, faUser, faNewspaper, faEnvelope } from '@fortawesome/fre
 import router from 'next/router'
 import nprogress from 'nprogress';
 import { AnyMap } from '@cmdlucas/markdown-metadata';
+import '../src/assets/global.css';
 
 library.add(faMoon, faSun, faCalendarAlt, faUser, faNewspaper, faEnvelope, faSuitcase, faGithub, faTwitter, faLinkedin);
 
@@ -75,7 +75,7 @@ export class MyApp extends App<AnyMap, AnyMap, { theme: Theme }> {
                     <title>Caleb I. Lucas</title>
                 </Head>
                 <ThemeProvider theme={this.state.theme}>
-                    <GlobalStyle />
+                    {/* <GlobalStyle /> */}
                     <Layout>
                         <Component {...pageProps} />
                     </Layout>

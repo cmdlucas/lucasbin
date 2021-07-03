@@ -20,12 +20,15 @@ const ComponentWrapper = styled.div(() => ({
 }));
 
 const OutBlogButton = styled(SecondaryButton)((props) => ({
-  width: "100%",
   background: "transparent",
+  float: "right",
+  marginRight: "16px",
   color: props.theme.type === "light" ? "#000000" : "#FFFFFF",
   border: `1px solid ${props.theme.type === "light" ? "#000000" : "#FFFFFF"}`,
   "@media only screen and (max-width: 768px)": {
     width: "100%",
+    marginRight: "0px",
+    float: "none",
   },
 }));
 
@@ -43,7 +46,7 @@ export const Home: FunctionComponent<HomeProps> = () => {
         <Profile />
       </ComponentWrapper>
       <TextLink href="/blog">
-        <OutBlogButton>GO TO BLOG</OutBlogButton>
+        <OutBlogButton>MY BLOG</OutBlogButton>
       </TextLink>
     </HomeContainer>
   );
