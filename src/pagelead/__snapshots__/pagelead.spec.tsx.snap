@@ -21,7 +21,7 @@ exports[`PageLead Component should render TextLink when supplied 1`] = `
     </h3>
   </div>
   <a
-    className="sc-AxjAm hMlpaj"
+    className="sc-AxjAm kEeNVX"
     href="/blog"
     onClick={[Function]}
     onMouseEnter={[Function]}

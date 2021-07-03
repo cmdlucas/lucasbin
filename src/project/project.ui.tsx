@@ -29,7 +29,7 @@ const Description = styled(Paragraph)`
 const Article = styled.article`
   code {
     background: ${(props) =>
-      props.theme.type === "light" ? "#EDEDED" : "#1E1E1E"};
+    props.theme.type === "light" ? "#EDEDED" : "#1E1E1E"};
     padding: 4px 8px;
     color: ${(props) => (props.theme.type === "light" ? "#666666" : "#ACACAC")};
     border-radius: 4px;
@@ -45,19 +45,48 @@ export const OneProject: FunctionComponent<Project> = (props) => {
   return (
     <Article>
       <HeaderThree> {props.title} </HeaderThree>
-      <ImageHolder>
-        <img height="300px" src={props.desktopScreenshot} />
-        <Shade />
-      </ImageHolder>
       <Description> {props.description} </Description>
-      <Paragraph>Tech stack: </Paragraph>
-      <FlexRowWrap>
-        {props.builtWith.map((tech, index) => (
-          <code style={{ marginLeft: index > 0 ? "12px" : "0px" }} key={index}>
-            {tech}
-          </code>
-        ))}
-      </FlexRowWrap>
+
+      {props.linkToProject && (
+        <Description> Website:
+          <a href={props.linkToProject}>
+            {props.linkToProject}
+          </a>
+        </Description>
+      )}
+
+      {props.roles && (
+        <>
+          <Paragraph>Role: </Paragraph>
+          <FlexRowWrap>
+            {props.roles.map((tech, index) => (
+              <code style={{ marginLeft: index > 0 ? "12px" : "0px" }} key={index}>
+                {tech}
+              </code>
+            ))}
+          </FlexRowWrap>
+        </>
+      )}
+
+      {props.desktopScreenshot && (
+        <ImageHolder>
+          <img height="300px" src={props.desktopScreenshot} />
+          <Shade />
+        </ImageHolder>
+      )}
+      
+      {props.techStack && (
+        <>
+          <Paragraph>Tech stack: </Paragraph>
+          <FlexRowWrap>
+            {props.techStack.map((tech, index) => (
+              <code style={{ marginLeft: index > 0 ? "12px" : "0px" }} key={index}>
+                {tech}
+              </code>
+            ))}
+          </FlexRowWrap>
+        </>
+      )}
     </Article>
   );
 };
