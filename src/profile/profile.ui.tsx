@@ -11,7 +11,7 @@ import { Theme, ThemeType } from "../shared/primitive-ui/theme";
 
 export const ProfileSkin = styled.div((props) => ({
   ...generalSkin(props.theme),
-  background: props.theme.type === "light" ? "#A2DBFA" : "#333333",
+  background: props.theme.type === "light" ? "#CDF0EA" : "#333333",
   borderRadius: "12px 0px 12px 0px",
 }));
 
