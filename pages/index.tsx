@@ -3,9 +3,7 @@ import styled from "styled-components";
 import { HMFContainer } from "../src/shared/primitive-ui/container";
 import Profile from "../src/profile/profile.ui";
 import { allPosts, Post } from "../src/blogposts/data/posts.dao";
-import PageLead from "../src/pagelead/pagelead.ui";
 import { TextLink } from "../src/shared/primitive-ui/text";
-import { BlogPosts } from "../src/blogposts/blogposts.ui";
 import { SecondaryButton } from "../src/shared/primitive-ui/button";
 import { rowsFromDataNodes } from "../src/shared/tool/helper";
 import { GetStaticPropsResult } from "next";
@@ -18,13 +16,14 @@ const HomeContainer = styled(HMFContainer)(() => ({
 }));
 
 const ComponentWrapper = styled.div(() => ({
-  paddingBottom: "72px",
+  paddingBottom: "120px",
 }));
 
-const OutBlogButton = styled(SecondaryButton)(() => ({
+const OutBlogButton = styled(SecondaryButton)((props) => ({
   width: "100%",
-  background: "#36DCBA",
-  color: "#FFFFFF",
+  background: "transparent",
+  color: props.theme.type === "light" ? "#000000" : "#FFFFFF",
+  border: `1px solid ${props.theme.type === "light" ? "#000000" : "#FFFFFF"}`,
   "@media only screen and (max-width: 768px)": {
     width: "100%",
   },
@@ -34,7 +33,7 @@ interface HomeProps {
   postsSummary: Post[][];
 }
 
-export const Home: FunctionComponent<HomeProps> = (props) => {
+export const Home: FunctionComponent<HomeProps> = () => {
   useEffect(() => {
     document.title = "Caleb I. Lucas - Home";
   });
@@ -43,23 +42,9 @@ export const Home: FunctionComponent<HomeProps> = (props) => {
       <ComponentWrapper>
         <Profile />
       </ComponentWrapper>
-      <>
-        <PageLead
-          text="RECENT BLOG POSTS"
-          icon={["far", "newspaper"]}
-          rightComponent={() => (
-            <TextLink href="/blog" font="CooperHewitt">
-              Go to blog →
-            </TextLink>
-          )}
-        />
-
-        <BlogPosts posts={props.postsSummary} />
-
-        <TextLink href="/blog">
-          <OutBlogButton>GO TO BLOG</OutBlogButton>
-        </TextLink>
-      </>
+      <TextLink href="/blog">
+        <OutBlogButton>GO TO BLOG</OutBlogButton>
+      </TextLink>
     </HomeContainer>
   );
 };
