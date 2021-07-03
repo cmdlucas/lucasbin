@@ -95,7 +95,7 @@ export const MidDivision: FunctionComponent<DivisionProps> = () => (
     <br />
     <Paragraph>
       <code>
-        On the side, you may find me watching soccer or simply surfing the internet and learning new stuff.
+        On the side, you may find me rapping, watching soccer or simply surfing the internet and learning new stuff.
       </code>
     </Paragraph>
   </Division>

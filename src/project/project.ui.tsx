@@ -5,7 +5,7 @@ import {
   AbsolutePosition,
   RelativePosition,
 } from "../shared/primitive-ui/global";
-import { HeaderThree, Paragraph } from "../shared/primitive-ui/text";
+import { HeaderThree, Paragraph, TextLink } from '../shared/primitive-ui/text';
 import { FlexRowWrap } from "../shared/primitive-ui/flexbox";
 
 const ImageHolder = styled(RelativePosition)`
@@ -49,9 +49,9 @@ export const OneProject: FunctionComponent<Project> = (props) => {
 
       {props.linkToProject && (
         <Description> Website:
-          <a href={props.linkToProject}>
+          <TextLink href={props.linkToProject}>
             {props.linkToProject}
-          </a>
+          </TextLink>
         </Description>
       )}
 
