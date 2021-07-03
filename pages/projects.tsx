@@ -69,10 +69,10 @@ const ConnectButton = styled(PrimaryButton)(() => ({
 }))
 
 export const Projects: FunctionComponent<ProjectProps> = ({ projects }) => {
-    useEffect(() => {document.title = "Caleb I. Lucas - Projects"});
+    useEffect(() => {document.title = "Caleb I. Lucas - Work"});
     return (
         <ProjectsContainer>
-            <PageLead icon={["fas", "suitcase"]} text="FEATURED PROJECTS" />
+            <PageLead icon={["fas", "suitcase"]} text="WORK" />
             <ComponentWrapper>
                 {
                     projects.map((projectRow, i) => (
