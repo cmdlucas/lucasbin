@@ -2,7 +2,7 @@
 
 exports[`Project Component should match contain all the required elements in the tree 1`] = `
 <article
-  className="sc-fzoLag eAYkQq"
+  className="sc-fzoLag kUyYvR"
 >
   <h3
     className="sc-AxmLO kYuaTq"
@@ -23,7 +23,10 @@ exports[`Project Component should match contain all the required elements in the
   >
      Website:
     <a
+      className="sc-AxhUy fuzwGB"
       href="https://jimdo.com"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
     >
       https://jimdo.com
     </a>
