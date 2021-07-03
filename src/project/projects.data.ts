@@ -26,8 +26,8 @@ const jolibizAjent: Project = {
 };
 
 const tokeeto : Project = {
-  title: "TOKEETO (C. 2019 - 2020)",
-  description: "Inter-City bus hailing service.",
+  title: "TOKEETO (C. 2019 - DATE)",
+  description: "Inter-city bus hailing service.",
   roles: [CO_FOUNDER, CTO],
   linkToProject: "https://tokeeto.com",
 }
