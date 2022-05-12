@@ -31,7 +31,7 @@
     "react-markdown": "^5.0.3",
     "react-syntax-highlighter": "^15.4.5",
     "slugify": "^1.6.5",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/enzyme": "^3.10.11",
