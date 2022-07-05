@@ -2,7 +2,7 @@
 
 exports[`PageLead Component should render TextLink when supplied 1`] = `
 <div
-  className="sc-AxmLO sc-fzozJi sc-fzpans eUsDwx"
+  className="sc-ftvSup sc-papXJ sc-kDDrLX jaugmt IndTi gClGim"
   style={
     Object {
       "paddingBottom": "32px",
@@ -10,10 +10,10 @@ exports[`PageLead Component should render TextLink when supplied 1`] = `
   }
 >
   <div
-    className="sc-fznyAO cSspzq"
+    className="sc-crXcEl ecrMWH"
   >
     <h3
-      className="sc-AxhUy sc-fznKkj kbrzHX"
+      className="sc-eCYdqJ sc-evZas cBOZwO iNEMYx"
     >
        
       BLOG
@@ -21,7 +21,7 @@ exports[`PageLead Component should render TextLink when supplied 1`] = `
     </h3>
   </div>
   <a
-    className="sc-AxjAm hMlpaj"
+    className="sc-bczRLJ fqnNaQ"
     href="/blog"
     onClick={[Function]}
     onMouseEnter={[Function]}
