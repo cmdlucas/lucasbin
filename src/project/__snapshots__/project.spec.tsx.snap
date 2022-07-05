@@ -2,28 +2,28 @@
 
 exports[`Project Component should match contain all the required elements in the tree 1`] = `
 <article
-  className="sc-fzoLag kUyYvR"
+  className="sc-bjUoiL khHvEQ"
 >
   <h3
-    className="sc-AxmLO kYuaTq"
+    className="sc-ftvSup dZcBOY"
   >
      
     JIMDO (C. 2020 - DATE)
      
   </h3>
   <p
-    className="sc-fzpans sc-fzoyAV cWLtkz"
+    className="sc-kDDrLX sc-fEOsli dkwLyf cheBIF"
   >
      
     Website builder for small businesses.
      
   </p>
   <p
-    className="sc-fzpans sc-fzoyAV cWLtkz"
+    className="sc-kDDrLX sc-fEOsli dkwLyf cheBIF"
   >
      Website:
     <a
-      className="sc-AxhUy fuzwGB"
+      className="sc-eCYdqJ itZEcn"
       href="https://jimdo.com"
       onClick={[Function]}
       onMouseEnter={[Function]}
@@ -32,12 +32,12 @@ exports[`Project Component should match contain all the required elements in the
     </a>
   </p>
   <p
-    className="sc-fzpans SrvuB"
+    className="sc-kDDrLX dkwLyf"
   >
     Role: 
   </p>
   <div
-    className="sc-fzplWN sc-fznyAO sc-fznKkj kqSeSn"
+    className="sc-iqcoie sc-crXcEl sc-evZas jQkfVT ifMHgK ljJVLC"
   >
     <code
       style={
