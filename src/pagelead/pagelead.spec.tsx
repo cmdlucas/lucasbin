@@ -1,32 +1,39 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import { shallow } from "enzyme";
-import PageLead, { HeaderIntro, HeaderText } from "./pagelead.ui";
-import { IconText, TextLink } from "../shared/primitive-ui/text";
-import { defaultTheme } from "../shared/primitive-ui/theme";
-import { ThemeProvider } from "styled-components";
+import React, { FunctionComponent } from 'react';
+import PageLead from './pagelead.ui';
+import { TextLink } from '../shared/primitive-ui/text';
+import { defaultTheme } from '../shared/primitive-ui/theme';
+import { ThemeProvider } from 'styled-components';
+import { render } from '@testing-library/react';
+import { screen } from '@testing-library/dom';
+import { IconPrefix, IconName } from '@fortawesome/fontawesome-svg-core';
 
-describe("PageLead Component", () => {
-  let wrapper = shallow(<PageLead text="BLOG" />);
+describe('PageLead Component', () => {
+  const renderComponent = ({
+    rightComponent,
+    icon,
+  }: {
+    rightComponent?: FunctionComponent;
+    icon?: [IconPrefix, IconName];
+  } = {}) =>
+    render(
+      <ThemeProvider theme={defaultTheme}>
+        <PageLead text="BLOG" rightComponent={rightComponent} icon={icon} />
+      </ThemeProvider>
+    );
 
-  it("should always render HeaderIntro component", () => {
-    expect(wrapper.find(HeaderText).dive().find(HeaderIntro)).toHaveLength(1);
+  it('should always render header intro', () => {
+    renderComponent();
+    expect(screen.getByText('BLOG')).toBeInTheDocument();
   });
 
-  it("should render TextLink when supplied", () => {
+  it('should match snapshot for when TextLink is supplied', () => {
     const Component = () => <TextLink href="/blog" />;
-    const mountedTree = renderer
-      .create(
-        <ThemeProvider theme={defaultTheme}>
-          <PageLead text="BLOG" rightComponent={Component} />
-        </ThemeProvider>
-      )
-      .toJSON();
-    expect(mountedTree).toMatchSnapshot();
+    const { asFragment } = renderComponent({ rightComponent: Component });
+    expect(asFragment()).toMatchSnapshot();
   });
 
-  it("should render IconText when supplied", () => {
-    wrapper = shallow(<PageLead text="BLOG" icon={["far", "newspaper"]} />);
-    expect(wrapper.find(HeaderText).dive().find(IconText)).toHaveLength(1);
+  it('should match snapshot for when IconText supplied', () => {
+    const { asFragment } = renderComponent({ icon: ['far', 'newspaper'] });
+    expect(asFragment()).toMatchSnapshot();
   });
 });

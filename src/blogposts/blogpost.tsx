@@ -66,10 +66,10 @@ export const IconText = styled.span(() => ({
 export const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
   return (
     <BlogPostSkin>
-      <PostHeaderImage src={data.header_image} />
+      <PostHeaderImage src={data.header_image} alt={data.metadata.headerImage} />
       <ContentHolder>
         <Title>{data.metadata.title}</Title>
-        <Summary>{`${data.summary} ...`}</Summary>
+        <Summary>{`${data.summary}`}</Summary>
         <ContentFooter>
           <FlexRowNoWrap>
             <DatePublished>
