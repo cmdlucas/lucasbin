@@ -1,30 +1,46 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PageLead Component should render TextLink when supplied 1`] = `
-<div
-  className="sc-ftvSup sc-papXJ sc-kDDrLX jaugmt IndTi gClGim"
-  style={
-    Object {
-      "paddingBottom": "32px",
-    }
-  }
->
+exports[`PageLead Component should match snapshot for when IconText supplied 1`] = `
+<DocumentFragment>
   <div
-    className="sc-crXcEl ecrMWH"
+    class="sc-ftvSup sc-papXJ sc-kDDrLX jaugmt IndTi gClGim"
+    style="padding-bottom: 32px;"
   >
-    <h3
-      className="sc-eCYdqJ sc-evZas cBOZwO iNEMYx"
+    <div
+      class="sc-crXcEl ecrMWH"
     >
-       
-      BLOG
-       
-    </h3>
+      <i
+        class="fa"
+      />
+      <h3
+        class="sc-eCYdqJ sc-evZas cBOZwO iNEMYx"
+      >
+         BLOG 
+      </h3>
+    </div>
   </div>
-  <a
-    className="sc-bczRLJ fqnNaQ"
-    href="/blog"
-    onClick={[Function]}
-    onMouseEnter={[Function]}
-  />
-</div>
+</DocumentFragment>
+`;
+
+exports[`PageLead Component should match snapshot for when TextLink is supplied 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-ftvSup sc-papXJ sc-kDDrLX jaugmt IndTi gClGim"
+    style="padding-bottom: 32px;"
+  >
+    <div
+      class="sc-crXcEl ecrMWH"
+    >
+      <h3
+        class="sc-eCYdqJ sc-evZas cBOZwO iNEMYx"
+      >
+         BLOG 
+      </h3>
+    </div>
+    <a
+      class="sc-bczRLJ fqnNaQ"
+      href="/blog"
+    />
+  </div>
+</DocumentFragment>
 `;

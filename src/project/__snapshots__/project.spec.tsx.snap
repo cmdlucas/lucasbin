@@ -27,6 +27,7 @@ exports[`Project Component should match contain all the required elements in the
       href="https://jimdo.com"
       onClick={[Function]}
       onMouseEnter={[Function]}
+      onTouchStart={[Function]}
     >
       https://jimdo.com
     </a>
