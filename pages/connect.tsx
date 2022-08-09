@@ -1,34 +1,34 @@
-import React, { FunctionComponent, useEffect } from "react";
-import styled from "styled-components";
+import React, { FunctionComponent, useEffect } from 'react';
+import styled from 'styled-components';
 import {
   IconText,
   HeaderThree,
   ExternalTextLink,
   Paragraph,
-} from "../src/shared/primitive-ui/text";
-import { HMFContainer } from "../src/shared/primitive-ui/container";
-import { IconName } from "@fortawesome/fontawesome-svg-core";
-import { GetStaticPropsResult } from "next";
+} from '../src/shared/primitive-ui/text';
+import { HMFContainer } from '../src/shared/primitive-ui/container';
+import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { GetStaticPropsResult } from 'next';
 
 const ConnectContainer = styled(HMFContainer)(() => ({
-  padding: "0px 8px",
-  "@media only screen and (max-width: 768px)": {
-    padding: "0px 16px",
+  padding: '0px 8px',
+  '@media only screen and (max-width: 768px)': {
+    padding: '0px 16px',
   },
 }));
 
 const ComponentWrapper = styled.div(() => ({
-  paddingBottom: "72px",
+  paddingBottom: '72px',
 }));
 
 const Icon = styled(IconText)(() => ({
-  fontSize: "1em",
+  fontSize: '1em',
 }));
 
 const IconWrapper = styled.span(() => ({
-  marginRight: "28px",
-  "&::nth-last-child()": {
-    marginRight: "0px",
+  marginRight: '28px',
+  '&::nth-last-child()': {
+    marginRight: '0px',
   },
 }));
 
@@ -38,7 +38,7 @@ interface ConnectProps {
 
 export const Connect: FunctionComponent<ConnectProps> = ({ brands }) => {
   useEffect(() => {
-    document.title = "Connect with me.";
+    document.title = 'Connect with me.';
   });
   return (
     <ConnectContainer>
@@ -48,7 +48,7 @@ export const Connect: FunctionComponent<ConnectProps> = ({ brands }) => {
         {brands.map((brand, index) => (
           <IconWrapper key={index}>
             <ExternalTextLink href={brand.link}>
-              <Icon icon={["fab", brand.icon]} />
+              <Icon icon={['fab', brand.icon]} />
             </ExternalTextLink>
           </IconWrapper>
         ))}
@@ -71,9 +71,9 @@ export const getStaticProps = async (): Promise<
   return {
     props: {
       brands: [
-        { icon: "twitter", link: "https://twitter.com/cmdlucas" },
-        { icon: "linkedin", link: "https://linkedin.com/in/cmdlucas" },
-        { icon: "github", link: "https://github.com/cmdlucas" },
+        { icon: 'twitter', link: 'https://twitter.com/cmdlucas' },
+        { icon: 'linkedin', link: 'https://linkedin.com/in/cmdlucas' },
+        { icon: 'github', link: 'https://github.com/cmdlucas' },
       ],
     },
   };
