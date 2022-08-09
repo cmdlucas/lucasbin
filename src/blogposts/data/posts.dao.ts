@@ -33,7 +33,7 @@ export const getMarkdown = (): Markdown[] => {
 };
 
 export const getPostSummary = (markdown: Markdown): string => {
-  return markdown.content.split("{SUMMARY}")[1].trim().substring(0, 110);
+  return `${markdown.content.split("{SUMMARY}")[1].trim().substring(0, 110)}...`;
 };
 
 export const getPostHeaderImage = (markdown: Markdown): string => {
