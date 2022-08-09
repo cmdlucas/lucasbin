@@ -1,27 +1,27 @@
-import React, { FunctionComponent, useEffect } from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
-import styled, { useTheme } from "styled-components";
-import { HMFContainer } from "../../src/shared/primitive-ui/container";
+import React, { FunctionComponent, useEffect } from 'react';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import styled, { useTheme } from 'styled-components';
+import { HMFContainer } from '../../src/shared/primitive-ui/container';
 import {
   Post,
   allPosts,
   pidToPostIndex,
-} from "../../src/blogposts/data/posts.dao";
+} from '../../src/blogposts/data/posts.dao';
 import {
   HeaderOne,
   FAIconText,
   TextLink,
   Paragraph,
-} from "../../src/shared/primitive-ui/text";
-import { useRouter } from "next/router";
-import ReactMarkdown from "react-markdown";
-import SyntaxHighlighter from "react-syntax-highlighter";
+} from '../../src/shared/primitive-ui/text';
+import { useRouter } from 'next/router';
+import ReactMarkdown from 'react-markdown';
+import SyntaxHighlighter from 'react-syntax-highlighter';
 import {
   docco as lightCode,
   vs2015 as darkCode,
-} from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import { Theme } from "../../src/shared/primitive-ui/theme";
-import { Flex, FlexRowNoWrap } from "../../src/shared/primitive-ui/flexbox";
+} from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { Theme } from '../../src/shared/primitive-ui/theme';
+import { Flex, FlexRowNoWrap } from '../../src/shared/primitive-ui/flexbox';
 
 interface SinglePostProps {
   prevPost: Post;
@@ -30,48 +30,48 @@ interface SinglePostProps {
 }
 
 const SinglePostHomeContainer = styled(HMFContainer)(() => ({
-  padding: "0px 8px",
-  "@media only screen and (max-width: 768px)": {
-    padding: "0px 16px",
+  padding: '0px 8px',
+  '@media only screen and (max-width: 768px)': {
+    padding: '0px 16px',
   },
 }));
 
 const HeaderContainer = styled.div(() => ({}));
 
 const HeaderText = styled(HeaderOne)(() => ({
-  fontFamily: "CooperHewitt",
-  paddingBottom: "48px",
+  fontFamily: 'CooperHewitt',
+  paddingBottom: '48px',
 }));
 
 const HeaderImage = styled.div(() => ({
-  padding: "0px 0px 24px 0px",
-  "@media only screen and (max-width: 768px)": {
-    width: "calc(100% + 32px)",
-    margin: "0px 0px 0px -16px",
+  padding: '0px 0px 24px 0px',
+  '@media only screen and (max-width: 768px)': {
+    width: 'calc(100% + 32px)',
+    margin: '0px 0px 0px -16px',
   },
 }));
 
 const Artifacts = styled.div(() => ({
-  paddingBottom: "24px",
+  paddingBottom: '24px',
 }));
 
 const Artifact = styled.div(() => ({
-  display: "inline-table",
+  display: 'inline-table',
 }));
 
 const DatePublished = styled(Artifact)(() => ({
-  paddingRight: "48px",
+  paddingRight: '48px',
 }));
 
 const Author = styled(Artifact)(() => ({}));
 
 const Icon = styled(FAIconText)(() => ({
-  color: "#707070",
-  paddingRight: "12px",
+  color: '#707070',
+  paddingRight: '12px',
 }));
 
 const IconText = styled.span(() => ({
-  color: "#707070",
+  color: '#707070',
 }));
 
 const ContentContainer = styled.div`
@@ -130,24 +130,24 @@ const ContentContainer = styled.div`
 
   p code {
     background: ${(props) =>
-      props.theme.type === "light" ? "#EDEDED" : "#1E1E1E"};
+      props.theme.type === 'light' ? '#EDEDED' : '#1E1E1E'};
     padding: 4px 8px;
-    color: ${(props) => (props.theme.type === "light" ? "#666666" : "#ACACAC")};
+    color: ${(props) => (props.theme.type === 'light' ? '#666666' : '#ACACAC')};
     border-radius: 4px;
   }
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const PostLinksHolder = styled(Flex)(props => ({
-  flexDirection: "row",
-  ".item": {
+const PostLinksHolder = styled(Flex)((props) => ({
+  flexDirection: 'row',
+  '.item': {
     flexGrow: 1,
-    width: "50%",
+    width: '50%',
   },
-  "@media only screen and (max-width: 767px)": {
-    flexDirection: "column",
-    ".item": {
-      width: "100%",
+  '@media only screen and (max-width: 767px)': {
+    flexDirection: 'column',
+    '.item': {
+      width: '100%',
     },
   },
 }));
@@ -171,10 +171,14 @@ const NextPostLinkFlex = styled(PostLinkFlex)`
   }
 `;
 
-export const  SinglePost: FunctionComponent<SinglePostProps> = ({ prevPost, currPost, nextPost }) => {
+export const SinglePost: FunctionComponent<SinglePostProps> = ({
+  prevPost,
+  currPost,
+  nextPost,
+}) => {
   if (!currPost) {
     useEffect(() => {
-      useRouter().replace("/");
+      useRouter().replace('/');
     });
     return <></>;
   }
@@ -187,37 +191,45 @@ export const  SinglePost: FunctionComponent<SinglePostProps> = ({ prevPost, curr
       <HeaderContainer>
         <HeaderText> {currPost.metadata.title} </HeaderText>
         <HeaderImage>
-          <img width="100%" src={currPost.header_image} />{" "}
+          <img width="100%" src={currPost.header_image} />{' '}
         </HeaderImage>
       </HeaderContainer>
       <ContentContainer>
         <Artifacts>
           <DatePublished>
-            <Icon icon={["far", "calendar-alt"]} />
-            <IconText style={{ color: "#707070" }}>
+            <Icon icon={['far', 'calendar-alt']} />
+            <IconText style={{ color: '#707070' }}>
               {currPost.metadata.datePublished}
             </IconText>
           </DatePublished>
           <Author>
-            <Icon icon={["far", "user"]} />
-            <IconText style={{ color: "#707070" }}>
+            <Icon icon={['far', 'user']} />
+            <IconText style={{ color: '#707070' }}>
               {currPost.metadata.author}
             </IconText>
           </Author>
         </Artifacts>
         <div>
           <ReactMarkdown
-            source={currPost.content}
-            escapeHtml={false}
-            renderers={{
-              code: ({ language, value }) => (
-                <SyntaxHighlighter
-                  language={language}
-                  style={theme.type === "light" ? lightCode : darkCode}
-                >
-                  {value}
-                </SyntaxHighlighter>
-              ),
+            children={currPost.content}
+            skipHtml={true}
+            components={{
+              code({ inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || '');
+                return !inline && match ? (
+                  <SyntaxHighlighter
+                    style={theme.type === 'light' ? lightCode : darkCode}
+                    children={String(children).replace(/\n$/, '')}
+                    language={match[1]}
+                    PreTag="div"
+                    {...props}
+                  />
+                ) : (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                );
+              },
             }}
           />
         </div>
@@ -256,7 +268,7 @@ export const  SinglePost: FunctionComponent<SinglePostProps> = ({ prevPost, curr
       </PostLinksHolder>
     </SinglePostHomeContainer>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps<
   SinglePostProps,
