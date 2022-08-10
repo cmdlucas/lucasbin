@@ -218,6 +218,8 @@ export const SinglePost: FunctionComponent<SinglePostProps> = ({
                 const match = /language-(\w+)/.exec(className || '');
                 return !inline && match ? (
                   <SyntaxHighlighter
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
                     style={theme.type === 'light' ? lightCode : darkCode}
                     children={String(children).replace(/\n$/, '')}
                     language={match[1]}
