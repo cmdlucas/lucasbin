@@ -1,20 +1,20 @@
-import React, { FunctionComponent } from "react";
-import { defaultTheme } from "../primitive-ui/theme";
+import React, { FunctionComponent, PropsWithChildren } from 'react';
+import { defaultTheme } from '../primitive-ui/theme';
 import styled, {
   WebsiteDefaultTheme,
   withTheme,
   keyframes,
   css,
-} from "styled-components";
-import { generalSkin } from "../primitive-ui/skin";
-import { ListRow, List } from "../primitive-ui/list";
+} from 'styled-components';
+import { generalSkin } from '../primitive-ui/skin';
+import { ListRow, List } from '../primitive-ui/list';
 import {
   HeaderTwo,
   TextLink,
   IsolatedText,
   FAIconText,
-} from "../primitive-ui/text";
-import { useRouter } from "next/router";
+} from '../primitive-ui/text';
+import { useRouter } from 'next/router';
 
 interface NavMenuHolderProps {
   open: boolean;
@@ -22,28 +22,28 @@ interface NavMenuHolderProps {
 
 const navFlyIn = keyframes({
   from: {
-    top: "-400px",
-    visibility: "hidden",
+    top: '-400px',
+    visibility: 'hidden',
   },
   to: {
-    top: "76px",
-    visibility: "visible",
+    top: '76px',
+    visibility: 'visible',
   },
 });
 const navFlyOut = keyframes({
   from: {
-    top: "76px",
-    visibility: "hidden",
+    top: '76px',
+    visibility: 'hidden',
   },
   to: {
-    top: "-400px",
-    visibility: "hidden",
+    top: '-400px',
+    visibility: 'hidden',
   },
 });
 
 const navFlyInAnimation = (props: NavMenuHolderProps) =>
   css`
-    animation: ${props.open ? navFlyIn : navFlyOut} 0.2s linear 0s forwards
+    animation: ${props.open ? navFlyIn : navFlyOut} 0.2s linear 0s forwards;
   `;
 
 const NavMenuHolder = styled.nav`
@@ -55,17 +55,19 @@ const NavMenuHolder = styled.nav`
 `;
 const NavMenuSkin = styled.div((props) => ({
   ...generalSkin(props.theme),
-  boxShadow: "0px 2px 6px rgba(0, 0, 0, 0.16)",
+  boxShadow: '0px 2px 6px rgba(0, 0, 0, 0.16)',
 }));
 
 const NavMenuContainer = styled.div(() => ({
-  padding: "48px 0px",
+  padding: '48px 0px',
 }));
 
-const EachMenuText: FunctionComponent<{
-  href: string;
-  theme: WebsiteDefaultTheme;
-}> = ({ theme, href, children }) => {
+const EachMenuText: FunctionComponent<
+  {
+    href: string;
+    theme: WebsiteDefaultTheme;
+  } & PropsWithChildren
+> = ({ theme, href, children }) => {
   const router = useRouter();
   const active = router.pathname === href;
   return (
@@ -80,7 +82,7 @@ const EachMenuText: FunctionComponent<{
 };
 
 EachMenuText.defaultProps = {
-  href: "",
+  href: '',
   theme: defaultTheme,
 };
 
@@ -88,9 +90,9 @@ const EachMenu = withTheme(EachMenuText);
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const NavListRow = styled(ListRow)((props) => ({
-  textAlign: "center",
-  padding: "16px 0px",
-  cursor: "pointer",
+  textAlign: 'center',
+  padding: '16px 0px',
+  cursor: 'pointer',
 }));
 
 const EachRow: FunctionComponent<{ link: string; title: string }> = ({
@@ -111,7 +113,7 @@ interface NavMenuProps {
 }
 
 const ThemeSwitcherText = styled(IsolatedText)(() => ({
-  fontFamily: "CooperHewitt",
+  fontFamily: 'CooperHewitt',
 }));
 
 export const NavMenu: FunctionComponent<NavMenuProps> = ({
@@ -131,14 +133,14 @@ export const NavMenu: FunctionComponent<NavMenuProps> = ({
             <NavListRow>
               <HeaderTwo>
                 <span onClick={theme.switchTheme}>
-                  {theme.type === "light" ? (
+                  {theme.type === 'light' ? (
                     <>
-                      <FAIconText icon="moon" />{" "}
+                      <FAIconText icon="moon" />{' '}
                       <ThemeSwitcherText>GO DARK</ThemeSwitcherText>
                     </>
                   ) : (
                     <>
-                      <FAIconText icon="sun" />{" "}
+                      <FAIconText icon="sun" />{' '}
                       <ThemeSwitcherText>LIGHTS ON</ThemeSwitcherText>
                     </>
                   )}
