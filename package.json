@@ -36,7 +36,7 @@
     "@stylelint/postcss-css-in-js": "^0.38.0",
     "@testing-library/dom": "^8.17.1",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
+    "@testing-library/react": "^13.4.0",
     "@types/jest": "^27.4.1",
     "@types/node": "^18.7.15",
     "@types/nprogress": "^0.2.0",
