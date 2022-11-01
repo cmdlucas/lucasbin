@@ -45,9 +45,6 @@ export const Home: FunctionComponent<HomeProps> = () => {
       <ComponentWrapper>
         <Profile />
       </ComponentWrapper>
-      <TextLink href="/blog">
-        <OutBlogButton>MY BLOG</OutBlogButton>
-      </TextLink>
     </HomeContainer>
   );
 };
