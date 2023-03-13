@@ -6,6 +6,7 @@ import { BlogPosts } from '../../src/blogposts/blogposts.ui';
 import PageLead from '../../src/pagelead/pagelead.ui';
 import { rowsFromDataNodes } from '../../src/shared/tool/helper';
 import { GetStaticPropsResult } from 'next';
+import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 
 const BlogHomeContainer = styled(HMFContainer)(() => ({
   padding: '0px 8px',
@@ -24,7 +25,7 @@ export const Home: FC<HomeProps> = (props) => {
   });
   return (
     <BlogHomeContainer>
-      <PageLead text="SHOWING ALL POSTS" icon={['far', 'newspaper']} />
+      <PageLead text="SHOWING ALL POSTS" icon={faNewspaper} />
       <BlogPosts posts={props.posts} />
     </BlogHomeContainer>
   );
