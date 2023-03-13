@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from "react";
-import { WebsiteDefaultTheme, withTheme } from "styled-components";
-import { defaultTheme } from "../primitive-ui/theme";
-import { TextLink } from "../primitive-ui/text";
+import React, { FC } from 'react';
+import { WebsiteDefaultTheme, withTheme } from 'styled-components';
+import { defaultTheme } from '../primitive-ui/theme';
+import { TextLink } from '../primitive-ui/text';
 
 interface LogoProps {
   theme: WebsiteDefaultTheme;
 }
 
-export const Logo: FunctionComponent<LogoProps> = ({ theme: { main } }) => (
+export const Logo: FC<LogoProps> = ({ theme: { main } }) => (
   <TextLink href="/">
     <svg
       xmlns="http://www.w3.org/2000/svg"

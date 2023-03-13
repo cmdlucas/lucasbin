@@ -1,83 +1,86 @@
-import React, { FunctionComponent } from "react";
+import React, { FC } from 'react';
 import styled, {
   WebsiteDefaultTheme,
   withTheme,
   keyframes,
   css,
-} from "styled-components";
-import { defaultTheme } from "../primitive-ui/theme";
+} from 'styled-components';
+import { defaultTheme } from '../primitive-ui/theme';
 
 const MenuSvg = styled.svg(() => ({
-  cursor: "pointer",
+  cursor: 'pointer',
 }));
 
 const topLineOpen = keyframes({
   from: {
-    transform: "rotate(0deg)",
+    transform: 'rotate(0deg)',
   },
   to: {
-    transform: "rotate(45deg)",
+    transform: 'rotate(45deg)',
   },
 });
 
 const topLineClosed = keyframes({
   from: {
-    transform: "rotate(45deg)",
+    transform: 'rotate(45deg)',
   },
   to: {
-    transform: "rotate(0deg)",
+    transform: 'rotate(0deg)',
   },
 });
 
 const midLineOpen = keyframes({
   from: {
-    transform: "scaleX(1)",
+    transform: 'scaleX(1)',
   },
   to: {
-    transform: "scaleX(0)",
+    transform: 'scaleX(0)',
   },
 });
 
 const midLineClosed = keyframes({
   from: {
-    transform: "scaleX(0)",
+    transform: 'scaleX(0)',
   },
   to: {
-    transform: "scaleX(1)",
+    transform: 'scaleX(1)',
   },
 });
 
 const bottomLineOpen = keyframes({
   from: {
-    transform: "rotate(0deg)",
+    transform: 'rotate(0deg)',
   },
   to: {
-    transform: "rotate(-45deg)",
+    transform: 'rotate(-45deg)',
   },
 });
 
 const bottomLineClosed = keyframes({
   from: {
-    transform: "rotate(-45deg)",
+    transform: 'rotate(-45deg)',
   },
   to: {
-    transform: "rotate(0deg)",
+    transform: 'rotate(0deg)',
   },
 });
 
 const topLineAnimation = (props: MenuSvgLineProps) =>
   css`
-    animation: ${props.open ? topLineOpen : topLineClosed} 0.2s linear 0s forwards;
+    animation: ${props.open ? topLineOpen : topLineClosed} 0.2s linear 0s
+      forwards;
   `;
 
 const midLineAnimation = (props: MenuSvgLineProps) =>
   css`
-    animation: ${props.open ? midLineOpen : midLineClosed} 0.2s linear 0s forwards;
+    animation: ${props.open ? midLineOpen : midLineClosed} 0.2s linear 0s
+      forwards;
   `;
-  
+
 const bottomLineAnimation = (props: MenuSvgLineProps) =>
   css`
-    animation: ${props.open ? bottomLineOpen : bottomLineClosed} 0.2s linear 0s forwards;
+    animation: ${props.open ? bottomLineOpen : bottomLineClosed} 0.2s linear 0s
+      forwards;
   `;
 
 interface MenuSvgLineProps {
@@ -102,7 +105,7 @@ interface MenuBarProps {
   onClick?: () => void;
 }
 
-export const MenuBar: FunctionComponent<MenuBarProps> = ({
+export const MenuBar: FC<MenuBarProps> = ({
   open,
   onClick,
   theme: { main },
@@ -117,10 +120,10 @@ export const MenuBar: FunctionComponent<MenuBarProps> = ({
     <rect width="48" height="48" fill="none" />
     <MenuSvgLineTop
       open={open}
-      x1={open ? "16" : "8"}
-      x2={open ? "52" : "40"}
-      y1={open ? "0" : "14"}
-      y2={open ? "0" : "14"}
+      x1={open ? '16' : '8'}
+      x2={open ? '52' : '40'}
+      y1={open ? '0' : '14'}
+      y2={open ? '0' : '14'}
       fill="none"
       stroke={main.textColor}
       strokeWidth="2"
@@ -137,8 +140,8 @@ export const MenuBar: FunctionComponent<MenuBarProps> = ({
     />
     <MenuSvgLineBottom
       open={open}
-      x1={open ? "-18" : "8"}
-      x2={open ? "18" : "40"}
+      x1={open ? '-18' : '8'}
+      x2={open ? '18' : '40'}
       y1="34"
       y2="34"
       fill="none"

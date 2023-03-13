@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Project, allProjects } from '../src/project/projects.data';
 import styled from 'styled-components';
 import { HMFContainer } from '../src/shared/primitive-ui/container';
@@ -70,7 +70,7 @@ const ConnectButton = styled(PrimaryButton)(() => ({
   background: '#366DDC',
 }));
 
-export const Projects: FunctionComponent<ProjectProps> = ({ projects }) => {
+export const Projects: FC<ProjectProps> = ({ projects }) => {
   useEffect(() => {
     document.title = 'Caleb I. Lucas - Work';
   });

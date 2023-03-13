@@ -1,14 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { useRouter } from 'next/router';
 import { generalSkin } from '../primitive-ui/skin';
 import { FlexRowNoWrap } from '../primitive-ui/flexbox';
-import styled, {
-  withTheme,
-  WebsiteDefaultTheme,
-  CSSObject,
-} from 'styled-components';
+import styled, { withTheme, CSSObject, useTheme } from 'styled-components';
 import { TextLink, IsolatedText } from '../primitive-ui/text';
-import { defaultTheme } from '../primitive-ui/theme';
 import { HMFContainer } from '../primitive-ui/container';
 
 const FooterHolder = styled.footer(() => ({
@@ -63,12 +58,10 @@ const FooterText = styled.span(() => ({
   fontFamily: 'CooperHewitt',
 }));
 
-interface FooterProps {
-  theme: WebsiteDefaultTheme;
-}
-
-export const Footer: FunctionComponent<FooterProps> = ({ theme }) => {
+export const Footer: FC = () => {
+  const theme = useTheme();
   const router = useRouter();
+
   return (
     <FooterHolder>
       <FooterSkin>

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import { FlexRowNoWrap } from '../shared/primitive-ui/flexbox';
 import { Post } from './data/posts.dao';
 import styled from 'styled-components';
@@ -64,7 +64,7 @@ export const IconText = styled.span(() => ({
   color: '#707070',
 }));
 
-export const BlogPost: FunctionComponent<BlogPostProps> = ({ data }) => {
+export const BlogPost: FC<BlogPostProps> = ({ data }) => {
   return (
     <BlogPostSkin>
       <PostHeaderImage

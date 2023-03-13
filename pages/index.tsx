@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import { HMFContainer } from '../src/shared/primitive-ui/container';
 import Profile from '../src/profile/profile.ui';
@@ -21,7 +21,7 @@ interface HomeProps {
   postsSummary: Post[][];
 }
 
-export const Home: FunctionComponent<HomeProps> = () => {
+export const Home: FC<HomeProps> = () => {
   useEffect(() => {
     document.title = 'Caleb I. Lucas - Home';
   });

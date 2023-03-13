@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import styled from 'styled-components';
 import {
   IconText,
@@ -41,7 +41,7 @@ interface ConnectProps {
   brands: Array<{ icon: IconDefinition; link: string }>;
 }
 
-export const Connect: FunctionComponent<ConnectProps> = ({ brands }) => {
+export const Connect: FC<ConnectProps> = ({ brands }) => {
   useEffect(() => {
     document.title = 'Connect with me.';
   });

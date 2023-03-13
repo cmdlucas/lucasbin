@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import styled, { useTheme } from 'styled-components';
 import { HMFContainer } from '../../src/shared/primitive-ui/container';
@@ -172,7 +172,7 @@ const NextPostLinkFlex = styled(PostLinkFlex)`
   }
 `;
 
-export const SinglePost: FunctionComponent<SinglePostProps> = ({
+export const SinglePost: FC<SinglePostProps> = ({
   prevPost,
   currPost,
   nextPost,

@@ -1,12 +1,12 @@
-import React, { FunctionComponent } from "react";
-import { Project } from "./projects.data";
-import styled from "styled-components";
+import React, { FC } from 'react';
+import { Project } from './projects.data';
+import styled from 'styled-components';
 import {
   AbsolutePosition,
   RelativePosition,
-} from "../shared/primitive-ui/global";
+} from '../shared/primitive-ui/global';
 import { HeaderThree, Paragraph, TextLink } from '../shared/primitive-ui/text';
-import { FlexRowWrap } from "../shared/primitive-ui/flexbox";
+import { FlexRowWrap } from '../shared/primitive-ui/flexbox';
 
 const ImageHolder = styled(RelativePosition)`
   overflow: hidden;
@@ -29,9 +29,9 @@ const Description = styled(Paragraph)`
 const Article = styled.article`
   code {
     background: ${(props) =>
-    props.theme.type === "light" ? "#EDEDED" : "#1E1E1E"};
+      props.theme.type === 'light' ? '#EDEDED' : '#1E1E1E'};
     padding: 4px 8px;
-    color: ${(props) => (props.theme.type === "light" ? "#666666" : "#ACACAC")};
+    color: ${(props) => (props.theme.type === 'light' ? '#666666' : '#ACACAC')};
     border-radius: 4px;
     margin-bottom: 12px;
   }
@@ -41,17 +41,17 @@ const Article = styled.article`
   margin-bottom: 24px;
 `;
 
-export const OneProject: FunctionComponent<Project> = (props) => {
+export const OneProject: FC<Project> = (props) => {
   return (
     <Article>
       <HeaderThree> {props.title} </HeaderThree>
       <Description> {props.description} </Description>
 
       {props.linkToProject && (
-        <Description> Website:
-          <TextLink href={props.linkToProject}>
-            {props.linkToProject}
-          </TextLink>
+        <Description>
+          {' '}
+          Website:
+          <TextLink href={props.linkToProject}>{props.linkToProject}</TextLink>
         </Description>
       )}
 
@@ -60,7 +60,10 @@ export const OneProject: FunctionComponent<Project> = (props) => {
           <Paragraph>Role: </Paragraph>
           <FlexRowWrap>
             {props.roles.map((tech, index) => (
-              <code style={{ marginLeft: index > 0 ? "12px" : "0px" }} key={index}>
+              <code
+                style={{ marginLeft: index > 0 ? '12px' : '0px' }}
+                key={index}
+              >
                 {tech}
               </code>
             ))}
@@ -74,13 +77,16 @@ export const OneProject: FunctionComponent<Project> = (props) => {
           <Shade />
         </ImageHolder>
       )}
-      
+
       {props.techStack && (
         <>
           <Paragraph>Tech stack: </Paragraph>
           <FlexRowWrap>
             {props.techStack.map((tech, index) => (
-              <code style={{ marginLeft: index > 0 ? "12px" : "0px" }} key={index}>
+              <code
+                style={{ marginLeft: index > 0 ? '12px' : '0px' }}
+                key={index}
+              >
                 {tech}
               </code>
             ))}

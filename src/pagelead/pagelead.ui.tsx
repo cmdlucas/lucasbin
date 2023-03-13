@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { HeaderThree, IconText } from '../shared/primitive-ui/text';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
@@ -18,10 +18,10 @@ export const HeaderIntro = styled(HeaderThree)(() => ({
 interface PageLeadProps {
   icon?: IconDefinition;
   text: string;
-  rightComponent?: FunctionComponent<AnyMap>;
+  rightComponent?: FC<AnyMap>;
 }
 
-const PageLead: FunctionComponent<PageLeadProps> = (props) => {
+const PageLead: FC<PageLeadProps> = (props) => {
   return (
     <FlexRowNoWrap style={{ paddingBottom: '32px' }}>
       <HeaderText>

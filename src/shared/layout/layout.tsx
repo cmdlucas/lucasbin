@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 import Header from './header';
 import Footer from './footer';
 import Main from './main';
@@ -7,7 +7,7 @@ interface LayoutProps {
   children: ReactNode;
 }
 
-export const Layout: FunctionComponent<LayoutProps> = (props) => (
+export const Layout: FC<LayoutProps> = (props) => (
   <>
     <Header />
     <Main>{props.children}</Main>

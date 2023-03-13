@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import Link from 'next/link';
 import styled, { useTheme } from 'styled-components';
 import { FlexRowNoWrap, Flex } from '../shared/primitive-ui/flexbox';
@@ -67,9 +67,7 @@ export const HeaderIntro = styled(HeaderThree)(() => ({
   fontFamily: 'CooperHewitt',
 }));
 
-export const TopDivision: FunctionComponent<DivisionProps> = ({
-  themeType,
-}) => (
+export const TopDivision: FC<DivisionProps> = ({ themeType }) => (
   <Division type="top">
     <FlexRowNoWrap>
       <TopOnBorderContent>
@@ -85,7 +83,7 @@ export const TopDivision: FunctionComponent<DivisionProps> = ({
   </Division>
 );
 
-export const MidDivision: FunctionComponent<DivisionProps> = () => (
+export const MidDivision: FC<DivisionProps> = () => (
   <Division type="middle">
     <Paragraph>
       <code>Software Engineer, Founder, Angel Investor.</code>
@@ -107,9 +105,7 @@ export const MidDivision: FunctionComponent<DivisionProps> = () => (
   </Division>
 );
 
-export const BottomDivision: FunctionComponent<DivisionProps> = ({
-  themeType,
-}) => (
+export const BottomDivision: FC<DivisionProps> = ({ themeType }) => (
   <Division type="bottom">
     <FlexRowNoWrap>
       <BottomOnBorderNoContent />
@@ -134,7 +130,7 @@ export const BottomDivision: FunctionComponent<DivisionProps> = ({
   </Division>
 );
 
-export const Profile: FunctionComponent = () => {
+export const Profile: FC = () => {
   const { type: themeType } = useTheme() as Theme;
   return (
     <ProfileSkin>

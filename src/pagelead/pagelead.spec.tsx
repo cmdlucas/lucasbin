@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 import PageLead from './pagelead.ui';
 import { TextLink } from '../shared/primitive-ui/text';
 import { defaultTheme } from '../shared/primitive-ui/theme';
@@ -13,7 +13,7 @@ describe('PageLead Component', () => {
     rightComponent,
     icon,
   }: {
-    rightComponent?: FunctionComponent;
+    rightComponent?: FC;
     icon?: IconDefinition;
   } = {}) =>
     render(
