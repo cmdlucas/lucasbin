@@ -1,11 +1,5 @@
 import React, { FC } from 'react';
-import styled, {
-  WebsiteDefaultTheme,
-  withTheme,
-  keyframes,
-  css,
-} from 'styled-components';
-import { defaultTheme } from '../primitive-ui/theme';
+import styled, { keyframes, css, useTheme } from 'styled-components';
 
 const MenuSvg = styled.svg(() => ({
   cursor: 'pointer',
@@ -100,60 +94,54 @@ const MenuSvgLineBottom = styled.line<MenuSvgLineProps>`
 `;
 
 interface MenuBarProps {
-  theme: WebsiteDefaultTheme;
   open: boolean;
   onClick?: () => void;
 }
 
-export const MenuBar: FC<MenuBarProps> = ({
-  open,
-  onClick,
-  theme: { main },
-}) => (
-  <MenuSvg
-    xmlns="http://www.w3.org/2000/svg"
-    width="48"
-    height="48"
-    viewBox="0 0 48 48"
-    onClick={onClick}
-  >
-    <rect width="48" height="48" fill="none" />
-    <MenuSvgLineTop
-      open={open}
-      x1={open ? '16' : '8'}
-      x2={open ? '52' : '40'}
-      y1={open ? '0' : '14'}
-      y2={open ? '0' : '14'}
-      fill="none"
-      stroke={main.textColor}
-      strokeWidth="2"
-    />
-    <MenuSvgLineMid
-      open={open}
-      x1="18"
-      x2="40"
-      y1="24"
-      y2="24"
-      fill="none"
-      stroke={main.textColor}
-      strokeWidth="2"
-    />
-    <MenuSvgLineBottom
-      open={open}
-      x1={open ? '-18' : '8'}
-      x2={open ? '18' : '40'}
-      y1="34"
-      y2="34"
-      fill="none"
-      stroke={main.textColor}
-      strokeWidth="2"
-    />
-  </MenuSvg>
-);
+export const MenuBar: FC<MenuBarProps> = ({ open, onClick }) => {
+  const { main } = useTheme();
 
-MenuBar.defaultProps = {
-  theme: defaultTheme,
-  open: false,
+  return (
+    <MenuSvg
+      xmlns="http://www.w3.org/2000/svg"
+      width="48"
+      height="48"
+      viewBox="0 0 48 48"
+      onClick={onClick}
+    >
+      <rect width="48" height="48" fill="none" />
+      <MenuSvgLineTop
+        open={open}
+        x1={open ? '16' : '8'}
+        x2={open ? '52' : '40'}
+        y1={open ? '0' : '14'}
+        y2={open ? '0' : '14'}
+        fill="none"
+        stroke={main.textColor}
+        strokeWidth="2"
+      />
+      <MenuSvgLineMid
+        open={open}
+        x1="18"
+        x2="40"
+        y1="24"
+        y2="24"
+        fill="none"
+        stroke={main.textColor}
+        strokeWidth="2"
+      />
+      <MenuSvgLineBottom
+        open={open}
+        x1={open ? '-18' : '8'}
+        x2={open ? '18' : '40'}
+        y1="34"
+        y2="34"
+        fill="none"
+        stroke={main.textColor}
+        strokeWidth="2"
+      />
+    </MenuSvg>
+  );
 };
 
-export default React.memo(withTheme(MenuBar));
+export default React.memo(MenuBar);
