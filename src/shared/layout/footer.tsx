@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useRouter } from 'next/router';
 import { generalSkin } from '../primitive-ui/skin';
 import { FlexRowNoWrap } from '../primitive-ui/flexbox';
-import styled, { withTheme, CSSObject, useTheme } from 'styled-components';
+import styled, { CSSObject, useTheme } from 'styled-components';
 import { TextLink, IsolatedText } from '../primitive-ui/text';
 import { HMFContainer } from '../primitive-ui/container';
 
@@ -89,4 +89,4 @@ export const Footer: FC = () => {
   );
 };
 
-export default withTheme(React.memo(Footer));
+export default React.memo(Footer);
