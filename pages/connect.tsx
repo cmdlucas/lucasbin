@@ -3,12 +3,17 @@ import styled from 'styled-components';
 import {
   IconText,
   HeaderThree,
-  ExternalTextLink,
+  TextLink,
   Paragraph,
 } from '../src/shared/primitive-ui/text';
 import { HMFContainer } from '../src/shared/primitive-ui/container';
-import { IconName } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { GetStaticPropsResult } from 'next';
+import {
+  faGithub,
+  faLinkedin,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 
 const ConnectContainer = styled(HMFContainer)(() => ({
   padding: '0px 8px',
@@ -33,7 +38,7 @@ const IconWrapper = styled.span(() => ({
 }));
 
 interface ConnectProps {
-  brands: Array<{ icon: IconName; link: string }>;
+  brands: Array<{ icon: IconDefinition; link: string }>;
 }
 
 export const Connect: FunctionComponent<ConnectProps> = ({ brands }) => {
@@ -47,9 +52,9 @@ export const Connect: FunctionComponent<ConnectProps> = ({ brands }) => {
         <br />
         {brands.map((brand, index) => (
           <IconWrapper key={index}>
-            <ExternalTextLink href={brand.link}>
-              <Icon icon={['fab', brand.icon]} />
-            </ExternalTextLink>
+            <TextLink href={brand.link}>
+              <Icon icon={brand.icon} />
+            </TextLink>
           </IconWrapper>
         ))}
         <br />
@@ -71,9 +76,9 @@ export const getStaticProps = async (): Promise<
   return {
     props: {
       brands: [
-        { icon: 'twitter', link: 'https://twitter.com/cmdlucas' },
-        { icon: 'linkedin', link: 'https://linkedin.com/in/cmdlucas' },
-        { icon: 'github', link: 'https://github.com/cmdlucas' },
+        { icon: faTwitter, link: 'https://twitter.com/cmdlucas' },
+        { icon: faLinkedin, link: 'https://linkedin.com/in/cmdlucas' },
+        { icon: faGithub, link: 'https://github.com/cmdlucas' },
       ],
     },
   };

@@ -9,36 +9,10 @@ import {
   invertThemeType,
 } from '../src/shared/primitive-ui/theme';
 import Layout from '../src/shared/layout/layout';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faMoon, faSun, faSuitcase } from '@fortawesome/free-solid-svg-icons';
-import {
-  faGithub,
-  faTwitter,
-  faLinkedin,
-} from '@fortawesome/free-brands-svg-icons';
-import {
-  faCalendarAlt,
-  faUser,
-  faNewspaper,
-  faEnvelope,
-} from '@fortawesome/free-regular-svg-icons';
 import router from 'next/router';
 import nprogress from 'nprogress';
-import { AnyMap } from '@cmdlucas/markdown-metadata';
+import type { AnyMap } from '@cmdlucas/markdown-metadata';
 import '../src/assets/global.css';
-
-library.add(
-  faMoon,
-  faSun,
-  faCalendarAlt,
-  faUser,
-  faNewspaper,
-  faEnvelope,
-  faSuitcase,
-  faGithub,
-  faTwitter,
-  faLinkedin
-);
 
 export class MyApp extends App<AnyMap, AnyMap, { theme: Theme }> {
   constructor(props: AppProps) {
@@ -162,7 +136,6 @@ export class MyApp extends App<AnyMap, AnyMap, { theme: Theme }> {
           <title>Caleb I. Lucas</title>
         </Head>
         <ThemeProvider theme={this.state.theme}>
-          {/* <GlobalStyle /> */}
           <Layout>
             <Component {...pageProps} />
           </Layout>

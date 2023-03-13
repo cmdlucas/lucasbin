@@ -5,7 +5,8 @@ import { defaultTheme } from '../shared/primitive-ui/theme';
 import { ThemeProvider } from 'styled-components';
 import { render } from '@testing-library/react';
 import { screen } from '@testing-library/dom';
-import { IconPrefix, IconName } from '@fortawesome/fontawesome-svg-core';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { faNewspaper } from '@fortawesome/free-regular-svg-icons';
 
 describe('PageLead Component', () => {
   const renderComponent = ({
@@ -13,7 +14,7 @@ describe('PageLead Component', () => {
     icon,
   }: {
     rightComponent?: FunctionComponent;
-    icon?: [IconPrefix, IconName];
+    icon?: IconDefinition;
   } = {}) =>
     render(
       <ThemeProvider theme={defaultTheme}>
@@ -33,7 +34,7 @@ describe('PageLead Component', () => {
   });
 
   it('should match snapshot for when IconText supplied', () => {
-    const { asFragment } = renderComponent({ icon: ['far', 'newspaper'] });
+    const { asFragment } = renderComponent({ icon: faNewspaper });
     expect(asFragment()).toMatchSnapshot();
   });
 });

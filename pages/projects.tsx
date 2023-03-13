@@ -8,6 +8,8 @@ import OneProject from '../src/project/project.ui';
 import { FlexRowNoWrap, FlexRow } from '../src/shared/primitive-ui/flexbox';
 import PageLead from '../src/pagelead/pagelead.ui';
 import { GetStaticPropsResult } from 'next';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
+import { faSuitcase } from '@fortawesome/free-solid-svg-icons';
 
 interface ProjectProps {
   projects: Project[][];
@@ -74,7 +76,7 @@ export const Projects: FunctionComponent<ProjectProps> = ({ projects }) => {
   });
   return (
     <ProjectsContainer>
-      <PageLead icon={['fas', 'suitcase']} text="WORK" />
+      <PageLead icon={faSuitcase} text="WORK" />
       <ComponentWrapper>
         {projects.map((projectRow, i) => (
           <ProjectHolderRow key={i}>
@@ -91,7 +93,7 @@ export const Projects: FunctionComponent<ProjectProps> = ({ projects }) => {
       <ConnectButtonHolder>
         <TextLink href="/connect">
           <ConnectButton>
-            <IconText color="#FFFFFF" icon={['far', 'envelope']} />
+            <IconText color="#FFFFFF" icon={faEnvelope} />
             <span>GET IN TOUCH</span>
           </ConnectButton>
         </TextLink>

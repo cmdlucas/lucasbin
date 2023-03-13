@@ -1,42 +1,27 @@
-import React, { FunctionComponent, PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Theme } from './theme';
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 
-const textLinkTheme = (
-  theme: Theme,
-  color: null | string = null,
-  font: string | null = null
-) => ({
+const textLinkTheme = (theme: Theme, color?: string, font?: string) => ({
   color: color ?? theme.main.linkColor,
   textDecoration: 'none',
   fontFamily: font ?? 'Inconsolata',
 });
 
-interface TextLinkProps {
-  href?: string;
+type TextLinkProps = {
   name?: string;
   color?: string;
   font?: string;
-}
+} & LinkProps &
+  PropsWithChildren;
 
-export const ExternalTextLink = styled.a<TextLinkProps & PropsWithChildren>(
-  (props) => textLinkTheme(props.theme, props.color, props.font)
-);
-
-export const TextLink: FunctionComponent<TextLinkProps & PropsWithChildren> = ({
-  href,
-  name,
-  color,
-  font,
-  children,
-}) => (
-  <Link href={href} as={name} passHref>
-    <ExternalTextLink color={color} font={font}>
-      {children}
-    </ExternalTextLink>
-  </Link>
+export const TextLink = styled(Link).withConfig({
+  shouldForwardProp: (prop, defaultValidatorFn) =>
+    !['color'].includes(prop) && defaultValidatorFn(prop),
+})<TextLinkProps>((props) =>
+  textLinkTheme(props.theme, props.color, props.font)
 );
 
 export const IsolatedText = styled.span((props) => ({

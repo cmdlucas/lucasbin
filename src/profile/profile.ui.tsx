@@ -8,6 +8,7 @@ import { PrimaryButton } from '../shared/primitive-ui/button';
 import { generalSkin } from '../shared/primitive-ui/skin';
 import { headShotGrey, headShot } from './profile.images';
 import { Theme, ThemeType } from '../shared/primitive-ui/theme';
+import { faEnvelope } from '@fortawesome/free-regular-svg-icons';
 
 export const ProfileSkin = styled.div((props) => ({
   ...generalSkin(props.theme),
@@ -114,21 +115,19 @@ export const BottomDivision: FunctionComponent<DivisionProps> = ({
       <BottomOnBorderNoContent />
       <BottomOnBorderContent>
         <Link href="/connect">
-          <a>
-            <PrimaryButton
-              style={{
-                position: 'absolute',
-                top: '10px',
-                right: '16px',
-              }}
-            >
-              <IconText
-                color={themeType === 'light' ? '#FFFFFF' : '#000000'}
-                icon={['far', 'envelope']}
-              />
-              <span>GET IN TOUCH</span>
-            </PrimaryButton>
-          </a>
+          <PrimaryButton
+            style={{
+              position: 'absolute',
+              top: '10px',
+              right: '16px',
+            }}
+          >
+            <IconText
+              color={themeType === 'light' ? '#FFFFFF' : '#000000'}
+              icon={faEnvelope}
+            />
+            <span>GET IN TOUCH</span>
+          </PrimaryButton>
         </Link>
       </BottomOnBorderContent>
     </FlexRowNoWrap>

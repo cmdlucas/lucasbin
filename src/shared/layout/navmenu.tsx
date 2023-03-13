@@ -1,11 +1,5 @@
-import React, { FunctionComponent, PropsWithChildren } from 'react';
-import { defaultTheme } from '../primitive-ui/theme';
-import styled, {
-  WebsiteDefaultTheme,
-  withTheme,
-  keyframes,
-  css,
-} from 'styled-components';
+import React, { FC, PropsWithChildren } from 'react';
+import styled, { keyframes, css, useTheme } from 'styled-components';
 import { generalSkin } from '../primitive-ui/skin';
 import { ListRow, List } from '../primitive-ui/list';
 import {
@@ -15,6 +9,8 @@ import {
   FAIconText,
 } from '../primitive-ui/text';
 import { useRouter } from 'next/router';
+import { faSun } from '@fortawesome/free-regular-svg-icons';
+import { faMoon } from '@fortawesome/free-solid-svg-icons';
 
 interface NavMenuHolderProps {
   open: boolean;
@@ -62,12 +58,12 @@ const NavMenuContainer = styled.div(() => ({
   padding: '48px 0px',
 }));
 
-const EachMenuText: FunctionComponent<
+const EachMenu: FC<
   {
     href: string;
-    theme: WebsiteDefaultTheme;
   } & PropsWithChildren
-> = ({ theme, href, children }) => {
+> = ({ href, children }) => {
+  const theme = useTheme();
   const router = useRouter();
   const active = router.pathname === href;
   return (
@@ -81,13 +77,6 @@ const EachMenuText: FunctionComponent<
   );
 };
 
-EachMenuText.defaultProps = {
-  href: '',
-  theme: defaultTheme,
-};
-
-const EachMenu = withTheme(EachMenuText);
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const NavListRow = styled(ListRow)((props) => ({
   textAlign: 'center',
@@ -95,10 +84,7 @@ const NavListRow = styled(ListRow)((props) => ({
   cursor: 'pointer',
 }));
 
-const EachRow: FunctionComponent<{ link: string; title: string }> = ({
-  link,
-  title,
-}) => (
+const EachRow: FC<{ link: string; title: string }> = ({ link, title }) => (
   <NavListRow>
     <HeaderTwo>
       <EachMenu href={link}>{title}</EachMenu>
@@ -107,20 +93,18 @@ const EachRow: FunctionComponent<{ link: string; title: string }> = ({
 );
 
 interface NavMenuProps {
-  theme?: WebsiteDefaultTheme;
   open: boolean;
   setOpen(): void;
 }
 
 const ThemeSwitcherText = styled(IsolatedText)(() => ({
   fontFamily: 'CooperHewitt',
+  paddingLeft: '8px',
 }));
 
-export const NavMenu: FunctionComponent<NavMenuProps> = ({
-  setOpen,
-  open,
-  theme,
-}) => {
+export const NavMenu: FC<NavMenuProps> = ({ setOpen, open }) => {
+  const theme = useTheme();
+
   return (
     <NavMenuHolder open={open} onClick={setOpen}>
       <NavMenuSkin>
@@ -135,12 +119,12 @@ export const NavMenu: FunctionComponent<NavMenuProps> = ({
                 <span onClick={theme.switchTheme}>
                   {theme.type === 'light' ? (
                     <>
-                      <FAIconText icon="moon" />{' '}
+                      <FAIconText icon={faMoon} />
                       <ThemeSwitcherText>GO DARK</ThemeSwitcherText>
                     </>
                   ) : (
                     <>
-                      <FAIconText icon="sun" />{' '}
+                      <FAIconText icon={faSun} />
                       <ThemeSwitcherText>LIGHTS ON</ThemeSwitcherText>
                     </>
                   )}
@@ -154,12 +138,4 @@ export const NavMenu: FunctionComponent<NavMenuProps> = ({
   );
 };
 
-NavMenu.defaultProps = {
-  theme: defaultTheme,
-  open: false,
-  setOpen: () => {
-    return;
-  },
-};
-
-export default withTheme(NavMenu);
+export default NavMenu;

@@ -22,6 +22,7 @@ import {
 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { Theme } from '../../src/shared/primitive-ui/theme';
 import { Flex, FlexRowNoWrap } from '../../src/shared/primitive-ui/flexbox';
+import { faCalendarAlt, faUser } from '@fortawesome/free-regular-svg-icons';
 
 interface SinglePostProps {
   prevPost: Post;
@@ -197,13 +198,13 @@ export const SinglePost: FunctionComponent<SinglePostProps> = ({
       <ContentContainer>
         <Artifacts>
           <DatePublished>
-            <Icon icon={['far', 'calendar-alt']} />
+            <Icon icon={faCalendarAlt} />
             <IconText style={{ color: '#707070' }}>
               {currPost.metadata.datePublished}
             </IconText>
           </DatePublished>
           <Author>
-            <Icon icon={['far', 'user']} />
+            <Icon icon={faUser} />
             <IconText style={{ color: '#707070' }}>
               {currPost.metadata.author}
             </IconText>
@@ -239,7 +240,7 @@ export const SinglePost: FunctionComponent<SinglePostProps> = ({
       <PostLinksHolder>
         <div className="item">
           {prevPost && (
-            <TextLink href="/blog/[pid]" name={`/blog/${prevPost.pid}`}>
+            <TextLink href={`/blog/${prevPost.pid}`}>
               <PostLinkFlex>
                 <div className="arrow-holder">
                   <span>←</span>
