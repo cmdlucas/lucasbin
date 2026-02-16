@@ -2,6 +2,7 @@ const Role = {
   SOFTWARE_ENGINEERING: 'Software Engineering',
   CTO: 'CTO',
   CO_FOUNDER: 'Co-Founder',
+  FOUNDER: 'Founder',
 } as const;
 
 type Roles = (typeof Role)[keyof typeof Role][];
@@ -57,7 +58,15 @@ const collectAI: Project = {
   linkToProject: 'https://collect.ai',
 };
 
+const treffa: Project = {
+  title: 'TREFFA (C. 2025 - DATE)',
+  description: 'Dating and social matchmaking platform.',
+  roles: [Role.FOUNDER],
+  linkToProject: 'https://treffa.eu',
+};
+
 export const allProjects = [
+  treffa,
   collectAI,
   jimdo,
   mero,
