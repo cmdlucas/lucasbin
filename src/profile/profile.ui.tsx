@@ -86,20 +86,26 @@ export const TopDivision: FC<DivisionProps> = ({ themeType }) => (
 export const MidDivision: FC<DivisionProps> = () => (
   <Division type="middle">
     <Paragraph>
-      <code>Software Engineer, Founder, Angel Investor.</code>
+      <code>Software Engineer &amp; Founder focused on operational systems.</code>
     </Paragraph>
     <br />
     <Paragraph>
       <code>
-        Want my attention? Bring up a topic about tech start-ups, blockchain or
-        entrepreneurship.
+        I build narrow, high-leverage software that replaces manual
+        coordination in professional services.
       </code>
     </Paragraph>
     <br />
     <Paragraph>
       <code>
-        On the side, you may find me rapping, watching soccer or simply surfing
-        the internet and learning new stuff.
+        Currently working on infrastructure that ensures appointments are fully
+        prepared before they happen.
+      </code>
+    </Paragraph>
+    <br />
+    <Paragraph>
+      <code>
+        Outside of work: football, writing lyrics, and exploring new ideas.
       </code>
     </Paragraph>
   </Division>
