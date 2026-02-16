@@ -60,7 +60,8 @@ const collectAI: Project = {
 
 const treffa: Project = {
   title: 'TREFFA (C. 2025 - DATE)',
-  description: 'Dating and social matchmaking platform.',
+  description:
+    'Appointment preparation system for appointment-dependent professional services.',
   roles: [Role.FOUNDER],
   linkToProject: 'https://treffa.eu',
 };

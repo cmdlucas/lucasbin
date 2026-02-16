@@ -112,7 +112,6 @@ export const NavMenu: FC<NavMenuProps> = ({ setOpen, open }) => {
           <List>
             <EachRow title="HOME" link="/" />
             <EachRow title="WORK" link="/projects" />
-            <EachRow title="BLOG" link="/blog" />
             <EachRow title="CONNECT" link="/connect" />
             <NavListRow>
               <HeaderTwo>
